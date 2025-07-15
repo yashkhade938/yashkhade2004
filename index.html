@@ -8,10 +8,23 @@
   <meta name="keywords" content="Yash Khade, Portfolio, Resume, Networking, Pune, Operations Executive, CV, Github" />
   <title>Yash Khade | CV Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Step 2: AOS (Animate On Scroll) CSS + JS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
+
+<!-- Step 3: AOS init script -->
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
   <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10 shadow-lg">
+  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10 shadow-lg" data-aos="fade-down">
     <div class="text-center">
       <h1 class="text-4xl font-bold">Yash Khade</h1>
       <p class="text-lg mt-2">Operations Executive | Networking & Server Specialist</p>
@@ -19,7 +32,7 @@
   </header>
 
   <!-- About Section -->
-  <section class="max-w-4xl mx-auto px-4 py-10">
+  <section class="max-w-4xl mx-auto px-4 py-10" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Objective</h2>
     <p class="text-gray-700 text-lg">
       Looking for a challenging and motivating career in a professionally managed organization where I can learn and enhance my skills & contribute to the organization in reaching towards its ultimate goal.
@@ -27,7 +40,7 @@
   </section>
 
   <!-- Skills Section -->
-  <section class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-xl shadow-md">
+  <section class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-xl shadow-md" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Technical Skills</h2>
     <ul class="grid grid-cols-2 gap-4 text-lg list-disc list-inside">
       <li>Computer Knowledge</li>
@@ -39,7 +52,7 @@
   </section>
 
   <!-- Experience Section -->
-  <section class="max-w-4xl mx-auto px-4 py-10">
+  <section class="max-w-4xl mx-auto px-4 py-10" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Experience</h2>
     <ul class="list-disc list-inside text-lg">
       <li><strong>WESHINE TECH PVT LTD</strong> – 2 years experience in Networking and Server Management (Freelancer)</li>
@@ -49,7 +62,7 @@
   </section>
 
   <!-- Education Section -->
-  <section class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-xl shadow-md">
+  <section class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-xl shadow-md" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Education</h2>
     <ul class="list-disc list-inside text-lg">
       <li>B.Com 2nd Year – Satish Pradhan Dnyanasadhana College, Thane (2022 - 2025)</li>
@@ -59,7 +72,7 @@
   </section>
 
   <!-- Personal Details -->
-  <section class="max-w-4xl mx-auto px-4 py-10">
+  <section class="max-w-4xl mx-auto px-4 py-10" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Personal Details</h2>
     <ul class="text-lg list-disc list-inside">
       <li><strong>Date of Birth:</strong> 7th February 2004</li>
@@ -71,20 +84,20 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-xl shadow-md">
+  <section class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-xl shadow-md" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Contact</h2>
     <p class="text-lg">📧 Email: <a href="mailto:yashkhade969@gmail.com" class="text-blue-600 hover:underline">yashkhade969@gmail.com</a></p>
     <p class="text-lg">📱 Mobile: (+91) 9082234689</p>
     <p class="text-lg">🔗 GitHub: <a href="https://github.com/yashkhade938" class="text-blue-600 hover:underline">github.com/yashkhade938</a></p>
     <p class="text-lg">🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" class="text-blue-600 hover:underline">linkedin.com/in/yash-khade</a></p>
     <div class="text-center mt-6">
-      <a href="Yash%20resume%20(3).pdf" download class="bg-indigo-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-indigo-700 transition">
+      <a href="Yash%20resume%20(3).pdf" download class="bg-indigo-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-indigo-700 hover:scale-105 transition transform duration-300">
         📄 Download Resume
       </a>
     </div>
   </section>
 
-  <footer class="text-center text-sm text-gray-500 py-6">
+  <footer class="text-center text-sm text-gray-500 py-6" data-aos="fade-up">
     &copy; 2025 Yash Khade. All rights reserved.
   </footer>
 </body>
