@@ -3,29 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yash Khade | CV & Portfolio</title>
+  <title>Yash Khade · CV & Portfolio — Operations Executive & Networking Specialist</title>
   <meta name="description" content="Official CV & portfolio of Yash Khade — Operations Executive and Networking Specialist. Explore projects, skills, experience, education, and contact details." />
   <meta name="keywords" content="Yash Khade, Portfolio, Resume, Networking, Pune, Operations Executive, CV, GitHub, Thane" />
   <meta name="author" content="Yash Khade" />
+  <meta name="robots" content="index,follow" />
   <meta name="google-site-verification" content="-cnT02p1QSFDv4NIpOA2U3fGephJUizEibTgm5ls7L8" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Yash Khade | CV & Portfolio" />
   <meta property="og:description" content="Operations Executive & Networking Specialist — projects, experience, and contact." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.example" />
+  <meta property="og:url" content="https://your-domain.example/" />
   <meta property="og:image" content="https://your-domain.example/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Canonical & Icons -->
-  <link rel="canonical" href="https://your-domain.example" />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://your-domain.example/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config: enable dark mode via class
-    tailwind.config = { darkMode: 'class' }
+    // Tailwind config: enable dark mode via class, center container
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { container: { center: true, padding: '1rem' } } }
+    }
   </script>
 
   <!-- AOS (Animate On Scroll) -->
@@ -45,25 +54,40 @@
       "addressCountry": "IN"
     },
     "email": "mailto:yashkhade969@gmail.com",
-    "url": "https://your-domain.example",
+    "url": "https://your-domain.example/",
     "sameAs": [
       "https://github.com/yashkhade938",
       "https://www.linkedin.com/in/yash-khade-359720361"
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Yash Khade Portfolio",
+    "url": "https://your-domain.example/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://your-domain.example/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
   <style>
-    /* Subtle animated gradient for header */
-    .gradient-animated {
-      background: linear-gradient(90deg, #2563eb, #4f46e5, #7c3aed);
-      background-size: 200% 200%;
-      animation: gradientMove 8s ease infinite;
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* Subtle animated gradient for header (respects reduced motion) */
+    @media (prefers-reduced-motion: no-preference) {
+      .gradient-animated {
+        background: linear-gradient(90deg, #2563eb, #4f46e5, #7c3aed);
+        background-size: 200% 200%;
+        animation: gradientMove 8s ease infinite;
+      }
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
     }
   </style>
 </head>
@@ -73,33 +97,33 @@
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-indigo-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 border-b border-gray-200/70 dark:border-white/10 backdrop-blur bg-white/80 dark:bg-gray-900/70">
-    <nav class="max-w-6xl mx-auto px-4">
+  <header class="sticky top-0 z-50 border-b border-gray-200/70 dark:border-white/10 backdrop-blur bg-white/80 dark:bg-gray-900/70 supports-[backdrop-filter]:bg-white/60">
+    <nav class="container max-w-6xl" aria-label="Primary">
       <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-semibold tracking-wide">YK</a>
-        <div class="hidden md:flex items-center gap-6">
-          <a href="#about" class="hover:text-indigo-600">About</a>
-          <a href="#skills" class="hover:text-indigo-600">Skills</a>
-          <a href="#experience" class="hover:text-indigo-600">Experience</a>
-          <a href="#education" class="hover:text-indigo-600">Education</a>
-          <a href="#projects" class="hover:text-indigo-600">Projects</a>
-          <a href="#contact" class="hover:text-indigo-600">Contact</a>
-        </div>
+        <a href="#home" class="font-semibold tracking-wide" aria-label="Go to home">YK</a>
+        <ul class="hidden md:flex items-center gap-6">
+          <li><a href="#about" class="hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded">About</a></li>
+          <li><a href="#skills" class="hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded">Skills</a></li>
+          <li><a href="#experience" class="hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded">Experience</a></li>
+          <li><a href="#education" class="hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded">Education</a></li>
+          <li><a href="#projects" class="hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded">Projects</a></li>
+          <li><a href="#contact" class="hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded">Contact</a></li>
+        </ul>
         <div class="flex items-center gap-3">
-          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-white text-sm font-medium hover:bg-indigo-700 transition">
-            <span>Download Resume</span>
+          <a href="/Yash-Khade-Resume.pdf" download class="hidden sm:inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-white text-sm font-medium hover:bg-indigo-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500">
+            <span>Download Résumé</span>
           </a>
-          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10">
+          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500">
             <!-- Sun / Moon icon -->
-            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
-            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10" aria-label="Open menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
       </div>
-      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2">
+      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2" role="dialog" aria-label="Mobile menu">
         <a href="#about" class="block py-2">About</a>
         <a href="#skills" class="block py-2">Skills</a>
         <a href="#experience" class="block py-2">Experience</a>
@@ -112,31 +136,26 @@
 
   <!-- Hero -->
   <section id="home" class="gradient-animated text-white py-16 md:py-24" data-aos="fade-down">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div class="container max-w-6xl grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Yash Khade</h1>
         <p class="mt-4 text-lg md:text-xl text-white/90">Operations Executive • Networking Specialist • Customer Support</p>
         <p class="mt-6 text-white/90">Currently at <span class="font-semibold">Weshine Tech Pvt Ltd</span>. I help teams run reliably by blending networking know‑how with ops execution and tooling.</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#projects" class="rounded-full bg-white text-indigo-700 px-5 py-2.5 font-medium hover:bg-gray-100">View Projects</a>
-          <a href="#contact" class="rounded-full border border-white/70 px-5 py-2.5 font-medium hover:bg-white/10">Contact Me</a>
+          <a href="#projects" class="rounded-full bg-white text-indigo-700 px-5 py-2.5 font-medium hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500">View Projects</a>
+          <a href="#contact" class="rounded-full border border-white/70 px-5 py-2.5 font-medium hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">Contact Me</a>
         </div>
       </div>
       <div class="relative">
-        <div class="aspect-[4/3] md:aspect-square rounded-2xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 flex items-center justify-center">
-          <!-- Optional: place your profile photo here -->
-          <div class="relative">
-  <img src="Yash%20Khade.jpeg" alt="Yash Khade" 
-       class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20" 
-       width="800" height="800" />
-</div>
-
+        <div class="aspect-[4/3] md:aspect-square rounded-2xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 flex items-center justify-center overflow-hidden">
+          <!-- Replace src with your actual optimized image path -->
+          <img src="/images/Yash%20Khade.jpeg" alt="Portrait of Yash Khade" class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20" width="800" height="800" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>
   </section>
 
-  <main id="main" class="max-w-6xl mx-auto px-4">
+  <main id="main" class="container max-w-6xl">
 
     <!-- Objective / About -->
     <section id="about" class="py-12" data-aos="fade-up">
@@ -163,16 +182,16 @@
           <div class="space-y-4">
             <!-- Skill bars -->
             <div>
-              <div class="flex justify-between text-sm"><span>Networking Basics</span><span>80%</span></div>
-              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"><div class="h-full w-4/5 bg-indigo-600"></div></div>
+              <div class="flex justify-between text-sm"><span>Networking Basics</span><span aria-label="skill level 80 percent">80%</span></div>
+              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden" aria-hidden="true"><div class="h-full w-4/5 bg-indigo-600"></div></div>
             </div>
             <div>
-              <div class="flex justify-between text-sm"><span>Server Management</span><span>70%</span></div>
-              <div class="h-2 bg-gray-2 00 dark:bg-gray-700 rounded-full overflow-hidden"><div class="h-full w-7/12 bg-indigo-600"></div></div>
+              <div class="flex justify-between text-sm"><span>Server Management</span><span aria-label="skill level 70 percent">70%</span></div>
+              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden" aria-hidden="true"><div class="h-full w-7/12 bg-indigo-600"></div></div>
             </div>
             <div>
-              <div class="flex justify-between text-sm"><span>Excel & Reporting</span><span>85%</span></div>
-              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"><div class="h-full w-10/12 bg-indigo-600"></div></div>
+              <div class="flex justify-between text-sm"><span>Excel & Reporting</span><span aria-label="skill level 85 percent">85%</span></div>
+              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden" aria-hidden="true"><div class="h-full w-10/12 bg-indigo-600"></div></div>
             </div>
           </div>
         </div>
@@ -237,7 +256,7 @@
     <section id="projects" class="py-12" data-aos="fade-up">
       <div class="flex items-end justify-between mb-6">
         <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400">Projects</h2>
-        <a href="https://github.com/yashkhade938" target="_blank" class="text-sm hover:underline">View all on GitHub →</a>
+        <a href="https://github.com/yashkhade938" target="_blank" rel="noopener" class="text-sm hover:underline">View all on GitHub →</a>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <!-- Project Card 1 -->
@@ -252,12 +271,11 @@
             <li class="px-2 py-1 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">JavaScript</li>
           </ul>
           <div class="mt-4 flex items-center gap-4">
-            <a href="https://yashkhade938.github.io/smart-billing-system/" target="_blank" class="text-indigo-600 dark:text-indigo-300 hover:underline">🌐 Live Demo</a>
+            <a href="https://yashkhade938.github.io/smart-billing-system/" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-300 hover:underline">🌐 Live Demo</a>
           </div>
         </article>
 
         <!-- Add more project cards easily by duplicating the block above -->
-
       </div>
     </section>
 
@@ -283,26 +301,29 @@
           <ul class="space-y-2 text-lg">
             <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="text-indigo-600 dark:text-indigo-300 hover:underline">yashkhade969@gmail.com</a></li>
             <li>📱 Mobile: <a href="tel:+919082234689" class="hover:underline">(+91) 9082234689</a></li>
-            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="text-indigo-600 dark:text-indigo-300 hover:underline">github.com/yashkhade938</a></li>
-            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="text-indigo-600 dark:text-indigo-300 hover:underline">linkedin.com/in/yash-khade</a></li>
+            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-300 hover:underline">github.com/yashkhade938</a></li>
+            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-300 hover:underline">linkedin.com/in/yash-khade</a></li>
           </ul>
         </div>
-        <form id="contactForm" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6 space-y-4" onsubmit="return false;">
-  <div>
-    <label for="name" class="block text-sm mb-1">Name</label>
-    <input id="name" name="name" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2" />
-  </div>
-  <div>
-    <label for="email" class="block text-sm mb-1">Email</label>
-    <input id="email" name="email" type="email" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2" />
-  </div>
-  <div>
-    <label for="message" class="block text-sm mb-1">Message</label>
-    <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2"></textarea>
-  </div>
-  <button id="sendBtn" type="button" class="w-full rounded-lg bg-indigo-600 text-white py-2.5 font-medium hover:bg-indigo-700">Send</button>
-  <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
-</form>
+        <!-- Contact form: mailto handler (no backend) -->
+        <form id="contactForm" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6 space-y-4" onsubmit="return false;" novalidate>
+          <!-- Honeypot field for basic bot mitigation -->
+          <input type="text" name="_gotcha" autocomplete="off" tabindex="-1" class="hidden" aria-hidden="true">
+          <div>
+            <label for="name" class="block text-sm mb-1">Name</label>
+            <input id="name" name="name" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2" autocomplete="name" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm mb-1">Email</label>
+            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2" autocomplete="email" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2"></textarea>
+          </div>
+          <button id="sendBtn" type="button" class="w-full rounded-lg bg-indigo-600 text-white py-2.5 font-medium hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500">Send</button>
+          <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
+        </form>
       </div>
     </section>
 
@@ -317,15 +338,19 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script>
     // Initialize AOS when ready
-    window.addEventListener('load', () => { AOS.init({ duration: 900, once: true }); });
+    window.addEventListener('load', () => { if (window.AOS) AOS.init({ duration: 900, once: true }); });
 
     // Current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
+    // Mobile menu toggle + ARIA state
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    menuBtn?.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
 
     // Theme toggle with persistence
     const themeToggle = document.getElementById('themeToggle');
@@ -334,9 +359,21 @@
 
     const setTheme = (dark) => {
       const root = document.documentElement;
-      if (dark) { root.classList.add('dark'); moonIcon.classList.add('hidden'); sunIcon.classList.remove('hidden'); }
-      else { root.classList.remove('dark'); sunIcon.classList.add('hidden'); moonIcon.classList.remove('hidden'); }
+      if (dark) {
+        root.classList.add('dark');
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        root.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
       localStorage.setItem('theme', dark ? 'dark' : 'light');
+      // Update theme-color metas for nicer status bar in PWA/Android
+      const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+      const darkMeta = document.querySelector('meta[name="theme-color"][media*="dark"]');
+      if (darkMeta) darkMeta.setAttribute('content', '#111827');
+      if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
     };
 
     // Load saved theme or system preference
@@ -345,19 +382,37 @@
     else setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
     themeToggle?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
-    // Contact form: mailto handler (no backend)
-const sendBtn = document.getElementById('sendBtn');
-if (sendBtn) {
-  sendBtn.addEventListener('click', () => {
-    const name = document.getElementById('name')?.value?.trim() || 'Visitor';
-    const email = document.getElementById('email')?.value?.trim() || '';
-    const message = document.getElementById('message')?.value?.trim() || '';
-    const subject = `New portfolio message from ${name}`;
-    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-    const mailto = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    window.location.href = mailto;
-  });
-}
+
+    // Contact form: mailto handler (no backend) with basic validation & encoding
+    const sendBtn = document.getElementById('sendBtn');
+    const encode = (str) => encodeURIComponent(str).replace(/%20/g, '+');
+
+    sendBtn?.addEventListener('click', () => {
+      const nameEl = document.getElementById('name');
+      const emailEl = document.getElementById('email');
+      const msgEl = document.getElementById('message');
+
+      const name = (nameEl?.value || '').trim();
+      const email = (emailEl?.value || '').trim();
+      const message = (msgEl?.value || '').trim();
+
+      // simple checks
+      if (!name || !email || !message) {
+        alert('Please fill your name, email, and message.');
+        return;
+      }
+      // rudimentary email format check
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      const subject = `New portfolio message from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+      const mailto = `mailto:yashkhade969@gmail.com?subject=${encode(subject)}&body=${encode(body)}`;
+      window.location.href = mailto;
+    });
   </script>
 </body>
 </html>
