@@ -345,6 +345,19 @@
     else setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
     themeToggle?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+    // Contact form: mailto handler (no backend)
+const sendBtn = document.getElementById('sendBtn');
+if (sendBtn) {
+  sendBtn.addEventListener('click', () => {
+    const name = document.getElementById('name')?.value?.trim() || 'Visitor';
+    const email = document.getElementById('email')?.value?.trim() || '';
+    const message = document.getElementById('message')?.value?.trim() || '';
+    const subject = `New portfolio message from ${name}`;
+    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+    const mailto = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = mailto;
+  });
+}
   </script>
 </body>
 </html>
