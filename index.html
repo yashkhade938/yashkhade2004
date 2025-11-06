@@ -24,7 +24,6 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config: enable dark mode via class
     tailwind.config = { darkMode: 'class' }
   </script>
 
@@ -54,26 +53,158 @@
   </script>
 
   <style>
-    /* Subtle animated gradient for header */
-    .gradient-animated {
-      background: linear-gradient(90deg, #2563eb, #4f46e5, #7c3aed);
-      background-size: 200% 200%;
-      animation: gradientMove 8s ease infinite;
+    :root{
+      --bg1: 255,255,255;
+      --fg1: 17,24,39;
+      --tint: 99,102,241; /* indigo-500 */
+      --shine: 255,255,255;
+      --card: 255,255,255;
+      --ring: 0,0,0;
     }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .dark:root{
+      --bg1: 3,7,18;      /* near black */
+      --fg1: 229,231,235; /* gray-200 */
+      --tint: 129,140,248;/* indigo-400 */
+      --shine: 255,255,255;
+      --card: 17,24,39;
+      --ring: 255,255,255;
+    }
+
+    /* iOS style radial gradient canvas */
+    .ios-bg {
+      background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(129,140,248,.15), transparent 50%),
+        radial-gradient(900px 500px at 110% -20%, rgba(236,72,153,.12), transparent 55%),
+        radial-gradient(900px 700px at 50% 120%, rgba(56,189,248,.12), transparent 60%),
+        linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
+    }
+
+    /* Subtle animated gradient strip for hero */
+    .gradient-animated {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, rgba(79,70,229,.85), rgba(236,72,153,.8), rgba(56,189,248,.85));
+      background-size: 200% 200%;
+      animation: gradientMove 12s ease infinite;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.15);
+    }
+    @keyframes gradientMove { 
+      0% { background-position: 0% 50%; } 
+      50% { background-position: 100% 50%; } 
+      100% { background-position: 0% 50%; } 
+    }
+
+    /* Glass card */
+    .ios-card {
+      position: relative;
+      border-radius: 1rem;
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      background: linear-gradient(180deg, rgba(var(--card),.55), rgba(var(--card),.35));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.25) inset,
+        0 0 0 1px rgba(var(--ring), .06),
+        0 20px 40px -20px rgba(0,0,0,.4);
+    }
+    /* Shine highlight */
+    .ios-card::after{
+      content:"";
+      position:absolute; inset: -1px;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%);
+      pointer-events: none;
+      mask: linear-gradient(#000 60%, transparent);
+    }
+
+    /* Pill buttons */
+    .ios-pill {
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.9) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 8px 16px -8px rgba(0,0,0,.35);
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .dark .ios-pill{
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.08) inset,
+        0 0 0 1px rgba(255,255,255,.07),
+        0 8px 16px -8px rgba(0,0,0,.6);
+    }
+    .ios-pill:hover{ transform: translateY(-1px); }
+
+    /* Nav bar glass */
+    .ios-nav {
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(var(--bg1), .65);
+      box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 0 0 1px rgba(0,0,0,.08);
+    }
+
+    /* Section headings with tint ring */
+    .ios-h2 {
+      display: inline-flex; align-items: center; gap:.6rem;
+      padding:.35rem .85rem; border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.4));
+      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.08);
+      color: rgb(var(--fg1));
+    }
+    .dark .ios-h2{
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .ios-dot{
+      width:.55rem; height:.55rem; border-radius:9999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(129,140,248,.9));
+      box-shadow: 0 0 0 4px rgba(129,140,248,.18);
+    }
+
+    /* Hero media container */
+    .ios-hero-media{
+      border-radius: 1.25rem;
+      background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.1));
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.25) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 30px 60px -30px rgba(0,0,0,.45);
+      overflow: hidden;
+      position: relative;
+    }
+    /* glossy diagonal streak */
+    .ios-hero-media::before{
+      content:""; position:absolute; inset:-30%;
+      background: conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.14), transparent 25%, rgba(255,255,255,.12) 40%, transparent 60%);
+      transform: rotate(8deg);
+      pointer-events:none;
+      animation: glossSweep 8s linear infinite;
+    }
+    @keyframes glossSweep {
+      0%{ transform: translateX(-10%) rotate(8deg); }
+      50%{ transform: translateX(10%) rotate(8deg); }
+      100%{ transform: translateX(-10%) rotate(8deg); }
+    }
+
+    /* Fine text rendering */
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .gradient-animated, .ios-hero-media::before { animation: none !important; }
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- Skip link for accessibility -->
+<body class="ios-bg text-gray-800 dark:text-gray-100">
+
+  <!-- Skip link -->
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-indigo-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 border-b border-gray-200/70 dark:border-white/10 backdrop-blur bg-white/80 dark:bg-gray-900/70">
+  <header class="sticky top-0 z-50 ios-nav">
     <nav class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
         <a href="#home" class="font-semibold tracking-wide">YK</a>
@@ -86,15 +217,14 @@
           <a href="#contact" class="hover:text-indigo-600">Contact</a>
         </div>
         <div class="flex items-center gap-3">
-          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-white text-sm font-medium hover:bg-indigo-700 transition">
+          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-sm font-medium">
             <span>Download Resume</span>
           </a>
-          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10">
-            <!-- Sun / Moon icon -->
+          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 ios-card">
             <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
             <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10" aria-label="Open menu">
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
@@ -114,53 +244,53 @@
   <section id="home" class="gradient-animated text-white py-16 md:py-24" data-aos="fade-down">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Yash Khade</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-[0_1px_0_rgba(255,255,255,.25)]">Yash Khade</h1>
         <p class="mt-4 text-lg md:text-xl text-white/90">Operations Executive • Networking Specialist • Customer Support</p>
         <p class="mt-6 text-white/90">Currently at <span class="font-semibold">Weshine Tech Pvt Ltd</span>. I help teams run reliably by blending networking know-how with ops execution and tooling.</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#projects" class="rounded-full bg-white text-indigo-700 px-5 py-2.5 font-medium hover:bg-gray-100">View Projects</a>
-          <a href="#contact" class="rounded-full border border-white/70 px-5 py-2.5 font-medium hover:bg-white/10">Contact Me</a>
+          <a href="#projects" class="ios-pill px-5 py-2.5 font-medium text-gray-900">View Projects</a>
+          <a href="#contact" class="ios-pill px-5 py-2.5 font-medium text-gray-900/80">Contact Me</a>
         </div>
       </div>
 
       <!-- RIGHT: Photo with WeShineTech logo overlay -->
       <div class="relative">
-        <div class="aspect-[4/3] md:aspect-square rounded-2xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 flex items-center justify-center overflow-hidden">
+        <div class="ios-hero-media aspect-[4/3] md:aspect-square flex items-center justify-center">
           <div class="relative">
-            <!-- Main profile photo -->
             <img src="Yash%20Khade.jpeg" alt="Yash Khade"
                  class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
                  width="800" height="800" />
-            <!-- Logo overlay (clickable) -->
+            <!-- Logo overlay -->
             <a href="https://weshinetech.in" target="_blank" rel="noopener"
-               class="absolute bottom-3 right-3 bg-white/80 dark:bg-gray-900/70 backdrop-blur-md rounded-lg p-2 shadow-md ring-1 ring-gray-200/60 dark:ring-white/10"
+               class="absolute bottom-3 right-3 ios-pill p-2"
                aria-label="WeShineTech website">
               <img src="https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png"
-     alt="WeShineTech logo"
-     class="h-10 md:h-12 w-auto object-contain"
-     width="150" height="37"
-     loading="eager" fetchpriority="high" />
+                   alt="WeShineTech logo"
+                   class="h-10 md:h-12 w-auto object-contain"
+                   width="150" height="37"
+                   loading="eager" fetchpriority="high" />
             </a>
           </div>
         </div>
       </div>
-      <!-- /RIGHT -->
     </div>
   </section>
 
   <main id="main" class="max-w-6xl mx-auto px-4">
-    <!-- (rest of your sections remain unchanged) -->
+
     <!-- Objective / About -->
     <section id="about" class="py-12" data-aos="fade-up">
-      <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">Objective</h2>
-      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">I’m seeking a challenging role in a professionally managed organization where I can grow, apply my networking and operations skills, and contribute to organizational goals.</p>
+      <h2 class="ios-h2 mb-4"><span class="ios-dot"></span><span>Objective</span></h2>
+      <div class="ios-card p-6">
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">I’m seeking a challenging role in a professionally managed organization where I can grow, apply my networking and operations skills, and contribute to organizational goals.</p>
+      </div>
     </section>
 
     <!-- Skills -->
     <section id="skills" class="py-12" data-aos="fade-up">
-      <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-6">Technical Skills</h2>
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Technical Skills</span></h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+        <div class="ios-card p-6">
           <ul class="grid grid-cols-2 gap-3 text-base">
             <li>Computer Fundamentals</li>
             <li>Editing (Docs/Media)</li>
@@ -170,20 +300,26 @@
             <li>Customer Support (Email)</li>
           </ul>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+        <div class="ios-card p-6">
           <h3 class="font-medium mb-4">Focus Areas</h3>
           <div class="space-y-4">
             <div>
               <div class="flex justify-between text-sm"><span>Networking Basics</span><span>80%</span></div>
-              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"><div class="h-full w-4/5 bg-indigo-600"></div></div>
+              <div class="h-2 rounded-full overflow-hidden bg-white/40 dark:bg-gray-700">
+                <div class="h-full w-4/5 bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
+              </div>
             </div>
             <div>
               <div class="flex justify-between text-sm"><span>Server Management</span><span>70%</span></div>
-              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"><div class="h-full w-7/12 bg-indigo-600"></div></div>
+              <div class="h-2 rounded-full overflow-hidden bg-white/40 dark:bg-gray-700">
+                <div class="h-full w-7/12 bg-gradient-to-r from-indigo-400 to-pink-300"></div>
+              </div>
             </div>
             <div>
               <div class="flex justify-between text-sm"><span>Excel & Reporting</span><span>85%</span></div>
-              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"><div class="h-full w-10/12 bg-indigo-600"></div></div>
+              <div class="h-2 rounded-full overflow-hidden bg-white/40 dark:bg-gray-700">
+                <div class="h-full w-10/12 bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -192,52 +328,58 @@
 
     <!-- Experience -->
     <section id="experience" class="py-12" data-aos="fade-up">
-      <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-6">Experience</h2>
-      <ol class="relative border-s border-gray-200 dark:border-gray-700">
-        <li class="mb-10 ms-6">
-          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white">1</span>
-          <h3 class="text-lg font-semibold">Weshine Tech Pvt Ltd</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Networking & Server Management • Freelancer • 2 years</p>
-          <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-            <li>Configured and monitored basic network setups for small teams.</li>
-            <li>Handled routine server tasks (user access, backups, updates).</li>
-            <li>Documented SOPs to reduce repeated manual work.</li>
-          </ul>
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Experience</span></h2>
+      <ol class="relative">
+        <li class="mb-8 ms-6">
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">1</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">Weshine Tech Pvt Ltd</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Networking & Server Management • Freelancer • 2 years</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>Configured and monitored basic network setups for small teams.</li>
+              <li>Handled routine server tasks (user access, backups, updates).</li>
+              <li>Documented SOPs to reduce repeated manual work.</li>
+            </ul>
+          </div>
         </li>
-        <li class="mb-10 ms-6">
-          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white">2</span>
-          <h3 class="text-lg font-semibold">Eureka Outsourcing Solutions</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Customer Care Mail Executive @ Johnson Controls • 1 year</p>
-          <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-            <li>Resolved customer queries via email with clear, timely responses.</li>
-            <li>Tracked and escalated tickets to meet SLAs.</li>
-          </ul>
+        <li class="mb-8 ms-6">
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">2</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">Eureka Outsourcing Solutions</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Customer Care Mail Executive @ Johnson Controls • 1 year</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>Resolved customer queries via email with clear, timely responses.</li>
+              <li>Tracked and escalated tickets to meet SLAs.</li>
+            </ul>
+          </div>
         </li>
         <li class="ms-6">
-          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white">3</span>
-          <h3 class="text-lg font-semibold">D.R. Consultancy</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Payroll Department • 1 year</p>
-          <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-            <li>Prepared and verified payroll records for accuracy and timeliness.</li>
-            <li>Coordinated with HR for onboarding/offboarding paperwork.</li>
-          </ul>
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">3</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">D.R. Consultancy</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Payroll Department • 1 year</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>Prepared and verified payroll records for accuracy and timeliness.</li>
+              <li>Coordinated with HR for onboarding/offboarding paperwork.</li>
+            </ul>
+          </div>
         </li>
       </ol>
     </section>
 
     <!-- Education -->
     <section id="education" class="py-12" data-aos="fade-up">
-      <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-6">Education</h2>
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Education</span></h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+        <div class="ios-card p-6">
           <h3 class="font-semibold">B.Com (2nd Year)</h3>
           <p class="text-sm text-gray-500 dark:text-gray-400">Satish Pradhan Dnyanasadhana College, Thane • 2022–2025</p>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+        <div class="ios-card p-6">
           <h3 class="font-semibold">HSC</h3>
           <p class="text-sm text-gray-500 dark:text-gray-400">Satish Pradhan Dnyanasadhana, Thane (W) • 60%</p>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+        <div class="ios-card p-6">
           <h3 class="font-semibold">SSC</h3>
           <p class="text-sm text-gray-500 dark:text-gray-400">Shishu Vikas Mandir, Thane (E) • 50%</p>
         </div>
@@ -247,23 +389,22 @@
     <!-- Projects -->
     <section id="projects" class="py-12" data-aos="fade-up">
       <div class="flex items-end justify-between mb-6">
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400">Projects</h2>
-        <a href="https://github.com/yashkhade938" target="_blank" class="text-sm hover:underline">View all on GitHub →</a>
+        <h2 class="ios-h2"><span class="ios-dot"></span><span>Projects</span></h2>
+        <a href="https://github.com/yashkhade938" target="_blank" class="ios-pill px-3 py-1.5 text-sm">View all on GitHub →</a>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Project Card 1 -->
-        <article class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6 hover:shadow-md transition-transform hover:-translate-y-1">
+        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1">
           <header class="mb-2">
             <h3 class="text-lg font-bold">Smart Billing System</h3>
           </header>
-          <p class="text-gray-600 dark:text-gray-300">Modern billing with customer/product management & PDF invoice generation.</p>
+          <p class="text-gray-700 dark:text-gray-300">Modern billing with customer/product management & PDF invoice generation.</p>
           <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="px-2 py-1 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">HTML</li>
-            <li class="px-2 py-1 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">CSS</li>
-            <li class="px-2 py-1 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">JavaScript</li>
+            <li class="ios-pill px-2 py-1">HTML</li>
+            <li class="ios-pill px-2 py-1">CSS</li>
+            <li class="ios-pill px-2 py-1">JavaScript</li>
           </ul>
           <div class="mt-4 flex items-center gap-4">
-            <a href="https://yashkhade938.github.io/smart-billing-system/" target="_blank" class="text-indigo-600 dark:text-indigo-300 hover:underline">🌐 Live Demo</a>
+            <a href="https://yashkhade938.github.io/smart-billing-system/" target="_blank" class="ios-pill px-3 py-1.5">🌐 Live Demo</a>
           </div>
         </article>
       </div>
@@ -271,8 +412,8 @@
 
     <!-- Personal Details -->
     <section class="py-12" data-aos="fade-up">
-      <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-6">Personal Details</h2>
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Personal Details</span></h2>
+      <div class="ios-card p-6">
         <ul class="grid md:grid-cols-2 gap-y-2 text-base">
           <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
           <li><strong>Marital Status:</strong> Single</li>
@@ -285,30 +426,30 @@
 
     <!-- Contact -->
     <section id="contact" class="py-12" data-aos="fade-up">
-      <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-6">Contact</h2>
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Contact</span></h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6">
+        <div class="ios-card p-6">
           <ul class="space-y-2 text-lg">
-            <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="text-indigo-600 dark:text-indigo-300 hover:underline">yashkhade969@gmail.com</a></li>
-            <li>📱 Mobile: <a href="tel:+919082234689" class="hover:underline">(+91) 9082234689</a></li>
-            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="text-indigo-600 dark:text-indigo-300 hover:underline">github.com/yashkhade938</a></li>
-            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="text-indigo-600 dark:text-indigo-300 hover:underline">linkedin.com/in/yash-khade</a></li>
+            <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">yashkhade969@gmail.com</a></li>
+            <li>📱 Mobile: <a href="tel:+919082234689" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">(+91) 9082234689</a></li>
+            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">github.com/yashkhade938</a></li>
+            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">linkedin.com/in/yash-khade</a></li>
           </ul>
         </div>
-        <form id="contactForm" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm ring-1 ring-gray-200/70 dark:ring-white/10 p-6 space-y-4" onsubmit="return false;">
+        <form id="contactForm" class="ios-card p-6 space-y-4" onsubmit="return false;">
           <div>
             <label for="name" class="block text-sm mb-1">Name</label>
-            <input id="name" name="name" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2" />
+            <input id="name" name="name" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
           </div>
           <div>
             <label for="email" class="block text-sm mb-1">Email</label>
-            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2" />
+            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
           </div>
           <div>
             <label for="message" class="block text-sm mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2"></textarea>
+            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500"></textarea>
           </div>
-          <button id="sendBtn" type="button" class="w-full rounded-lg bg-indigo-600 text-white py-2.5 font-medium hover:bg-indigo-700">Send</button>
+          <button id="sendBtn" type="button" class="ios-pill w-full py-2.5 font-medium">Send</button>
           <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
         </form>
       </div>
@@ -316,7 +457,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="mt-12 py-8 text-center text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up">
+  <footer class="mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400" data-aos="fade-up">
     <p>© <span id="year"></span> Yash Khade. All rights reserved.</p>
   </footer>
 
@@ -346,7 +487,6 @@
       localStorage.setItem('theme', dark ? 'dark' : 'light');
     };
 
-    // Load saved theme or system preference
     const saved = localStorage.getItem('theme');
     if (saved) setTheme(saved === 'dark');
     else setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
