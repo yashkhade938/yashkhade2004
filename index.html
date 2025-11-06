@@ -118,10 +118,10 @@
         rgba(56,189,248,.95)
       );
     }
-    @keyframes gradientMove { 
-      0% { background-position: 0% 50%; } 
-      50% { background-position: 100% 50%; } 
-      100% { background-position: 0% 50%; } 
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* Nav glass (a bit brighter in dark) */
@@ -233,6 +233,58 @@
     .dark .ios-meter-track { background: rgba(255,255,255,.18); }
     .ios-meter-fill { height: 100%; border-radius: 9999px; }
 
+    /* BRAND LOGO: glossy glass chip + soft ring */
+    .brand-chip{
+      position: relative;
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .35rem .5rem;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.68));
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.9) inset,
+        0 0 0 1px rgba(0,0,0,.06),
+        0 10px 18px -10px rgba(0,0,0,.35);
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .dark .brand-chip{
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.10) inset,
+        0 0 0 1px rgba(255,255,255,.08),
+        0 12px 22px -12px rgba(0,0,0,.7);
+    }
+    .brand-chip::after{
+      content:""; position:absolute; inset:-1px; border-radius: inherit;
+      box-shadow: 0 0 0 6px rgba(var(--tint), .14);
+      pointer-events: none;
+    }
+    .brand-chip:hover{
+      transform: translateY(-1px);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.95) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 16px 28px -14px rgba(0,0,0,.45);
+    }
+    .brand-logo{
+      height: 2.25rem; /* ≈ h-9 */
+      width: auto;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      filter:
+        drop-shadow(0 0 1px rgba(255,255,255,.6))
+        drop-shadow(0 10px 16px rgba(0,0,0,.25));
+    }
+    @media (min-width: 768px){
+      .brand-logo{ height: 2.75rem; }
+    }
+    .dark .brand-logo{
+      filter:
+        drop-shadow(0 0 1px rgba(255,255,255,.35))
+        drop-shadow(0 12px 18px rgba(0,0,0,.65));
+    }
+
     /* Crisp text */
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
@@ -291,7 +343,7 @@
       <div>
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-[0_1px_0_rgba(255,255,255,.25)]">Yash Khade</h1>
         <p class="mt-4 text-lg md:text-xl text-white/90">Operations Executive • Networking Specialist • Customer Support</p>
-        <p class="mt-6 text-white/90">Currently at <span class="font-semibold">Weshine Tech Pvt Ltd</span>. I help teams run reliably by blending networking know-how with ops execution and tooling.</p>
+        <p class="mt-6 text-white/90">Currently at <span class="font-semibold">Weshine Tech Pvt Ltd</span>. I help teams run reliably by blending networking know‑how with ops execution and tooling.</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="#projects" class="ios-pill px-5 py-2.5 font-medium text-gray-900">View Projects</a>
           <a href="#contact" class="ios-pill px-5 py-2.5 font-medium text-gray-900/80">Contact Me</a>
@@ -305,15 +357,17 @@
             <img src="Yash%20Khade.jpeg" alt="Yash Khade"
                  class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
                  width="800" height="800" />
-            <!-- Logo overlay -->
-            <a href="https://weshinetech.in" target="_blank" rel="noopener"
-               class="absolute bottom-3 right-3 ios-pill p-2"
-               aria-label="WeShineTech website">
-              <img src="https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png"
-                   alt="WeShineTech logo"
-                   class="h-10 md:h-12 w-auto object-contain"
-                   width="150" height="37"
-                   loading="eager" fetchpriority="high" />
+            <!-- Logo overlay (glossy brand chip) -->
+            <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer"
+               class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip"
+               aria-label="WeShineTech — official website" title="WeShineTech">
+              <img
+                src="images/weshinetech-logo.png"
+                onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png';"
+                alt="WeShineTech logo"
+                class="brand-logo"
+                width="180" height="44"
+                loading="eager" fetchpriority="high" />
             </a>
           </div>
         </div>
