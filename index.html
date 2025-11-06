@@ -21,7 +21,7 @@
   <link rel="canonical" href="https://your-domain.example" />
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Mobile browser chrome colors (auto for system theme) -->
+  <!-- Mobile browser chrome colors -->
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
 
@@ -57,30 +57,36 @@
   </script>
 
   <style>
-    /* Tell browsers we support both themes */
+    /* System fonts for iOS look */
     :root { color-scheme: light dark; }
+    html, body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
 
     /* Tokens */
     :root{
       --bg1: 255,255,255;
       --fg1: 17,24,39;
-      --tint: 99,102,241; /* indigo-500 */
+      --tint: 99,102,241;  /* indigo-500 */
       --accentB: 56,189,248; /* sky-400 */
       --accentP: 236,72,153; /* pink-500 */
       --shine: 255,255,255;
       --card: 255,255,255;
       --ring: 0,0,0;
+      --hairline: rgba(0,0,0,.08);
+      --glassTop: .78; /* adjustable */
+      --glassBottom: .52;
     }
     .dark:root{
-      /* lighter, slate-blue ambience (not pitch black) */
-      --bg1: 24,32,58;      /* #18203A */
-      --fg1: 226,232,240;   /* slate-200 */
-      --tint: 129,140,248;  /* indigo-400 */
+      --bg1: 24,32,58;     /* #18203A */
+      --fg1: 226,232,240;  /* slate-200 */
+      --tint: 129,140,248; /* indigo-400 */
       --accentB: 56,189,248;
       --accentP: 244,114,182;
       --shine: 255,255,255;
-      --card: 29,41,72;     /* #1D2948 (lighter cards) */
+      --card: 29,41,72;    /* #1D2948 */
       --ring: 255,255,255;
+      --hairline: rgba(255,255,255,.10);
+      --glassTop: .88;     /* a bit more opaque in dark */
+      --glassBottom: .68;
     }
 
     /* Smooth theme switch (respects reduced motion) */
@@ -92,14 +98,18 @@
 
     /* Ambient wallpaper-style background */
     .ios-bg {
+      --p1x: -10%; --p1y: -10%;
+      --p2x: 110%; --p2y: -20%;
+      --p3x: 50%;  --p3y: 120%;
       background:
-        radial-gradient(1200px 600px at -10% -10%, rgba(var(--tint), .14), transparent 55%),
-        radial-gradient(900px 540px at 110% -20%, rgba(var(--accentP), .12), transparent 60%),
-        radial-gradient(900px 720px at 50% 120%, rgba(var(--accentB), .12), transparent 65%),
+        radial-gradient(1200px 600px at var(--p1x) var(--p1y), rgba(var(--tint), .14), transparent 55%),
+        radial-gradient(900px 540px  at var(--p2x) var(--p2y), rgba(var(--accentP), .12), transparent 60%),
+        radial-gradient(900px 720px  at var(--p3x) var(--p3y), rgba(var(--accentB), .12), transparent 65%),
         linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
+      will-change: background-position;
     }
 
-    /* Hero gradient tuned for both themes */
+    /* Scroll-driven hero gradient (progressive enhancement) */
     .gradient-animated {
       position: relative; overflow: hidden;
       background: linear-gradient(120deg,
@@ -110,6 +120,7 @@
       background-size: 200% 200%;
       animation: gradientMove 12s ease infinite;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.18);
+      view-transition-name: hero; /* participate in theme transitions */
     }
     .dark .gradient-animated{
       background: linear-gradient(120deg,
@@ -118,41 +129,52 @@
         rgba(56,189,248,.95)
       );
     }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes gradientMove { 
+      0% { background-position: 0% 50%; } 
+      50% { background-position: 100% 50%; } 
+      100% { background-position: 0% 50%; } 
+    }
+    /* If scroll-driven animations are supported, link gradient to scroll */
+    @supports (animation-timeline: scroll(root block)) {
+      .gradient-animated { animation: none; background-size: 160% 160%; }
+      .gradient-animated {
+        animation: heroScroll linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 120vh;
+      }
+      @keyframes heroScroll {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
     }
 
-    /* Nav glass (a bit brighter in dark) */
+    /* Nav glass (brighter in dark) */
     .ios-nav {
       backdrop-filter: blur(18px) saturate(140%);
       -webkit-backdrop-filter: blur(18px) saturate(140%);
       background: rgba(var(--bg1), .72);
-      box-shadow: 0 1px 0 rgba(255,255,255,.22) inset, 0 0 0 1px rgba(0,0,0,.08);
+      box-shadow: 0 1px 0 rgba(255,255,255,.22) inset, 0 0 0 1px var(--hairline);
     }
     .dark .ios-nav {
       background: rgba(var(--bg1), .80);
       box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.06);
     }
+    /* Active link highlight */
+    nav a[aria-current="true"]{
+      color: rgb(var(--tint));
+      text-underline-offset: 6px;
+    }
 
-    /* Glass card (extra opacity in dark for readability) */
+    /* Glass card */
     .ios-card {
       position: relative; border-radius: 1rem;
       backdrop-filter: saturate(140%) blur(14px);
       -webkit-backdrop-filter: saturate(140%) blur(14px);
-      background: linear-gradient(180deg, rgba(var(--card),.60), rgba(var(--card),.42));
+      background: linear-gradient(180deg, rgba(var(--card), var(--glassTop)), rgba(var(--card), var(--glassBottom)));
       box-shadow:
         0 1px 0 rgba(255,255,255,.25) inset,
-        0 0 0 1px rgba(var(--ring), .06),
+        0 0 0 .5px var(--hairline),      /* hairline */
         0 20px 40px -20px rgba(0,0,0,.4);
-    }
-    .dark .ios-card{
-      background: linear-gradient(180deg, rgba(var(--card),.78), rgba(var(--card),.62));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.08) inset,
-        0 0 0 1px rgba(255,255,255,.06),
-        0 26px 46px -20px rgba(0,0,0,.58);
     }
     .ios-card::after{
       content:""; position:absolute; inset: -1px; border-radius: inherit;
@@ -166,7 +188,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.60));
       box-shadow:
         0 1px 0 rgba(255,255,255,.90) inset,
-        0 0 0 1px rgba(0,0,0,.08),
+        0 0 0 .5px var(--hairline),
         0 8px 16px -8px rgba(0,0,0,.35);
       transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
     }
@@ -174,7 +196,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.12));
       box-shadow:
         0 1px 0 rgba(255,255,255,.12) inset,
-        0 0 0 1px rgba(255,255,255,.08),
+        0 0 0 .5px rgba(255,255,255,.08),
         0 10px 18px -10px rgba(0,0,0,.65);
     }
     .ios-pill:hover{ transform: translateY(-1px); }
@@ -184,12 +206,12 @@
       display:inline-flex; align-items:center; gap:.6rem;
       padding:.38rem .9rem; border-radius:9999px;
       background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52));
-      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.08);
+      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 .5px var(--hairline);
       color: rgb(var(--fg1));
     }
     .dark .ios-h2{
       background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.08);
+      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 .5px rgba(255,255,255,.08);
       color: rgba(255,255,255,.94);
     }
     .ios-dot{
@@ -198,7 +220,7 @@
       box-shadow: 0 0 0 4px rgba(var(--tint), .20);
     }
 
-    /* Hero media with gloss sweep */
+    /* Hero media with gloss sweep + tilt */
     .ios-hero-media{
       border-radius: 1.25rem; position: relative; overflow: hidden;
       background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14));
@@ -206,14 +228,17 @@
       -webkit-backdrop-filter: blur(16px) saturate(140%);
       box-shadow:
         0 1px 0 rgba(255,255,255,.25) inset,
-        0 0 0 1px rgba(0,0,0,.08),
+        0 0 0 .5px var(--hairline),
         0 30px 60px -30px rgba(0,0,0,.45);
+      transform-style: preserve-3d;
+      will-change: transform;
+      anchor-name: --hero; /* for CSS anchor positioning */
     }
     .dark .ios-hero-media{
       background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
       box-shadow:
         0 1px 0 rgba(255,255,255,.08) inset,
-        0 0 0 1px rgba(255,255,255,.06),
+        0 0 0 .5px rgba(255,255,255,.06),
         0 32px 62px -30px rgba(0,0,0,.65);
     }
     .ios-hero-media::before{
@@ -233,9 +258,10 @@
     .dark .ios-meter-track { background: rgba(255,255,255,.18); }
     .ios-meter-fill { height: 100%; border-radius: 9999px; }
 
-    /* BRAND LOGO: glossy glass chip + soft ring */
+    /* BRAND LOGO: glossy chip + soft ring + anchor positioning */
     .brand-chip{
-      position: relative;
+      position: absolute; /* fallback */
+      right: .75rem; bottom: .75rem;
       display: inline-flex; align-items: center; gap: .45rem;
       padding: .35rem .5rem;
       border-radius: 12px;
@@ -244,7 +270,7 @@
       -webkit-backdrop-filter: blur(10px) saturate(140%);
       box-shadow:
         0 1px 0 rgba(255,255,255,.9) inset,
-        0 0 0 1px rgba(0,0,0,.06),
+        0 0 0 .5px var(--hairline),
         0 10px 18px -10px rgba(0,0,0,.35);
       transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
     }
@@ -252,7 +278,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
       box-shadow:
         0 1px 0 rgba(255,255,255,.10) inset,
-        0 0 0 1px rgba(255,255,255,.08),
+        0 0 0 .5px rgba(255,255,255,.08),
         0 12px 22px -12px rgba(0,0,0,.7);
     }
     .brand-chip::after{
@@ -260,37 +286,41 @@
       box-shadow: 0 0 0 6px rgba(var(--tint), .14);
       pointer-events: none;
     }
-    .brand-chip:hover{
-      transform: translateY(-1px);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.95) inset,
-        0 0 0 1px rgba(0,0,0,.08),
-        0 16px 28px -14px rgba(0,0,0,.45);
-    }
+    .brand-chip:hover{ transform: translateY(-1px); }
     .brand-logo{
-      height: 2.25rem; /* ≈ h-9 */
-      width: auto;
-      object-fit: contain;
+      height: 2.25rem; width: auto; object-fit: contain;
       image-rendering: -webkit-optimize-contrast;
       filter:
         drop-shadow(0 0 1px rgba(255,255,255,.6))
         drop-shadow(0 10px 16px rgba(0,0,0,.25));
     }
-    @media (min-width: 768px){
-      .brand-logo{ height: 2.75rem; }
-    }
+    @media (min-width: 768px){ .brand-logo{ height: 2.75rem; } }
     .dark .brand-logo{
       filter:
         drop-shadow(0 0 1px rgba(255,255,255,.35))
         drop-shadow(0 12px 18px rgba(0,0,0,.65));
     }
+    /* Use CSS Anchor Positioning when available */
+    @supports (anchor-name: --x) and (position-anchor: --x) {
+      .brand-chip{
+        position: absolute;
+        position-anchor: --hero;
+        top: calc(anchor(--hero bottom) - 3.6rem);
+        left: calc(anchor(--hero right) - 3.6rem);
+        right: auto; bottom: auto;
+      }
+    }
 
-    /* Crisp text */
-    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    /* Accessibility: high contrast */
+    @media (prefers-contrast: more){
+      .ios-card { box-shadow: 0 0 0 .75px var(--hairline), 0 16px 32px -20px rgba(0,0,0,.5); }
+      nav a{ text-decoration: underline; }
+    }
 
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce){
       .gradient-animated, .ios-hero-media::before { animation: none !important; }
+      .ios-hero-media { transform: none !important; }
     }
   </style>
 </head>
@@ -306,12 +336,12 @@
       <div class="flex items-center justify-between h-16">
         <a href="#home" class="font-semibold tracking-wide">YK</a>
         <div class="hidden md:flex items-center gap-6">
-          <a href="#about" class="hover:text-indigo-600">About</a>
-          <a href="#skills" class="hover:text-indigo-600">Skills</a>
+          <a href="#about"   class="hover:text-indigo-600">About</a>
+          <a href="#skills"  class="hover:text-indigo-600">Skills</a>
           <a href="#experience" class="hover:text-indigo-600">Experience</a>
-          <a href="#education" class="hover:text-indigo-600">Education</a>
-          <a href="#projects" class="hover:text-indigo-600">Projects</a>
-          <a href="#contact" class="hover:text-indigo-600">Contact</a>
+          <a href="#education"  class="hover:text-indigo-600">Education</a>
+          <a href="#projects"   class="hover:text-indigo-600">Projects</a>
+          <a href="#contact"    class="hover:text-indigo-600">Contact</a>
         </div>
         <div class="flex items-center gap-3">
           <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-sm font-medium">
@@ -352,14 +382,14 @@
 
       <!-- RIGHT: Photo with WeShineTech logo overlay -->
       <div class="relative">
-        <div class="ios-hero-media aspect-[4/3] md:aspect-square flex items-center justify-center">
+        <div class="ios-hero-media js-tilt aspect-[4/3] md:aspect-square flex items-center justify-center">
           <div class="relative">
             <img src="Yash%20Khade.jpeg" alt="Yash Khade"
                  class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
                  width="800" height="800" />
             <!-- Logo overlay (glossy brand chip) -->
             <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer"
-               class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip"
+               class="absolute brand-chip"
                aria-label="WeShineTech — official website" title="WeShineTech">
               <img
                 src="images/weshinetech-logo.png"
@@ -385,7 +415,7 @@
       </div>
     </section>
 
-    <!-- ⭐️ MERGED SKILLS (all items + advanced networking/Excel) -->
+    <!-- ⭐️ MERGED SKILLS -->
     <section id="skills" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Technical Skills</span></h2>
 
@@ -416,7 +446,6 @@
         <div class="ios-card p-6">
           <h3 class="font-medium mb-4">Focus Areas</h3>
           <div class="space-y-4">
-            <!-- PM & Coordination -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Project Management &amp; Coordination</span><span>80%</span>
@@ -426,7 +455,6 @@
               </div>
             </div>
 
-            <!-- Cost & Budget -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Cost &amp; Budget Analysis</span><span>75%</span>
@@ -436,7 +464,6 @@
               </div>
             </div>
 
-            <!-- IP & Subnetting -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>IP Addressing &amp; Subnetting</span><span>80%</span>
@@ -446,7 +473,6 @@
               </div>
             </div>
 
-            <!-- DHCP/DNS -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>DHCP/DNS Basics</span><span>75%</span>
@@ -456,7 +482,6 @@
               </div>
             </div>
 
-            <!-- Remote Support -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Remote Support (AnyDesk/TeamViewer)</span><span>80%</span>
@@ -466,7 +491,6 @@
               </div>
             </div>
 
-            <!-- Excel Advanced -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Excel Advanced (Pivot/XLOOKUP/Power Query)</span><span>85%</span>
@@ -480,11 +504,11 @@
       </div>
     </section>
 
-    <!-- ⭐️ UPDATED EXPERIENCE (4 roles in order; current marked) -->
+    <!-- ⭐️ UPDATED EXPERIENCE -->
     <section id="experience" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Experience</span></h2>
       <ol class="relative">
-        <!-- 1: D.R. Consultancy -->
+        <!-- 1 -->
         <li class="mb-8 ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">1</div>
           <div class="ios-card p-6">
@@ -498,7 +522,7 @@
           </div>
         </li>
 
-        <!-- 2: Eureka Outsourcing Solutions -->
+        <!-- 2 -->
         <li class="mb-8 ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">2</div>
           <div class="ios-card p-6">
@@ -512,7 +536,7 @@
           </div>
         </li>
 
-        <!-- 3: WeShine Tech Pvt Ltd — Freelancer -->
+        <!-- 3 -->
         <li class="mb-8 ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">3</div>
           <div class="ios-card p-6">
@@ -526,7 +550,7 @@
           </div>
         </li>
 
-        <!-- 4: WeShine Tech Pvt Ltd — Operations Executive (Current) -->
+        <!-- 4 (Current) -->
         <li class="ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">4</div>
           <div class="ios-card p-6">
@@ -651,32 +675,41 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // Theme toggle with persistence + update theme-color metas
+    // --- View Transition helpers (for theme + nav) ---
+    const supportsVT = typeof document.startViewTransition === 'function';
+
+    // Theme toggle with persistence + update theme-color metas + View Transitions
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
 
-    function updateThemeMeta(dark){
+    function updateThemeMeta(){
       const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
       const darkMeta  = document.querySelector('meta[name="theme-color"][media*="dark"]');
       if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
       if (darkMeta)  darkMeta.setAttribute('content', '#18203A');
     }
 
-    const setTheme = (dark) => {
+    function applyTheme(dark){
       const root = document.documentElement;
       if (dark) {
         root.classList.add('dark');
-        moonIcon.classList.add('hidden');
-        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden'); sunIcon.classList.remove('hidden');
       } else {
         root.classList.remove('dark');
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden'); moonIcon.classList.remove('hidden');
       }
       localStorage.setItem('theme', dark ? 'dark' : 'light');
-      updateThemeMeta(dark);
-    };
+      updateThemeMeta();
+    }
+
+    function setTheme(dark){
+      if (supportsVT) {
+        document.startViewTransition(() => applyTheme(dark));
+      } else {
+        applyTheme(dark);
+      }
+    }
 
     // Load saved theme or system preference
     const saved = localStorage.getItem('theme');
@@ -684,6 +717,32 @@
     else setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
     themeToggle?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+    // Active section -> nav highlight
+    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+    function markActive(id){
+      navLinks.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === `#${id}` ? 'true' : 'false'));
+    }
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { markActive(e.target.id); }
+      }
+    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.5 });
+    sections.forEach(s => io.observe(s));
+
+    // Smooth nav transitions (optional) using View Transitions on in-page nav
+    navLinks.forEach(a => {
+      a.addEventListener('click', (evt) => {
+        const href = a.getAttribute('href');
+        if (!href?.startsWith('#')) return;
+        evt.preventDefault();
+        const target = document.querySelector(href);
+        if (!target) return;
+        const go = () => target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        supportsVT ? document.startViewTransition(go) : go();
+      });
+    });
 
     // Contact form: mailto handler (no backend)
     const sendBtn = document.getElementById('sendBtn');
@@ -698,6 +757,32 @@
         window.location.href = mailto;
       });
     }
+
+    // 3D Tilt on hero (pointer: fine only; disabled on reduce motion)
+    const hero = document.querySelector('.js-tilt');
+    const canTilt = window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (hero && canTilt) {
+      const maxTilt = 6; // degrees
+      hero.addEventListener('pointermove', (e) => {
+        const r = hero.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rx = (0.5 - y) * (maxTilt * 2);
+        const ry = (x - 0.5) * (maxTilt * 2);
+        hero.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      hero.addEventListener('pointerleave', () => {
+        hero.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+
+    // Subtle background drift with scroll via CSS variables (fallback for non scroll-timeline)
+    document.addEventListener('scroll', () => {
+      const sc = Math.min(1, window.scrollY / (document.body.scrollHeight - innerHeight));
+      document.documentElement.style.setProperty('--p1x', `${-10 + sc*5}%`);
+      document.documentElement.style.setProperty('--p2x', `${110 - sc*8}%`);
+      document.documentElement.style.setProperty('--p3y', `${120 + sc*5}%`);
+    }, { passive: true });
   </script>
 </body>
 </html>
