@@ -21,6 +21,10 @@
   <link rel="canonical" href="https://your-domain.example" />
   <link rel="icon" href="/favicon.ico" />
 
+  <!-- Mobile browser chrome colors (auto for system theme) -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
+
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -53,40 +57,66 @@
   </script>
 
   <style>
+    /* Tell browsers we support both themes */
+    :root { color-scheme: light dark; }
+
+    /* Tokens */
     :root{
       --bg1: 255,255,255;
       --fg1: 17,24,39;
       --tint: 99,102,241; /* indigo-500 */
+      --accentB: 56,189,248; /* sky-400 */
+      --accentP: 236,72,153; /* pink-500 */
       --shine: 255,255,255;
       --card: 255,255,255;
       --ring: 0,0,0;
     }
     .dark:root{
-      --bg1: 3,7,18;      /* near black */
-      --fg1: 229,231,235; /* gray-200 */
-      --tint: 129,140,248;/* indigo-400 */
+      /* lighter, slate-blue ambience (not pitch black) */
+      --bg1: 24,32,58;      /* #18203A */
+      --fg1: 226,232,240;   /* slate-200 */
+      --tint: 129,140,248;  /* indigo-400 */
+      --accentB: 56,189,248;
+      --accentP: 244,114,182;
       --shine: 255,255,255;
-      --card: 17,24,39;
+      --card: 29,41,72;     /* #1D2948 (lighter cards) */
       --ring: 255,255,255;
     }
 
-    /* iOS style radial gradient canvas */
+    /* Smooth theme switch (respects reduced motion) */
+    @media (prefers-reduced-motion: no-preference){
+      html * {
+        transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease;
+      }
+    }
+
+    /* Ambient wallpaper-style background */
     .ios-bg {
       background:
-        radial-gradient(1200px 600px at -10% -10%, rgba(129,140,248,.15), transparent 50%),
-        radial-gradient(900px 500px at 110% -20%, rgba(236,72,153,.12), transparent 55%),
-        radial-gradient(900px 700px at 50% 120%, rgba(56,189,248,.12), transparent 60%),
+        radial-gradient(1200px 600px at -10% -10%, rgba(var(--tint), .14), transparent 55%),
+        radial-gradient(900px 540px at 110% -20%, rgba(var(--accentP), .12), transparent 60%),
+        radial-gradient(900px 720px at 50% 120%, rgba(var(--accentB), .12), transparent 65%),
         linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
     }
 
-    /* Subtle animated gradient strip for hero */
+    /* Hero gradient tuned for both themes */
     .gradient-animated {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(120deg, rgba(79,70,229,.85), rgba(236,72,153,.8), rgba(56,189,248,.85));
+      position: relative; overflow: hidden;
+      background: linear-gradient(120deg,
+        rgba(79,70,229,.90),
+        rgba(236,72,153,.86),
+        rgba(56,189,248,.90)
+      );
       background-size: 200% 200%;
       animation: gradientMove 12s ease infinite;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.15);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.18);
+    }
+    .dark .gradient-animated{
+      background: linear-gradient(120deg,
+        rgba(99,102,241,.95),
+        rgba(244,114,182,.95),
+        rgba(56,189,248,.95)
+      );
     }
     @keyframes gradientMove { 
       0% { background-position: 0% 50%; } 
@@ -94,92 +124,102 @@
       100% { background-position: 0% 50%; } 
     }
 
-    /* Glass card */
+    /* Nav glass (a bit brighter in dark) */
+    .ios-nav {
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(var(--bg1), .72);
+      box-shadow: 0 1px 0 rgba(255,255,255,.22) inset, 0 0 0 1px rgba(0,0,0,.08);
+    }
+    .dark .ios-nav {
+      background: rgba(var(--bg1), .80);
+      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.06);
+    }
+
+    /* Glass card (extra opacity in dark for readability) */
     .ios-card {
-      position: relative;
-      border-radius: 1rem;
+      position: relative; border-radius: 1rem;
       backdrop-filter: saturate(140%) blur(14px);
       -webkit-backdrop-filter: saturate(140%) blur(14px);
-      background: linear-gradient(180deg, rgba(var(--card),.55), rgba(var(--card),.35));
+      background: linear-gradient(180deg, rgba(var(--card),.60), rgba(var(--card),.42));
       box-shadow:
         0 1px 0 rgba(255,255,255,.25) inset,
         0 0 0 1px rgba(var(--ring), .06),
         0 20px 40px -20px rgba(0,0,0,.4);
     }
-    /* Shine highlight */
-    .ios-card::after{
-      content:"";
-      position:absolute; inset: -1px;
-      border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%);
-      pointer-events: none;
-      mask: linear-gradient(#000 60%, transparent);
-    }
-
-    /* Pill buttons */
-    .ios-pill {
-      border-radius: 9999px;
-      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.9) inset,
-        0 0 0 1px rgba(0,0,0,.08),
-        0 8px 16px -8px rgba(0,0,0,.35);
-      transition: transform .15s ease, box-shadow .2s ease;
-    }
-    .dark .ios-pill{
-      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+    .dark .ios-card{
+      background: linear-gradient(180deg, rgba(var(--card),.78), rgba(var(--card),.62));
       box-shadow:
         0 1px 0 rgba(255,255,255,.08) inset,
-        0 0 0 1px rgba(255,255,255,.07),
-        0 8px 16px -8px rgba(0,0,0,.6);
+        0 0 0 1px rgba(255,255,255,.06),
+        0 26px 46px -20px rgba(0,0,0,.58);
+    }
+    .ios-card::after{
+      content:""; position:absolute; inset: -1px; border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%);
+      pointer-events: none; mask: linear-gradient(#000 60%, transparent);
+    }
+
+    /* Pills */
+    .ios-pill {
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.60));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.90) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 8px 16px -8px rgba(0,0,0,.35);
+      transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+    }
+    .dark .ios-pill{
+      background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.12));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.12) inset,
+        0 0 0 1px rgba(255,255,255,.08),
+        0 10px 18px -10px rgba(0,0,0,.65);
     }
     .ios-pill:hover{ transform: translateY(-1px); }
 
-    /* Nav bar glass */
-    .ios-nav {
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      background: rgba(var(--bg1), .65);
-      box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 0 0 1px rgba(0,0,0,.08);
-    }
-
-    /* Section headings with tint ring */
+    /* Section headings */
     .ios-h2 {
-      display: inline-flex; align-items: center; gap:.6rem;
-      padding:.35rem .85rem; border-radius: 9999px;
-      background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.4));
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.38rem .9rem; border-radius:9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52));
       box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.08);
       color: rgb(var(--fg1));
     }
     .dark .ios-h2{
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
-      box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 0 0 1px rgba(255,255,255,.06);
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.08);
+      color: rgba(255,255,255,.94);
     }
     .ios-dot{
       width:.55rem; height:.55rem; border-radius:9999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(129,140,248,.9));
-      box-shadow: 0 0 0 4px rgba(129,140,248,.18);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(var(--tint),.95));
+      box-shadow: 0 0 0 4px rgba(var(--tint), .20);
     }
 
-    /* Hero media container */
+    /* Hero media with gloss sweep */
     .ios-hero-media{
-      border-radius: 1.25rem;
-      background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.1));
+      border-radius: 1.25rem; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14));
       backdrop-filter: blur(16px) saturate(140%);
       -webkit-backdrop-filter: blur(16px) saturate(140%);
       box-shadow:
         0 1px 0 rgba(255,255,255,.25) inset,
         0 0 0 1px rgba(0,0,0,.08),
         0 30px 60px -30px rgba(0,0,0,.45);
-      overflow: hidden;
-      position: relative;
     }
-    /* glossy diagonal streak */
+    .dark .ios-hero-media{
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.08) inset,
+        0 0 0 1px rgba(255,255,255,.06),
+        0 32px 62px -30px rgba(0,0,0,.65);
+    }
     .ios-hero-media::before{
       content:""; position:absolute; inset:-30%;
       background: conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.14), transparent 25%, rgba(255,255,255,.12) 40%, transparent 60%);
-      transform: rotate(8deg);
-      pointer-events:none;
+      transform: rotate(8deg); pointer-events:none;
       animation: glossSweep 8s linear infinite;
     }
     @keyframes glossSweep {
@@ -188,7 +228,12 @@
       100%{ transform: translateX(-10%) rotate(8deg); }
     }
 
-    /* Fine text rendering */
+    /* Progress bars (track+fill) */
+    .ios-meter-track { height: .5rem; border-radius: 9999px; background: rgba(255,255,255,.55); }
+    .dark .ios-meter-track { background: rgba(255,255,255,.18); }
+    .ios-meter-fill { height: 100%; border-radius: 9999px; }
+
+    /* Crisp text */
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
     /* Reduce motion */
@@ -305,20 +350,20 @@
           <div class="space-y-4">
             <div>
               <div class="flex justify-between text-sm"><span>Networking Basics</span><span>80%</span></div>
-              <div class="h-2 rounded-full overflow-hidden bg-white/40 dark:bg-gray-700">
-                <div class="h-full w-4/5 bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-4/5 bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
               </div>
             </div>
             <div>
               <div class="flex justify-between text-sm"><span>Server Management</span><span>70%</span></div>
-              <div class="h-2 rounded-full overflow-hidden bg-white/40 dark:bg-gray-700">
-                <div class="h-full w-7/12 bg-gradient-to-r from-indigo-400 to-pink-300"></div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-7/12 bg-gradient-to-r from-indigo-400 to-pink-300"></div>
               </div>
             </div>
             <div>
               <div class="flex justify-between text-sm"><span>Excel & Reporting</span><span>85%</span></div>
-              <div class="h-2 rounded-full overflow-hidden bg-white/40 dark:bg-gray-700">
-                <div class="h-full w-10/12 bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-10/12 bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
               </div>
             </div>
           </div>
@@ -475,18 +520,34 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // Theme toggle with persistence
+    // Theme toggle with persistence + update theme-color metas
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
 
+    function updateThemeMeta(dark){
+      const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+      const darkMeta  = document.querySelector('meta[name="theme-color"][media*="dark"]');
+      if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
+      if (darkMeta)  darkMeta.setAttribute('content', '#18203A');
+    }
+
     const setTheme = (dark) => {
       const root = document.documentElement;
-      if (dark) { root.classList.add('dark'); moonIcon.classList.add('hidden'); sunIcon.classList.remove('hidden'); }
-      else { root.classList.remove('dark'); sunIcon.classList.add('hidden'); moonIcon.classList.remove('hidden'); }
+      if (dark) {
+        root.classList.add('dark');
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        root.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
       localStorage.setItem('theme', dark ? 'dark' : 'light');
+      updateThemeMeta(dark);
     };
 
+    // Load saved theme or system preference
     const saved = localStorage.getItem('theme');
     if (saved) setTheme(saved === 'dark');
     else setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
