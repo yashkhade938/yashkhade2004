@@ -25,21 +25,6 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
 
-  <!-- ===== ADD-ONLY: performance helpers (no existing code touched) ===== -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="preload" as="image" href="Yash%20Khade.jpeg" imagesizes="(min-width:768px) 50vw, 100vw">
-  <script>
-    (function () {
-      try {
-        const saveData = navigator.connection && navigator.connection.saveData;
-        const lowMem = navigator.deviceMemory && navigator.deviceMemory <= 2;
-        if (saveData || lowMem) document.documentElement.classList.add('perf');
-      } catch (e) {}
-    })();
-  </script>
-  <!-- ===== END ADD-ONLY ===== -->
-
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -337,20 +322,6 @@
     @media (prefers-reduced-motion: reduce){
       .gradient-animated, .ios-hero-media::before { animation: none !important; }
     }
-
-    /* ===== ADD-ONLY: tiny perf overrides (safe) ===== */
-    html.perf .ios-bg{
-      background: linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%) !important;
-    }
-    html.perf .ios-nav,
-    html.perf .ios-card,
-    html.perf .brand-chip{
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-    }
-    html.perf .ios-hero-media::before{ display:none !important; }
-    .ios-hero-media{ will-change: transform; backface-visibility: hidden; }
-    /* ===== END ADD-ONLY ===== */
   </style>
 </head>
 
@@ -978,33 +949,5 @@
       });
     }
   </script>
-
-  <!-- ===== ADD-ONLY: tiny runtime tweaks (safe) ===== -->
-  <script>
-    // Images tuning without changing your HTML attributes
-    window.addEventListener('DOMContentLoaded', () => {
-      const hero = document.querySelector('.ios-hero-media img');
-      if (hero) {
-        hero.setAttribute('fetchpriority', 'high');
-        try { hero.decoding = 'async'; } catch(e) {}
-        try { hero.loading = 'eager'; } catch(e) {}
-      }
-      const logo = document.querySelector('.brand-logo');
-      if (logo) {
-        try { logo.loading = 'lazy'; } catch(e) {}
-        logo.removeAttribute('fetchpriority');
-      }
-    });
-
-    // In perf mode, freeze gradient anchors to avoid heavy repaints
-    (function(){
-      if (!document.documentElement.classList.contains('perf')) return;
-      const root = document.documentElement.style;
-      root.setProperty('--p1x','-10%');
-      root.setProperty('--p2x','110%');
-      root.setProperty('--p3y','120%');
-    })();
-  </script>
-  <!-- ===== END ADD-ONLY ===== -->
 </body>
 </html>
