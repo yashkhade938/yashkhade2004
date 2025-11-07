@@ -25,30 +25,11 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
 
-  <!-- ==== Performance helpers ==== -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="Yash%20Khade.jpeg" imagesizes="(min-width:768px) 50vw, 100vw">
-
-  <!-- Auto perf-mode (mobile/low-RAM/save-data) -->
-  <script>
-    (function () {
-      const saveData = navigator.connection && navigator.connection.saveData;
-      const lowMem = navigator.deviceMemory && navigator.deviceMemory <= 4;
-      const mobile = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent);
-      if (saveData || lowMem || mobile) {
-        document.documentElement.classList.add('perf');
-      }
-    })();
-  </script>
-
-  <!-- Tailwind (config before load to be safe) -->
-  <script>
-    window.tailwind = window.tailwind || {};
-    window.tailwind.config = { darkMode: 'class' };
-  </script>
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
 
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -70,7 +51,7 @@
     "url": "https://your-domain.example",
     "sameAs": [
       "https://github.com/yashkhade938",
-      "https://www.linkedin.com/in/yash-khade-359720361"
+      "https://www.linkedin.com/in/yash-khade-359720-361"
     ]
   }
   </script>
@@ -90,7 +71,7 @@
       --card: 255,255,255;
       --ring: 0,0,0;
 
-      /* gradient anchor points (used for soft scroll drift) */
+      /* NEW: gradient anchor points (used for soft scroll drift) */
       --p1x: -10%; --p1y: -10%;
       --p2x: 110%; --p2y: -20%;
       --p3x: 50%;  --p3y: 120%;
@@ -134,6 +115,7 @@
       background-size: 200% 200%;
       animation: gradientMove 12s ease infinite;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.18);
+      /* participate in smooth theme transitions (progressive enhancement) */
       view-transition-name: hero;
     }
     .dark .gradient-animated{
@@ -148,6 +130,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    /* If scroll-driven animations are supported, softly link hero gradient to scroll */
     @supports (animation-timeline: scroll(root block)) {
       .gradient-animated { animation: none; background-size: 160% 160%; }
       .gradient-animated {
@@ -172,9 +155,10 @@
       background: rgba(var(--bg1), .80);
       box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.06);
     }
+    /* NEW: active section highlight (set via JS) */
     nav a[aria-current="true"]{ color: rgb(var(--tint)); text-underline-offset: 6px; }
 
-    /* Glass card */
+    /* Glass card (extra opacity in dark for readability) */
     .ios-card {
       position: relative; border-radius: 1rem;
       backdrop-filter: saturate(140%) blur(14px);
@@ -236,7 +220,7 @@
       box-shadow: 0 0 0 4px rgba(var(--tint), .20);
     }
 
-    /* Hero media */
+    /* Hero media with gloss sweep (unchanged layout) */
     .ios-hero-media{
       border-radius: 1.25rem; position: relative; overflow: hidden;
       background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14));
@@ -246,12 +230,9 @@
         0 1px 0 rgba(255,255,255,.25) inset,
         0 0 0 1px rgba(0,0,0,.08),
         0 30px 60px -30px rgba(0,0,0,.45);
+      /* NEW: prep for tilt + anchor positioning (no layout change) */
       transform-style: preserve-3d;
       anchor-name: --hero;
-
-      /* GPU hint */
-      will-change: transform;
-      backface-visibility: hidden;
     }
     .dark .ios-hero-media{
       background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
@@ -277,9 +258,9 @@
     .dark .ios-meter-track { background: rgba(255,255,255,.18); }
     .ios-meter-fill { height: 100%; border-radius: 9999px; }
 
-    /* BRAND LOGO chip */
+    /* BRAND LOGO: glossy glass chip + soft ring */
     .brand-chip{
-      position: absolute;
+      position: absolute; /* fallback stays same placement */
       right: .75rem; bottom: .75rem;
       display: inline-flex; align-items: center; gap: .45rem;
       padding: .35rem .5rem; border-radius: 12px;
@@ -324,6 +305,7 @@
         drop-shadow(0 0 1px rgba(255,255,255,.35))
         drop-shadow(0 12px 18px rgba(0,0,0,.65));
     }
+    /* NEW: Use CSS Anchor Positioning when available (no markup changes) */
     @supports (anchor-name: --x) and (position-anchor: --x) {
       .brand-chip{
         position-anchor: --hero;
@@ -336,26 +318,9 @@
     /* Crisp text */
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-    /* --------- ✨ PERFORMANCE EXTRAS ✨ --------- */
-
-    /* Render offscreen sections later */
-    main > section { content-visibility: auto; contain-intrinsic-size: 1px 900px; }
-
-    /* PERF MODE: tone down heavy effects */
-    html.perf .ios-bg{
-      background: linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
-    }
-    html.perf .gradient-animated{ animation: none !important; background-size: 120% 120%; }
-    html.perf .ios-hero-media::before{ display: none !important; }
-    html.perf .ios-hero-media{ box-shadow: 0 10px 24px -14px rgba(0,0,0,.35); }
-    html.perf .ios-nav,
-    html.perf .ios-card,
-    html.perf .brand-chip{
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-    }
-    @media (prefers-reduced-motion: no-preference){
-      html.perf * { transition: none !important; }
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .gradient-animated, .ios-hero-media::before { animation: none !important; }
     }
   </style>
 </head>
@@ -421,8 +386,7 @@
           <div class="relative">
             <img src="Yash%20Khade.jpeg" alt="Yash Khade"
                  class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
-                 width="800" height="800"
-                 decoding="async" fetchpriority="high" loading="eager" />
+                 width="800" height="800" />
             <!-- Logo overlay (glossy brand chip) -->
             <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer"
                class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip"
@@ -433,7 +397,7 @@
                 alt="WeShineTech logo"
                 class="brand-logo"
                 width="180" height="44"
-                loading="lazy" />
+                loading="eager" fetchpriority="high" />
             </a>
           </div>
         </div>
@@ -451,7 +415,7 @@
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- ⭐️ MERGED SKILLS (all items + advanced networking/Excel) -->
     <section id="skills" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Technical Skills</span></h2>
 
@@ -459,11 +423,16 @@
         <!-- Left: Skills list -->
         <div class="ios-card p-6">
           <ul class="grid grid-cols-2 gap-3 text-base">
+            <!-- Ops / PM -->
             <li>Project Management</li>
             <li>Project Cost &amp; Budget Analysis / Adjustment</li>
+
+            <!-- Networking -->
             <li>IP Addressing &amp; Subnetting</li>
             <li>DHCP/DNS Basics</li>
             <li>Remote Support (AnyDesk/TeamViewer)</li>
+
+            <!-- Reporting / Tools -->
             <li>Excel Advanced (Pivot, XLOOKUP, Power Query)</li>
             <li>Customer Support (Email)</li>
             <li>Editing (Docs/Media)</li>
@@ -477,6 +446,7 @@
         <div class="ios-card p-6">
           <h3 class="font-medium mb-4">Focus Areas</h3>
           <div class="space-y-4">
+            <!-- PM & Coordination -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Project Management &amp; Coordination</span><span>80%</span>
@@ -485,6 +455,8 @@
                 <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
               </div>
             </div>
+
+            <!-- Cost & Budget -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Cost &amp; Budget Analysis</span><span>75%</span>
@@ -493,6 +465,8 @@
                 <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
               </div>
             </div>
+
+            <!-- IP & Subnetting -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>IP Addressing &amp; Subnetting</span><span>80%</span>
@@ -501,6 +475,8 @@
                 <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
               </div>
             </div>
+
+            <!-- DHCP/DNS -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>DHCP/DNS Basics</span><span>75%</span>
@@ -509,6 +485,8 @@
                 <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
               </div>
             </div>
+
+            <!-- Remote Support -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Remote Support (AnyDesk/TeamViewer)</span><span>80%</span>
@@ -517,6 +495,8 @@
                 <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-pink-300"></div>
               </div>
             </div>
+
+            <!-- Excel Advanced -->
             <div>
               <div class="flex justify-between text-sm">
                 <span>Excel Advanced (Pivot/XLOOKUP/Power Query)</span><span>85%</span>
@@ -530,10 +510,11 @@
       </div>
     </section>
 
-    <!-- Experience -->
+    <!-- ⭐️ UPDATED EXPERIENCE (4 roles in order; current marked) -->
     <section id="experience" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Experience</span></h2>
       <ol class="relative">
+        <!-- 1: D.R. Consultancy -->
         <li class="mb-8 ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">1</div>
           <div class="ios-card p-6">
@@ -546,6 +527,8 @@
             </ul>
           </div>
         </li>
+
+        <!-- 2: Eureka Outsourcing Solutions -->
         <li class="mb-8 ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">2</div>
           <div class="ios-card p-6">
@@ -558,6 +541,8 @@
             </ul>
           </div>
         </li>
+
+        <!-- 3: WeShine Tech Pvt Ltd — Freelancer -->
         <li class="mb-8 ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">3</div>
           <div class="ios-card p-6">
@@ -570,6 +555,8 @@
             </ul>
           </div>
         </li>
+
+        <!-- 4: WeShine Tech Pvt Ltd — Operations Executive (Current) -->
         <li class="ms-6">
           <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">4</div>
           <div class="ios-card p-6">
@@ -606,6 +593,7 @@
     </section>
 
     <!-- Projects -->
+    <!-- Project Management (OES) -->
 <section id="projects" class="py-12" data-aos="fade-up">
   <div class="flex items-end justify-between mb-6">
     <h2 class="ios-h2"><span class="ios-dot"></span><span>Project Management — Online Examination System (OES)</span></h2>
@@ -701,7 +689,7 @@
       </details>
     </article>
 
-    <!-- GSSC -->
+    <!-- GSSC — Goa Staff Selection Commission -->
     <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
       <header class="mb-2 flex items-center justify-between">
         <h3 class="text-lg font-bold">GSSC — Goa Staff Selection Commission</h3>
@@ -725,7 +713,7 @@
       </details>
     </article>
 
-    <!-- GPSC -->
+    <!-- GPSC — Goa Public Service Commission -->
     <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
       <header class="mb-2 flex items-center justify-between">
         <h3 class="text-lg font-bold">GPSC — Goa Public Service Commission</h3>
@@ -749,7 +737,7 @@
       </details>
     </article>
 
-    <!-- GTET -->
+    <!-- GTET — Goa Teacher Eligibility Test -->
     <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
       <header class="mb-2 flex items-center justify-between">
         <h3 class="text-lg font-bold">GTET — Goa Teacher Eligibility Test</h3>
@@ -789,6 +777,7 @@
     })();
   </script>
 </section>
+
 
     <!-- Personal Details -->
     <section class="py-12" data-aos="fade-up">
@@ -844,14 +833,8 @@
   <!-- AOS & App Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script>
-    // Initialize AOS when ready (skip in perf mode or reduced motion)
-    window.addEventListener('load', () => {
-      const perf = document.documentElement.classList.contains('perf');
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!perf && !reduced && window.AOS) {
-        AOS.init({ duration: 700, once: true, offset: 60 });
-      }
-    });
+    // Initialize AOS when ready
+    window.addEventListener('load', () => { AOS.init({ duration: 900, once: true }); });
 
     // Current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -862,7 +845,7 @@
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
     // ----------------------
-    // THEME (smooth View Transition)
+    // THEME (kept same API, added smooth View Transition)
     // ----------------------
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
@@ -904,7 +887,7 @@
     themeToggle?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
 
     // ----------------------
-    // NAV: mark active link on scroll
+    // NAV: mark active link on scroll (no HTML changes)
     // ----------------------
     const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
     const sections = [...document.querySelectorAll('main section[id]')];
@@ -920,7 +903,7 @@
     sections.forEach(s => io.observe(s));
 
     // ----------------------
-    // CONTACT form (mailto:)
+    // CONTACT form: same as before
     // ----------------------
     const sendBtn = document.getElementById('sendBtn');
     if (sendBtn) {
@@ -936,46 +919,23 @@
     }
 
     // ----------------------
-    // Subtle background drift (throttled). Skip in "perf" mode.
+    // Subtle background drift using CSS vars (keeps layout unchanged)
     // ----------------------
-    (function(){
-      if (document.documentElement.classList.contains('perf')) return;
-      let ticking = false;
-      let lastSeg = -1;
-      const step = 32; // update roughly every ~32px scrolled
-
-      function update() {
-        ticking = false;
-        const max = Math.max(1, document.body.scrollHeight - innerHeight);
-        const scrolled = window.scrollY;
-        const seg = (scrolled / step) | 0;
-        if (seg === lastSeg) return;
-        lastSeg = seg;
-        const sc = Math.min(1, scrolled / max);
-        const root = document.documentElement.style;
-        root.setProperty('--p1x', `${-10 + sc * 5}%`);
-        root.setProperty('--p2x', `${110 - sc * 8}%`);
-        root.setProperty('--p3y', `${120 + sc * 5}%`);
-      }
-
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      }, { passive: true });
-    })();
+    document.addEventListener('scroll', () => {
+      const max = Math.max(1, document.body.scrollHeight - innerHeight);
+      const sc = Math.min(1, window.scrollY / max);
+      document.documentElement.style.setProperty('--p1x', `${-10 + sc * 5}%`);
+      document.documentElement.style.setProperty('--p2x', `${110 - sc * 8}%`);
+      document.documentElement.style.setProperty('--p3y', `${120 + sc * 5}%`);
+    }, { passive: true });
 
     // ----------------------
-    // Hero 3D tilt (guarded)
+    // Hero 3D tilt (pointer: fine only; respects reduced motion)
     // ----------------------
-    (function(){
-      const heroMedia = document.querySelector('.ios-hero-media');
-      const canTilt = window.matchMedia('(pointer: fine)').matches &&
-                      !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
-                      !document.documentElement.classList.contains('perf');
-      if (!heroMedia || !canTilt) return;
-      const maxTilt = 6;
+    const heroMedia = document.querySelector('.ios-hero-media');
+    const canTilt = window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroMedia && canTilt) {
+      const maxTilt = 6; // degrees
       heroMedia.addEventListener('pointermove', (e) => {
         const r = heroMedia.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width;
@@ -987,7 +947,7 @@
       heroMedia.addEventListener('pointerleave', () => {
         heroMedia.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
       });
-    })();
+    }
   </script>
 </body>
 </html>
