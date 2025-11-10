@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yashkhade938.github.io/yashkhade2004/sitemap.xml
