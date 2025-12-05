@@ -35,92 +35,107 @@
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- Structured Data (Fixed: Separate Person and FAQ schemas) -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Yash Khade",
-    "jobTitle": "Operations Executive",
-    "url": "https://yashkhade938.github.io/yashkhade2004/",
-    "email": "mailto:yashkhade969@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Thane",
-      "addressRegion": "MH",
-      "addressCountry": "IN"
-    },
-    "sameAs": [
-      "https://github.com/yashkhade938",
-      "https://www.linkedin.com/in/yash-khade-359720361",
-      "https://about.me/yashkhade"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Where can I view the official website of Yash Khade?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can visit the official website of Yash Khade at https://yashkhade938.github.io/yashkhade2004/"
-        }
-      }
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yash Khade",
+  "jobTitle": "Operations Executive",
+  "url": "https://yashkhade938.github.io/yashkhade2004/",
+  "email": "mailto:yashkhade969@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Thane",
+    "addressRegion": "MH",
+    "addressCountry": "IN"
+   "@type":"Question",
+    "name":"Where can I view the official website of Yash Khade?",
+    "acceptedAnswer":{"@type":"Answer","text":"You can visit the official website of Yash Khade at https://yashkhade938.github.io/yashkhade2004/"}
+  },
+  "sameAs": [
+    "https://github.com/yashkhade938",
+    "https://www.linkedin.com/in/yash-khade-359720361",
+    "https://about.me/yashkhade"
+  ]
+}
+</script>
 
-  <!-- Custom Styles (Extracted for better performance) -->
   <style>
-    /* (Same as your original, with minor tweaks for performance) */
+    /* Tell browsers we support both themes */
     :root { color-scheme: light dark; }
-    :root {
+
+    /* Extra CSS variables for subtle background drift */
+    :root{
       --bg1: 255,255,255;
       --fg1: 17,24,39;
-      --tint: 99,102,241;
-      --accentB: 56,189,248;
-      --accentP: 236,72,153;
+      --tint: 99,102,241; /* indigo-500 */
+      --accentB: 56,189,248; /* sky-400 */
+      --accentP: 236,72,153; /* pink-500 */
       --shine: 255,255,255;
       --card: 255,255,255;
       --ring: 0,0,0;
+
+      /* NEW: gradient anchor points (used for soft scroll drift) */
       --p1x: -10%; --p1y: -10%;
       --p2x: 110%; --p2y: -20%;
-      --p3x: 50%; --p3y: 120%;
+      --p3x: 50%;  --p3y: 120%;
     }
-    .dark:root {
-      --bg1: 24,32,58;
-      --fg1: 226,232,240;
-      --tint: 129,140,248;
+    .dark:root{
+      /* lighter, slate-blue ambience (not pitch black) */
+      --bg1: 24,32,58;      /* #18203A */
+      --fg1: 226,232,240;   /* slate-200 */
+      --tint: 129,140,248;  /* indigo-400 */
       --accentB: 56,189,248;
       --accentP: 244,114,182;
       --shine: 255,255,255;
-      --card: 29,41,72;
+      --card: 29,41,72;     /* #1D2948 (lighter cards) */
       --ring: 255,255,255;
     }
-    @media (prefers-reduced-motion: no-preference) {
-      html * { transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease; }
+
+    /* Smooth theme switch (respects reduced motion) */
+    @media (prefers-reduced-motion: no-preference){
+      html * {
+        transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease;
+      }
     }
+
+    /* Ambient wallpaper-style background (now uses CSS vars for soft scroll drift) */
     .ios-bg {
-      background: radial-gradient(1200px 600px at var(--p1x) var(--p1y), rgba(var(--tint), .14), transparent 55%),
-                  radial-gradient(900px 540px at var(--p2x) var(--p2y), rgba(var(--accentP), .12), transparent 60%),
-                  radial-gradient(900px 720px at var(--p3x) var(--p3y), rgba(var(--accentB), .12), transparent 65%),
-                  linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
+      background:
+        radial-gradient(1200px 600px at var(--p1x) var(--p1y), rgba(var(--tint), .14), transparent 55%),
+        radial-gradient(900px 540px  at var(--p2x) var(--p2y), rgba(var(--accentP), .12), transparent 60%),
+        radial-gradient(900px 720px  at var(--p3x) var(--p3y), rgba(var(--accentB), .12), transparent 65%),
+        linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
     }
+
+    /* Hero gradient tuned for both themes */
     .gradient-animated {
       position: relative; overflow: hidden;
-      background: linear-gradient(120deg, rgba(79,70,229,.90), rgba(236,72,153,.86), rgba(56,189,248,.90));
+      background: linear-gradient(120deg,
+        rgba(79,70,229,.90),
+        rgba(236,72,153,.86),
+        rgba(56,189,248,.90)
+      );
       background-size: 200% 200%;
       animation: gradientMove 12s ease infinite;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.18);
+      /* participate in smooth theme transitions (progressive enhancement) */
+      view-transition-name: hero;
     }
-    .dark .gradient-animated {
-      background: linear-gradient(120deg, rgba(99,102,241,.95), rgba(244,114,182,.95), rgba(56,189,248,.95));
+    .dark .gradient-animated{
+      background: linear-gradient(120deg,
+        rgba(99,102,241,.95),
+        rgba(244,114,182,.95),
+        rgba(56,189,248,.95)
+      );
     }
-    @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* If scroll-driven animations are supported, softly link hero gradient to scroll */
     @supports (animation-timeline: scroll(root block)) {
       .gradient-animated { animation: none; background-size: 160% 160%; }
       .gradient-animated {
@@ -128,31 +143,816 @@
         animation-timeline: scroll(root block);
         animation-range: 0 120vh;
       }
-      @keyframes heroScroll { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+      @keyframes heroScroll {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
     }
-    .ios-nav { backdrop-filter: blur(18px) saturate(140%); background: rgba(var(--bg1), .72); box-shadow: 0 1px 0 rgba(255,255,255,.22) inset, 0 0 0 1px rgba(0,0,0,.08); }
-    .dark .ios-nav { background: rgba(var(--bg1), .80); box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.06); }
-    nav a[aria-current="true"] { color: rgb(var(--tint)); text-underline-offset: 6px; }
-    .ios-card { position: relative; border-radius: 1rem; backdrop-filter: saturate(140%) blur(14px); background: linear-gradient(180deg, rgba(var(--card),.60), rgba(var(--card),.42)); box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 0 0 1px rgba(var(--ring), .06), 0 20px 40px -20px rgba(0,0,0,.4); }
-    .dark .ios-card { background: linear-gradient(180deg, rgba(var(--card),.78), rgba(var(--card),.62)); box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 0 0 1px rgba(255,255,255,.06), 0 26px 46px -20px rgba(0,0,0,.58); }
-    .ios-card::after { content:""; position:absolute; inset: -1px; border-radius: inherit; background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%); pointer-events: none; mask: linear-gradient(#000 60%, transparent); }
-    .ios-pill { border-radius: 9999px; background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.60)); box-shadow: 0 1px 0 rgba(255,255,255,.90) inset, 0 0 0 1px rgba(0,0,0,.08), 0 8px 16px -8px rgba(0,0,0,.35); transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease; }
-    .dark .ios-pill { background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.12)); box-shadow: 0 1px 0 rgba(255,255,255,.12) inset, 0 0 0 1px rgba(255,255,255,.08), 0 10px 18px -10px rgba(0,0,0,.65); }
-    .ios-pill:hover { transform: translateY(-1px); }
-    .ios-h2 { display:inline-flex; align-items:center; gap:.6rem; padding:.38rem .9rem; border-radius:9999px; background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52)); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.08); color: rgb(var(--fg1)); }
-    .dark .ios-h2 { background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10)); box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.08); color: rgba(255,255,255,.94); }
-    .ios-dot { width:.55rem; height:.55rem; border-radius:9999px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(var(--tint),.95)); box-shadow: 0 0 0 4px rgba(var(--tint), .20); }
-    .ios-hero-media { border-radius: 1.25rem; position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14)); backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 0 0 1px rgba(0,0,0,.08), 0 30px 60px -30px rgba(0,0,0,.45); transform-style: preserve-3d; anchor-name: --hero; }
-    .dark .ios-hero-media { background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10)); box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 0 0 1px rgba(255,255,255,.06), 0 32px 62px -30px rgba(0,0,0,.65); }
-    .ios-hero-media::before { content:""; position:absolute; inset:-30%; background: conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.14), transparent 25%, rgba(255,255,255,.12) 40%, transparent 60%); transform: rotate(8deg); pointer-events:none; animation: glossSweep 8s linear infinite; }
-    @keyframes glossSweep { 0%{ transform: translateX(-10%) rotate(8deg); } 50%{ transform: translateX(10%) rotate(8deg); } 100%{ transform: translateX(-10%) rotate(8deg); } }
+
+    /* Nav glass (a bit brighter in dark) */
+    .ios-nav {
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      background: rgba(var(--bg1), .72);
+      box-shadow: 0 1px 0 rgba(255,255,255,.22) inset, 0 0 0 1px rgba(0,0,0,.08);
+    }
+    .dark .ios-nav {
+      background: rgba(var(--bg1), .80);
+      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.06);
+    }
+    /* NEW: active section highlight (set via JS) */
+    nav a[aria-current="true"]{ color: rgb(var(--tint)); text-underline-offset: 6px; }
+
+    /* Glass card (extra opacity in dark for readability) */
+    .ios-card {
+      position: relative; border-radius: 1rem;
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      background: linear-gradient(180deg, rgba(var(--card),.60), rgba(var(--card),.42));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.25) inset,
+        0 0 0 1px rgba(var(--ring), .06),
+        0 20px 40px -20px rgba(0,0,0,.4);
+    }
+    .dark .ios-card{
+      background: linear-gradient(180deg, rgba(var(--card),.78), rgba(var(--card),.62));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.08) inset,
+        0 0 0 1px rgba(255,255,255,.06),
+        0 26px 46px -20px rgba(0,0,0,.58);
+    }
+    .ios-card::after{
+      content:""; position:absolute; inset: -1px; border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%);
+      pointer-events: none; mask: linear-gradient(#000 60%, transparent);
+    }
+
+    /* Pills */
+    .ios-pill {
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.60));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.90) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 8px 16px -8px rgba(0,0,0,.35);
+      transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+    }
+    .dark .ios-pill{
+      background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.12));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.12) inset,
+        0 0 0 1px rgba(255,255,255,.08),
+        0 10px 18px -10px rgba(0,0,0,.65);
+    }
+    .ios-pill:hover{ transform: translateY(-1px); }
+
+    /* Section headings */
+    .ios-h2 {
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.38rem .9rem; border-radius:9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52));
+      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.08);
+      color: rgb(var(--fg1));
+    }
+    .dark .ios-h2{
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.08);
+      color: rgba(255,255,255,.94);
+    }
+    .ios-dot{
+      width:.55rem; height:.55rem; border-radius:9999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(var(--tint),.95));
+      box-shadow: 0 0 0 4px rgba(var(--tint), .20);
+    }
+
+    /* Hero media with gloss sweep (unchanged layout) */
+    .ios-hero-media{
+      border-radius: 1.25rem; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14));
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.25) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 30px 60px -30px rgba(0,0,0,.45);
+      /* NEW: prep for tilt + anchor positioning (no layout change) */
+      transform-style: preserve-3d;
+      anchor-name: --hero;
+    }
+    .dark .ios-hero-media{
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.08) inset,
+        0 0 0 1px rgba(255,255,255,.06),
+        0 32px 62px -30px rgba(0,0,0,.65);
+    }
+    .ios-hero-media::before{
+      content:""; position:absolute; inset:-30%;
+      background: conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.14), transparent 25%, rgba(255,255,255,.12) 40%, transparent 60%);
+      transform: rotate(8deg); pointer-events:none;
+      animation: glossSweep 8s linear infinite;
+    }
+    @keyframes glossSweep {
+      0%{ transform: translateX(-10%) rotate(8deg); }
+      50%{ transform: translateX(10%) rotate(8deg); }
+      100%{ transform: translateX(-10%) rotate(8deg); }
+    }
+
+    /* Progress bars (track+fill) */
     .ios-meter-track { height: .5rem; border-radius: 9999px; background: rgba(255,255,255,.55); }
     .dark .ios-meter-track { background: rgba(255,255,255,.18); }
     .ios-meter-fill { height: 100%; border-radius: 9999px; }
-    .brand-chip { position: absolute; right: .75rem; bottom: .75rem; display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .5rem; border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.68)); backdrop-filter: blur(10px) saturate(140%); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.06), 0 10px 18px -10px rgba(0,0,0,.35); transition: transform .15s ease, box-shadow .2s ease, background .2s ease; }
-    .dark .brand-chip { background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10)); box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.08), 0 12px 22px -12px rgba(0,0,0,.7); }
-    .brand-chip::after { content:""; position:absolute; inset:-1px; border-radius: inherit; box-shadow: 0 0 0 6px rgba(var(--tint), .14); pointer-events: none; }
-    .brand-chip:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,.95) inset, 0 0 0 1px rgba(0,0,0,.08), 0 16px 28px -14px rgba(0,0,0,.45); }
-    .brand-logo { height: 2.25rem; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; filter: drop-shadow(0 0 1px rgba(255,255,255,.6)) drop-shadow(0 10px 16px rgba(0,0,0,.25)); }
-    @media (min-width: 768px) { .brand-logo { height: 2.75rem; } }
-    .dark .brand-logo { filter: drop-shadow(0 0
+
+    /* BRAND LOGO: glossy glass chip + soft ring */
+    .brand-chip{
+      position: absolute; /* fallback stays same placement */
+      right: .75rem; bottom: .75rem;
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .35rem .5rem; border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.68));
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.9) inset,
+        0 0 0 1px rgba(0,0,0,.06),
+        0 10px 18px -10px rgba(0,0,0,.35);
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .dark .brand-chip{
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.10) inset,
+        0 0 0 1px rgba(255,255,255,.08),
+        0 12px 22px -12px rgba(0,0,0,.7);
+    }
+    .brand-chip::after{
+      content:""; position:absolute; inset:-1px; border-radius: inherit;
+      box-shadow: 0 0 0 6px rgba(var(--tint), .14);
+      pointer-events: none;
+    }
+    .brand-chip:hover{
+      transform: translateY(-1px);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.95) inset,
+        0 0 0 1px rgba(0,0,0,.08),
+        0 16px 28px -14px rgba(0,0,0,.45);
+    }
+    .brand-logo{
+      height: 2.25rem; width: auto; object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      filter:
+        drop-shadow(0 0 1px rgba(255,255,255,.6))
+        drop-shadow(0 10px 16px rgba(0,0,0,.25));
+    }
+    @media (min-width: 768px){ .brand-logo{ height: 2.75rem; } }
+    .dark .brand-logo{
+      filter:
+        drop-shadow(0 0 1px rgba(255,255,255,.35))
+        drop-shadow(0 12px 18px rgba(0,0,0,.65));
+    }
+    /* NEW: Use CSS Anchor Positioning when available (no markup changes) */
+    @supports (anchor-name: --x) and (position-anchor: --x) {
+      .brand-chip{
+        position-anchor: --hero;
+        top: calc(anchor(--hero bottom) - 3.6rem);
+        left: calc(anchor(--hero right) - 3.6rem);
+        right: auto; bottom: auto;
+      }
+    }
+
+    /* Crisp text */
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .gradient-animated, .ios-hero-media::before { animation: none !important; }
+    }
+  </style>
+</head>
+
+<body class="ios-bg text-gray-800 dark:text-gray-100">
+
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-indigo-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 ios-nav">
+    <nav class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="font-semibold tracking-wide">YK</a>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#about" class="hover:text-indigo-600">About</a>
+          <a href="#skills" class="hover:text-indigo-600">Skills</a>
+          <a href="#experience" class="hover:text-indigo-600">Experience</a>
+          <a href="#education" class="hover:text-indigo-600">Education</a>
+          <a href="#projects" class="hover:text-indigo-600">Projects</a>
+          <a href="#contact" class="hover:text-indigo-600">Contact</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-sm font-medium">
+            <span>Download Resume</span>
+          </a>
+          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 ios-card">
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2">
+        <a href="#about" class="block py-2">About</a>
+        <a href="#skills" class="block py-2">Skills</a>
+        <a href="#experience" class="block py-2">Experience</a>
+        <a href="#education" class="block py-2">Education</a>
+        <a href="#projects" class="block py-2">Projects</a>
+        <a href="#contact" class="block py-2">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="gradient-animated text-white py-16 md:py-24" data-aos="fade-down">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-[0_1px_0_rgba(255,255,255,.25)]">Yash Khade</h1>
+        <p class="mt-4 text-lg md:text-xl text-white/90">Operations Executive • Project Management • Support</p>
+        <p class="mt-6 text-white/90">Currently at <span class="font-semibold">Weshine Tech Pvt Ltd</span>. I help teams run reliably by blending networking know‑how with ops execution and tooling.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#projects" class="ios-pill px-5 py-2.5 font-medium text-gray-900">View Projects</a>
+          <a href="#contact" class="ios-pill px-5 py-2.5 font-medium text-gray-900/80">Contact Me</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Photo with WeShineTech logo overlay -->
+      <div class="relative">
+        <div class="ios-hero-media aspect-[4/3] md:aspect-square flex items-center justify-center">
+          <div class="relative">
+            <img src="Yash%20Khade.jpeg" alt="Yash Khade"
+                 class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
+                 width="800" height="800" />
+            <!-- Logo overlay (glossy brand chip) -->
+            <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer"
+               class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip"
+               aria-label="WeShineTech — official website" title="WeShineTech">
+              <img
+                src="images/weshinetech-logo.png"
+                onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png';"
+                alt="WeShineTech logo"
+                class="brand-logo"
+                width="180" height="44"
+                loading="eager" fetchpriority="high" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="max-w-6xl mx-auto px-4">
+
+    <!-- Objective / About -->
+    <section id="about" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-4"><span class="ios-dot"></span><span>Objective</span></h2>
+      <div class="ios-card p-6">
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">I’m seeking a challenging role in a professionally managed organization where I can grow, apply my networking and operations skills, and contribute to organizational goals.</p>
+      </div>
+    </section>
+
+    <!-- ⭐️ MERGED SKILLS (all items + advanced networking/Excel) -->
+    <section id="skills" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Technical Skills</span></h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Left: Skills list -->
+        <div class="ios-card p-6">
+          <ul class="grid grid-cols-2 gap-3 text-base">
+            <!-- Ops / PM -->
+            <li>Project Management</li>
+            <li>Project Cost &amp; Budget Analysis / Adjustment</li>
+
+            <!-- Networking -->
+            <li>IP Addressing &amp; Subnetting</li>
+            <li>DHCP/DNS Basics</li>
+            <li>Remote Support (AnyDesk/TeamViewer)</li>
+
+            <!-- Reporting / Tools -->
+            <li>Excel Advanced (Pivot, XLOOKUP, Power Query)</li>
+            <li>Customer Support (Email)</li>
+            <li>Editing (Docs/Media)</li>
+            <li>Computer Fundamentals</li>
+            <li>Tally ERP‑9</li>
+            <li>MS‑CIT (Jul 2021)</li>
+          </ul>
+        </div>
+
+        <!-- Right: Focus Areas (progress) -->
+        <div class="ios-card p-6">
+          <h3 class="font-medium mb-4">Focus Areas</h3>
+          <div class="space-y-4">
+            <!-- PM & Coordination -->
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>Project Management &amp; Coordination</span><span>80%</span>
+              </div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
+              </div>
+            </div>
+
+            <!-- Cost & Budget -->
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>Cost &amp; Budget Analysis</span><span>75%</span>
+              </div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
+              </div>
+            </div>
+
+            <!-- IP & Subnetting -->
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>IP Addressing &amp; Subnetting</span><span>80%</span>
+              </div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
+              </div>
+            </div>
+
+            <!-- DHCP/DNS -->
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>DHCP/DNS Basics</span><span>75%</span>
+              </div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
+              </div>
+            </div>
+
+            <!-- Remote Support -->
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>Remote Support (AnyDesk/TeamViewer)</span><span>80%</span>
+              </div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-pink-300"></div>
+              </div>
+            </div>
+
+            <!-- Excel Advanced -->
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>Excel Advanced (Pivot/XLOOKUP/Power Query)</span><span>85%</span>
+              </div>
+              <div class="ios-meter-track">
+                <div class="ios-meter-fill w-[85%] bg-gradient-to-r from-indigo-400 to-sky-300"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⭐️ UPDATED EXPERIENCE (4 roles in order; current marked) -->
+    <section id="experience" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Experience</span></h2>
+      <ol class="relative">
+        <!-- 1: D.R. Consultancy -->
+        <li class="mb-8 ms-6">
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">1</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">D.R. Consultancy</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Payroll Department • 1 year</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>Prepared &amp; verified payroll records for accuracy and timeliness.</li>
+              <li>Coordinated with HR for onboarding/offboarding documentation.</li>
+              <li>Maintained basic compliance and monthly reports.</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 2: Eureka Outsourcing Solutions -->
+        <li class="mb-8 ms-6">
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">2</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">Eureka Outsourcing Solutions</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Customer Care Mail Executive @ Johnson Controls • 1 year</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>Resolved customer queries via email with clear, timely responses.</li>
+              <li>Ticket tracking, escalation, and SLA adherence.</li>
+              <li>Weekly reporting and knowledge base updates.</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 3: WeShine Tech Pvt Ltd — Freelancer -->
+        <li class="mb-8 ms-6">
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">3</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">WeShine Tech Pvt Ltd</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Networking &amp; Exam Server Management • Freelancer • 2 years</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>Configured &amp; monitored basic networks for small teams and labs.</li>
+              <li>Managed exam servers (user access, backups, updates, SOPs).</li>
+              <li>Coordinated on‑site setups and vendor follow‑ups.</li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 4: WeShine Tech Pvt Ltd — Operations Executive (Current) -->
+        <li class="ms-6">
+          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">4</div>
+          <div class="ios-card p-6">
+            <h3 class="text-lg font-semibold">WeShine Tech Pvt Ltd</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Operations Executive • Present</p>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
+              <li>End‑to‑end project coordination: planning, scheduling, stakeholder updates.</li>
+              <li>Project cost &amp; budget analysis with adjustments to meet targets.</li>
+              <li>Resource &amp; vendor coordination; procurement and logistics tracking.</li>
+              <li>Operational reporting in Excel; SOP improvements and SLA tracking.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Education</span></h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="ios-card p-6">
+          <h3 class="font-semibold">B.Com</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Satish Pradhan Dnyanasadhana College, Thane • 2022–2025</p>
+        </div>
+        <div class="ios-card p-6">
+          <h3 class="font-semibold">HSC</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Satish Pradhan Dnyanasadhana, Thane (W) • 60%</p>
+        </div>
+        <div class="ios-card p-6">
+          <h3 class="font-semibold">SSC</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Shishu Vikas Mandir, Thane (E) • 50%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <!-- Project Management (OES) -->
+<section id="projects" class="py-12" data-aos="fade-up">
+  <div class="flex items-end justify-between mb-6">
+    <h2 class="ios-h2"><span class="ios-dot"></span><span>Project Management — Online Examination System (OES)</span></h2>
+
+    <div class="flex items-center gap-3">
+      <label class="inline-flex items-center gap-2 text-sm ios-pill px-3 py-1.5 cursor-pointer">
+        <input id="mineOnly" type="checkbox" class="accent-indigo-600" checked>
+        <span>Show only my work</span>
+      </label>
+      <a href="https://www.weshinetech.in/" target="_blank" rel="noopener" class="ios-pill px-3 py-1.5 text-sm">WeShineTech →</a>
+    </div>
+  </div>
+
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+    Below are <strong>Online Examination System (OES)</strong> projects executed with <strong>WeShineTech Pvt Ltd</strong>, where I handled
+    <strong>coordination, center management, readiness checks, proctoring operations, incident handling, and MIS reporting</strong>.
+    (Note: I was responsible for operations and management, not software development.)
+  </p>
+
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+    <!-- Mumbai University — LLM & PET -->
+    <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+      <header class="mb-2 flex items-center justify-between">
+        <h3 class="text-lg font-bold">Mumbai University — LLM Entrance &amp; PET</h3>
+        <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+      </header>
+      <p class="text-gray-700 dark:text-gray-300">
+        University-level online exams across multiple centers: end-to-end coordination, candidate management, and exam-day reporting.
+      </p>
+      <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+        <li class="ios-pill px-2 py-1">Center Management</li>
+        <li class="ios-pill px-2 py-1">Scheduling</li>
+        <li class="ios-pill px-2 py-1">Proctoring</li>
+        <li class="ios-pill px-2 py-1">MIS</li>
+      </ul>
+      <details class="mt-4">
+        <summary class="ios-pill px-3 py-1.5 text-sm inline-flex items-center cursor-pointer">My Responsibilities</summary>
+        <ul class="list-disc list-inside mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <li>Conducted center readiness checks (network, DHCP/DNS, power backup).</li>
+          <li>Supervised invigilator and IT support staff during operations.</li>
+          <li>Handled candidate support and proctoring escalations.</li>
+          <li>Prepared daily incident logs and final MIS reports.</li>
+        </ul>
+      </details>
+    </article>
+
+    <!-- SGBAU — PET -->
+    <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+      <header class="mb-2 flex items-center justify-between">
+        <h3 class="text-lg font-bold">SGBAU University — Ph.D. Entrance Test (PET)</h3>
+        <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+      </header>
+      <p class="text-gray-700 dark:text-gray-300">
+        Managed full operations for Ph.D. entrance test including center setup, monitoring, and reporting.
+      </p>
+      <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+        <li class="ios-pill px-2 py-1">Coordination</li>
+        <li class="ios-pill px-2 py-1">Proctoring</li>
+        <li class="ios-pill px-2 py-1">SLA</li>
+      </ul>
+      <details class="mt-4">
+        <summary class="ios-pill px-3 py-1.5 text-sm inline-flex items-center cursor-pointer">My Responsibilities</summary>
+        <ul class="list-disc list-inside mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <li>Performed mock runs and final readiness checks at exam centers.</li>
+          <li>Real-time monitoring and issue escalation during live exams.</li>
+          <li>Prepared attendance and compliance reports for MIS.</li>
+        </ul>
+      </details>
+    </article>
+
+    <!-- ITI (Ratan Tata) -->
+    <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+      <header class="mb-2 flex items-center justify-between">
+        <h3 class="text-lg font-bold">ITI (Ratan Tata) — Online Examination Project</h3>
+        <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+      </header>
+      <p class="text-gray-700 dark:text-gray-300">
+        Oversaw technical and operational execution of ITI-based online exams across assigned centers.
+      </p>
+      <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+        <li class="ios-pill px-2 py-1">Lab Readiness</li>
+        <li class="ios-pill px-2 py-1">Systems</li>
+        <li class="ios-pill px-2 py-1">Support</li>
+      </ul>
+      <details class="mt-4">
+        <summary class="ios-pill px-3 py-1.5 text-sm inline-flex items-center cursor-pointer">My Responsibilities</summary>
+        <ul class="list-disc list-inside mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <li>Checked network and server readiness at all centers.</li>
+          <li>Assisted with invigilator setup and candidate management.</li>
+          <li>Maintained reports on incidents, attendance, and system uptime.</li>
+        </ul>
+      </details>
+    </article>
+
+    <!-- GSSC — Goa Staff Selection Commission -->
+    <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+      <header class="mb-2 flex items-center justify-between">
+        <h3 class="text-lg font-bold">GSSC — Goa Staff Selection Commission</h3>
+        <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+      </header>
+      <p class="text-gray-700 dark:text-gray-300">
+        Supported online examination operations including readiness, coordination, and post-exam MIS reporting.
+      </p>
+      <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+        <li class="ios-pill px-2 py-1">Center Coordination</li>
+        <li class="ios-pill px-2 py-1">Proctoring</li>
+        <li class="ios-pill px-2 py-1">Operations</li>
+      </ul>
+      <details class="mt-4">
+        <summary class="ios-pill px-3 py-1.5 text-sm inline-flex items-center cursor-pointer">My Responsibilities</summary>
+        <ul class="list-disc list-inside mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <li>Handled exam scheduling and technical readiness checks.</li>
+          <li>Coordinated with local centers and managed support issues.</li>
+          <li>Compiled daily status reports and final audit MIS.</li>
+        </ul>
+      </details>
+    </article>
+
+    <!-- GPSC — Goa Public Service Commission -->
+    <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+      <header class="mb-2 flex items-center justify-between">
+        <h3 class="text-lg font-bold">GPSC — Goa Public Service Commission</h3>
+        <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+      </header>
+      <p class="text-gray-700 dark:text-gray-300">
+        Managed center operations, candidate verification, proctoring, and reporting for GPSC online examinations.
+      </p>
+      <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+        <li class="ios-pill px-2 py-1">Operations</li>
+        <li class="ios-pill px-2 py-1">Coordination</li>
+        <li class="ios-pill px-2 py-1">MIS</li>
+      </ul>
+      <details class="mt-4">
+        <summary class="ios-pill px-3 py-1.5 text-sm inline-flex items-center cursor-pointer">My Responsibilities</summary>
+        <ul class="list-disc list-inside mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <li>Conducted mock tests and technical validations.</li>
+          <li>Assisted proctoring teams with real-time issue tracking.</li>
+          <li>Generated reports for exam audits and daily dashboards.</li>
+        </ul>
+      </details>
+    </article>
+
+    <!-- GTET — Goa Teacher Eligibility Test -->
+    <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+      <header class="mb-2 flex items-center justify-between">
+        <h3 class="text-lg font-bold">GTET — Goa Teacher Eligibility Test</h3>
+        <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+      </header>
+      <p class="text-gray-700 dark:text-gray-300">
+        Supported GTET exams under OES for planning, center readiness, and end-to-end operations management.
+      </p>
+      <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+        <li class="ios-pill px-2 py-1">Coordination</li>
+        <li class="ios-pill px-2 py-1">Center Readiness</li>
+        <li class="ios-pill px-2 py-1">Reporting</li>
+      </ul>
+      <details class="mt-4">
+        <summary class="ios-pill px-3 py-1.5 text-sm inline-flex items-center cursor-pointer">My Responsibilities</summary>
+        <ul class="list-disc list-inside mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <li>Prepared and monitored all center-level checklists.</li>
+          <li>Supervised on-site execution and proctoring process.</li>
+          <li>Submitted end-of-day compliance and MIS reports.</li>
+        </ul>
+      </details>
+    </article>
+
+  </div>
+
+  <!-- Filter logic -->
+  <script>
+    (function(){
+      const toggle = document.getElementById('mineOnly');
+      if(!toggle) return;
+      const cards = Array.from(document.querySelectorAll('#projects [data-card]'));
+      const render = () => {
+        cards.forEach(c => c.style.display = (!toggle.checked || c.dataset.mine === "true") ? "" : "none");
+      };
+      toggle.addEventListener('change', render);
+      render();
+    })();
+  </script>
+</section>
+
+
+    <!-- Personal Details -->
+    <section class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Personal Details</span></h2>
+      <div class="ios-card p-6">
+        <ul class="grid md:grid-cols-2 gap-y-2 text-base">
+          <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
+          <li><strong>Marital Status:</strong> Single</li>
+          <li><strong>Gender:</strong> Male</li>
+          <li><strong>Languages:</strong> English, Marathi, Hindi</li>
+          <li class="md:col-span-2"><strong>Address:</strong> Sainath Nagar, Rajlaxmi Chawl, Opp. Kopri Bus Stop, Thane East</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Contact</span></h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="ios-card p-6">
+          <ul class="space-y-2 text-lg">
+            <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">yashkhade969@gmail.com</a></li>
+            <li>📱 Mobile: <a href="tel:+919082234689" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">(+91) 9082234689</a></li>
+            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">github.com/yashkhade938</a></li>
+            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">linkedin.com/in/yash-khade</a></li>
+          </ul>
+        </div>
+        <form id="contactForm" class="ios-card p-6 space-y-4" onsubmit="return false;">
+          <div>
+            <label for="name" class="block text-sm mb-1">Name</label>
+            <input id="name" name="name" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm mb-1">Email</label>
+            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500"></textarea>
+          </div>
+          <button id="sendBtn" type="button" class="ios-pill w-full py-2.5 font-medium">Send</button>
+          <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400" data-aos="fade-up">
+    <p>© <span id="year"></span> Yash Khade. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS & App Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script>
+    // Initialize AOS when ready
+    window.addEventListener('load', () => { AOS.init({ duration: 900, once: true }); });
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // ----------------------
+    // THEME (kept same API, added smooth View Transition)
+    // ----------------------
+    const themeToggle = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+
+    function updateThemeMeta(dark){
+      const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+      const darkMeta  = document.querySelector('meta[name="theme-color"][media*="dark"]');
+      if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
+      if (darkMeta)  darkMeta.setAttribute('content', '#18203A');
+    }
+
+    function applyTheme(dark){
+      const root = document.documentElement;
+      if (dark) {
+        root.classList.add('dark');
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        root.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      updateThemeMeta(dark);
+    }
+
+    function setTheme(dark){
+      if (typeof document.startViewTransition === 'function') {
+        document.startViewTransition(() => applyTheme(dark));
+      } else { applyTheme(dark); }
+    }
+
+    // Load saved theme or system preference (no transition on first paint)
+    const saved = localStorage.getItem('theme');
+    if (saved) applyTheme(saved === 'dark');
+    else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    themeToggle?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+    // ----------------------
+    // NAV: mark active link on scroll (no HTML changes)
+    // ----------------------
+    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+
+    function markActive(id){
+      navLinks.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === `#${id}` ? 'true' : 'false'));
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) markActive(e.target.id);
+    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.5 });
+
+    sections.forEach(s => io.observe(s));
+
+    // ----------------------
+    // CONTACT form: same as before
+    // ----------------------
+    const sendBtn = document.getElementById('sendBtn');
+    if (sendBtn) {
+      sendBtn.addEventListener('click', () => {
+        const name = document.getElementById('name')?.value?.trim() || 'Visitor';
+        const email = document.getElementById('email')?.value?.trim() || '';
+        const message = document.getElementById('message')?.value?.trim() || '';
+        const subject = `New portfolio message from ${name}`;
+        const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+        const mailto = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = mailto;
+      });
+    }
+
+    // ----------------------
+    // Subtle background drift using CSS vars (keeps layout unchanged)
+    // ----------------------
+    document.addEventListener('scroll', () => {
+      const max = Math.max(1, document.body.scrollHeight - innerHeight);
+      const sc = Math.min(1, window.scrollY / max);
+      document.documentElement.style.setProperty('--p1x', `${-10 + sc * 5}%`);
+      document.documentElement.style.setProperty('--p2x', `${110 - sc * 8}%`);
+      document.documentElement.style.setProperty('--p3y', `${120 + sc * 5}%`);
+    }, { passive: true });
+
+    // ----------------------
+    // Hero 3D tilt (pointer: fine only; respects reduced motion)
+    // ----------------------
+    const heroMedia = document.querySelector('.ios-hero-media');
+    const canTilt = window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroMedia && canTilt) {
+      const maxTilt = 6; // degrees
+      heroMedia.addEventListener('pointermove', (e) => {
+        const r = heroMedia.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rx = (0.5 - y) * (maxTilt * 2);
+        const ry = (x - 0.5) * (maxTilt * 2);
+        heroMedia.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      heroMedia.addEventListener('pointerleave', () => {
+        heroMedia.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>
