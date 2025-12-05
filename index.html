@@ -18,11 +18,11 @@
   <meta property="og:image" content="https://yashkhade938.github.io/yashkhade2004/images/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Canonical & Icons (relative path works better on GitHub Pages) -->
+  <!-- Canonical & Icons -->
   <link rel="canonical" href="https://yashkhade938.github.io/yashkhade2004/" />
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Mobile browser chrome colors (auto for system theme) -->
+  <!-- Mobile browser chrome colors -->
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
 
@@ -339,6 +339,33 @@
     @media (min-width: 768px){
       .contact-bar { display: none; }
     }
+
+    /* Resume sheet visual style */
+    .resume-sheet {
+      background: rgba(255,255,255,.95);
+      color: #111827;
+    }
+    .dark .resume-sheet {
+      background: rgba(17,24,39,.96);
+      color: #E5E7EB;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+      }
+      header, .contact-bar, .gradient-animated, footer {
+        display: none !important;
+      }
+      #resume {
+        padding-top: 0 !important;
+      }
+      .resume-sheet {
+        box-shadow: none !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+    }
   </style>
 </head>
 
@@ -359,6 +386,7 @@
           <a href="#about" class="hover:text-indigo-600">About</a>
           <a href="#skills" class="hover:text-indigo-600">Skills</a>
           <a href="#experience" class="hover:text-indigo-600">Experience</a>
+          <a href="#resume" class="hover:text-indigo-600">Resume</a><!-- NEW -->
           <a href="#education" class="hover:text-indigo-600">Education</a>
           <a href="#projects" class="hover:text-indigo-600">Projects</a>
           <a href="#contact" class="hover:text-indigo-600">Contact</a>
@@ -380,6 +408,7 @@
         <a href="#about" class="block py-2">About</a>
         <a href="#skills" class="block py-2">Skills</a>
         <a href="#experience" class="block py-2">Experience</a>
+        <a href="#resume" class="block py-2">Resume</a><!-- NEW -->
         <a href="#education" class="block py-2">Education</a>
         <a href="#projects" class="block py-2">Projects</a>
         <a href="#contact" class="block py-2">Contact</a>
@@ -404,7 +433,7 @@
           by combining networking fundamentals, center management, and clean MIS reporting.
         </p>
 
-        <!-- NEW: stats row -->
+        <!-- Stats -->
         <dl class="mt-6 grid grid-cols-3 gap-4 text-sm md:text-base">
           <div class="ios-card px-4 py-3 text-center bg-white/10">
             <dt class="text-xs uppercase tracking-wide text-white/70">Total Experience</dt>
@@ -422,10 +451,10 @@
 
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="#projects" class="ios-pill px-5 py-2.5 font-semibold text-gray-900 text-sm">View OES Projects</a>
+          <a href="#resume" class="ios-pill px-5 py-2.5 font-semibold text-gray-900 text-sm">View Resume</a><!-- NEW -->
           <a href="#contact" class="ios-pill px-5 py-2.5 font-medium text-gray-900/80 text-sm">Contact Me</a>
         </div>
 
-        <!-- quick links -->
         <div class="mt-4 flex flex-wrap gap-3 text-xs text-white/80">
           <a href="https://github.com/yashkhade938" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">GitHub</a>
           <span>•</span>
@@ -433,7 +462,7 @@
         </div>
       </div>
 
-      <!-- RIGHT: Photo with WeShineTech logo overlay -->
+      <!-- Hero photo -->
       <div class="relative">
         <div class="ios-hero-media aspect-[4/3] md:aspect-square flex items-center justify-center">
           <div class="relative">
@@ -476,7 +505,6 @@
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Technical Skills</span></h2>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- Left: Skills list -->
         <div class="ios-card p-6">
           <h3 class="font-semibold mb-3 text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Core Skills</h3>
           <ul class="grid grid-cols-2 gap-3 text-base">
@@ -494,7 +522,6 @@
           </ul>
         </div>
 
-        <!-- Right: Focus Areas (progress) -->
         <div class="ios-card p-6">
           <h3 class="font-medium mb-4">Focus Areas</h3>
           <div class="space-y-4">
@@ -610,7 +637,191 @@
       </ol>
     </section>
 
-    <!-- Education -->
+    <!-- 🔥 NEW: One-page Resume Section -->
+    <section id="resume" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Resume (Online View)</span></h2>
+
+      <div class="ios-card resume-sheet max-w-5xl mx-auto p-6 md:p-8">
+        <!-- Top: Name + Title + Location -->
+        <header class="border-b border-gray-200/70 dark:border-gray-700/70 pb-4 mb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Yash Khade</h1>
+            <p class="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1">
+              Operations Executive &nbsp;•&nbsp; Online Examination Systems (OES) &nbsp;•&nbsp; Project Coordination
+            </p>
+          </div>
+          <div class="text-xs md:text-sm text-gray-600 dark:text-gray-300 md:text-right">
+            <p>Thane / Pune, Maharashtra</p>
+            <p>Open to Operations &amp; OES roles</p>
+          </div>
+        </header>
+
+        <!-- Contact row -->
+        <div class="grid md:grid-cols-3 gap-4 text-xs md:text-sm mb-6">
+          <div class="space-y-1">
+            <p><strong>Email:</strong> <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/70">yashkhade969@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919082234689" class="underline decoration-indigo-300/70">(+91) 9082234689</a></p>
+          </div>
+          <div class="space-y-1">
+            <p><strong>GitHub:</strong> <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/70">github.com/yashkhade938</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/70">linkedin.com/in/yash-khade</a></p>
+          </div>
+          <div class="space-y-1">
+            <p><strong>Address:</strong></p>
+            <p>Sainath Nagar, Rajlaxmi Chawl,<br/>Opp. Kopri Bus Stop, Thane East</p>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <section class="mb-6">
+          <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Professional Summary</h3>
+          <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-200">
+            Operations Executive with over 4 years of experience across payroll, customer support, and Online Examination System (OES) operations.
+            Hands-on exposure to university and government examinations, handling center readiness, scheduling, proctoring support,
+            and MIS reporting. Skilled in networking fundamentals (IP, DHCP/DNS, remote tools), cost and budget tracking, and
+            advanced Excel. I enjoy working closely with centers, vendors, and internal teams to keep operations stable, compliant,
+            and on schedule.
+          </p>
+        </section>
+
+        <!-- Two columns: Experience + Skills/Education -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Left: Experience (takes 2 columns on desktop) -->
+          <div class="md:col-span-2 space-y-4">
+            <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-1">Experience</h3>
+
+            <!-- WeShine Ops Executive -->
+            <article>
+              <div class="flex justify-between gap-2 text-sm">
+                <div>
+                  <h4 class="font-semibold">Operations Executive</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs">WeShine Tech Pvt Ltd</p>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">2023 – Present</p>
+              </div>
+              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
+                <li>Coordinated end-to-end OES projects (planning, scheduling, center allocation, stakeholder updates).</li>
+                <li>Performed center readiness checks including network, systems, and power backup validations.</li>
+                <li>Tracked project cost and basic budget deviations, aligning with internal targets.</li>
+                <li>Prepared daily operation reports, incident logs, and final MIS for audits.</li>
+              </ul>
+            </article>
+
+            <!-- WeShine Freelancer -->
+            <article>
+              <div class="flex justify-between gap-2 text-sm">
+                <div>
+                  <h4 class="font-semibold">Networking &amp; Exam Server Management (Freelancer)</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs">WeShine Tech Pvt Ltd</p>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">2021 – 2023</p>
+              </div>
+              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
+                <li>Configured and monitored basic networks for exam labs and small office setups.</li>
+                <li>Managed exam servers including user creation, backups, and patch updates.</li>
+                <li>Supported on-ground teams during live exams with troubleshooting and coordination.</li>
+              </ul>
+            </article>
+
+            <!-- Eureka -->
+            <article>
+              <div class="flex justify-between gap-2 text-sm">
+                <div>
+                  <h4 class="font-semibold">Customer Care Mail Executive</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs">Eureka Outsourcing Solutions (Johnson Controls)</p>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">1 year</p>
+              </div>
+              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
+                <li>Handled customer queries via email with clear and timely responses.</li>
+                <li>Maintained ticket logs, escalations, and SLA-based closure tracking.</li>
+                <li>Contributed to weekly reports and knowledge base updates.</li>
+              </ul>
+            </article>
+
+            <!-- DR Consultancy -->
+            <article>
+              <div class="flex justify-between gap-2 text-sm">
+                <div>
+                  <h4 class="font-semibold">Payroll Assistant</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs">D.R. Consultancy</p>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">1 year</p>
+              </div>
+              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
+                <li>Prepared and verified payroll records for a variety of employees.</li>
+                <li>Coordinated with HR for joining, exit, and documentation support.</li>
+                <li>Maintained monthly payroll and compliance reports.</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- Right: Skills + Education + Extras -->
+          <div class="space-y-5">
+            <!-- Skills block -->
+            <section>
+              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Key Skills</h3>
+              <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 space-y-1">
+                <li>Project &amp; Operations Management (OES)</li>
+                <li>Center Readiness &amp; Coordination</li>
+                <li>IP Addressing, Subnetting, DHCP/DNS Basics</li>
+                <li>Remote Support (AnyDesk, TeamViewer)</li>
+                <li>Advanced Excel (Pivot, XLOOKUP, Power Query)</li>
+                <li>Customer Support (Email/Ticketing)</li>
+              </ul>
+            </section>
+
+            <!-- Tools -->
+            <section>
+              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Tools &amp; Tech</h3>
+              <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 flex flex-wrap gap-1.5">
+                <li class="ios-pill px-2 py-1">MS Excel</li>
+                <li class="ios-pill px-2 py-1">MS Word</li>
+                <li class="ios-pill px-2 py-1">AnyDesk</li>
+                <li class="ios-pill px-2 py-1">TeamViewer</li>
+                <li class="ios-pill px-2 py-1">Tally ERP-9</li>
+                <li class="ios-pill px-2 py-1">Email Tools</li>
+              </ul>
+            </section>
+
+            <!-- Education -->
+            <section>
+              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Education</h3>
+              <div class="space-y-3 text-xs md:text-sm text-gray-700 dark:text-gray-200">
+                <div>
+                  <p class="font-semibold">B.Com</p>
+                  <p>Satish Pradhan Dnyanasadhana College, Thane</p>
+                  <p class="text-gray-500 dark:text-gray-400 text-xs">2022 – 2025</p>
+                </div>
+                <div>
+                  <p class="font-semibold">HSC</p>
+                  <p>Satish Pradhan Dnyanasadhana, Thane (W)</p>
+                  <p class="text-gray-500 dark:text-gray-400 text-xs">60%</p>
+                </div>
+                <div>
+                  <p class="font-semibold">SSC</p>
+                  <p>Shishu Vikas Mandir, Thane (E)</p>
+                  <p class="text-gray-500 dark:text-gray-400 text-xs">50%</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Personal -->
+            <section>
+              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Personal</h3>
+              <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 space-y-1">
+                <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
+                <li><strong>Gender:</strong> Male</li>
+                <li><strong>Marital Status:</strong> Single</li>
+                <li><strong>Languages:</strong> English, Marathi, Hindi</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education (original card view) -->
     <section id="education" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Education</span></h2>
       <div class="grid md:grid-cols-2 gap-6">
@@ -629,7 +840,7 @@
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects (same as before) -->
     <section id="projects" class="py-12" data-aos="fade-up">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6">
         <h2 class="ios-h2"><span class="ios-dot"></span><span>Project Management — Online Examination System (OES)</span></h2>
