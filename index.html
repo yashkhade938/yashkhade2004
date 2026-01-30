@@ -327,6 +327,22 @@
     @media (prefers-reduced-motion: reduce){
       .gradient-animated, .ios-hero-media::before { animation: none !important; }
     }
+    /* Company logo always on top */
+.brand-chip{
+  z-index: 30;
+  pointer-events: auto;
+}
+
+/* Main hero image layer */
+.ios-hero-media img{
+  position: relative;
+  z-index: 2;
+}
+
+/* Glass shine overlay goes behind logo */
+.ios-hero-media::before{
+  z-index: 1;
+}
 
     /* Floating contact bar (mobile) */
     .contact-bar {
