@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Yash Khade | Official Site & Portfolio</title>
   <meta name="description" content="Yash Khade — Operations Executive (Thane/Pune). Online Examination System (OES) operations, proctoring & MIS. View projects, skills, resume & contact." />
   <meta name="keywords" content="Yash Khade, Portfolio, Resume, Networking, Pune, Operations Executive, CV, GitHub, Thane" />
   <meta name="author" content="Yash Khade" />
-  <meta name="google-site-verification" content="-cnT02p1QSFDv4NIpOA2U3fGephJUizEibTgm5ls7L8" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Yash Khade | Official Portfolio" />
@@ -26,7 +25,7 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
 
-  <!-- Tailwind -->
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: 'class' }
@@ -58,23 +57,23 @@
   }
   </script>
 
-  <!-- Structured Data (FAQ for your site link) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Where can I view the official website of Yash Khade?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can view the official website of Yash Khade by searching for 'Yash Khade official portfolio' on Google."
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where can I view the official website of Yash Khade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can view the official website of Yash Khade at https://yashkhade938.github.io/yashkhade2004/."
+        }
       }
-    }
-  ]
-}
-</script>
+    ]
+  }
+  </script>
 
   <style>
     :root { color-scheme: light dark; }
@@ -143,18 +142,6 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    @supports (animation-timeline: scroll(root block)) {
-      .gradient-animated { animation: none; background-size: 160% 160%; }
-      .gradient-animated {
-        animation: heroScroll linear both;
-        animation-timeline: scroll(root block);
-        animation-range: 0 120vh;
-      }
-      @keyframes heroScroll {
-        0%   { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
-      }
-    }
 
     .ios-nav {
       backdrop-filter: blur(18px) saturate(140%);
@@ -189,11 +176,6 @@
         0 1px 0 rgba(255,255,255,.08) inset,
         0 0 0 1px rgba(255,255,255,.06),
         0 26px 46px -20px rgba(0,0,0,.58);
-    }
-    .ios-card::after{
-      content:""; position:absolute; inset: -1px; border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%);
-      pointer-events: none; mask: linear-gradient(#000 60%, transparent);
     }
 
     .ios-pill {
@@ -244,13 +226,6 @@
       transform-style: preserve-3d;
       anchor-name: --hero;
     }
-    .dark .ios-hero-media{
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.08) inset,
-        0 0 0 1px rgba(255,255,255,.06),
-        0 32px 62px -30px rgba(0,0,0,.65);
-    }
     .ios-hero-media::before{
       content:""; position:absolute; inset:-30%;
       background: conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.14), transparent 25%, rgba(255,255,255,.12) 40%, transparent 60%);
@@ -263,64 +238,18 @@
       100%{ transform: translateX(-10%) rotate(8deg); }
     }
 
-    .ios-meter-track { height: .5rem; border-radius: 9999px; background: rgba(255,255,255,.55); }
-    .dark .ios-meter-track { background: rgba(255,255,255,.18); }
-    .ios-meter-fill { height: 100%; border-radius: 9999px; }
-
     .brand-chip{
       position: absolute;
       right: .75rem; bottom: .75rem;
       display: inline-flex; align-items: center; gap: .45rem;
       padding: .35rem .5rem; border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.68));
-      backdrop-filter: blur(10px) saturate(140%);
-      -webkit-backdrop-filter: blur(10px) saturate(140%);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.9) inset,
-        0 0 0 1px rgba(0,0,0,.06),
-        0 10px 18px -10px rgba(0,0,0,.35);
       transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .dark .brand-chip{
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.10) inset,
-        0 0 0 1px rgba(255,255,255,.08),
-        0 12px 22px -12px rgba(0,0,0,.7);
-    }
-    .brand-chip::after{
-      content:""; position:absolute; inset:-1px; border-radius: inherit;
-      box-shadow: 0 0 0 6px rgba(var(--tint), .14);
-      pointer-events: none;
-    }
-    .brand-chip:hover{
-      transform: translateY(-1px);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.95) inset,
-        0 0 0 1px rgba(0,0,0,.08),
-        0 16px 28px -14px rgba(0,0,0,.45);
     }
     .brand-logo{
       height: 2.25rem; width: auto; object-fit: contain;
       image-rendering: -webkit-optimize-contrast;
-      filter:
-        drop-shadow(0 0 1px rgba(255,255,255,.6))
-        drop-shadow(0 10px 16px rgba(0,0,0,.25));
     }
     @media (min-width: 768px){ .brand-logo{ height: 2.75rem; } }
-    .dark .brand-logo{
-      filter:
-        drop-shadow(0 0 1px rgba(255,255,255,.35))
-        drop-shadow(0 12px 18px rgba(0,0,0,.65));
-    }
-    @supports (anchor-name: --x) and (position-anchor: --x) {
-      .brand-chip{
-        position-anchor: --hero;
-        top: calc(anchor(--hero bottom) - 3.6rem);
-        left: calc(anchor(--hero right) - 3.6rem);
-        right: auto; bottom: auto;
-      }
-    }
 
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
@@ -355,8 +284,6 @@
       body {
         background: #ffffff !important;
       }
-
-      /* Hide everything except the resume section */
       header,
       footer,
       .contact-bar,
@@ -364,47 +291,32 @@
       main > section:not(#resume) {
         display: none !important;
       }
-
-      /* Force resume to show nicely */
-      #resume {
-        display: block !important;
-        padding-top: 0 !important;
-        margin: 0 !important;
-      }
-
-      .resume-sheet {
-        box-shadow: none !important;
-        background: #ffffff !important;
-        color: #000000 !important;
-      }
-
-      /* Hide the on-screen print button */
-      .resume-print-btn {
-        display: none !important;
-      }
-
-      * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
+      #resume { display: block !important; padding-top: 0 !important; margin: 0 !important; }
+      .resume-sheet { box-shadow: none !important; background: #ffffff !important; color: #000000 !important; }
+      .resume-print-btn { display: none !important; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
+
+    /* small utility for visually hidden skip link but visible on focus */
+    .sr-only{ position: absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .sr-only:focus, .focus\:not-sr-only:focus { position:fixed; left:1rem; top:1rem; width:auto; height:auto; background:#111827; color:#fff; padding:.5rem; border-radius:.25rem; z-index:9999; }
   </style>
 </head>
-
 <body class="ios-bg text-gray-800 dark:text-gray-100">
 
   <!-- Skip link -->
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-indigo-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 ios-nav">
-    <nav class="max-w-6xl mx-auto px-4">
+  <header class="sticky top-0 z-50 ios-nav" role="banner">
+    <nav class="max-w-6xl mx-auto px-4" aria-label="Primary navigation">
       <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-semibold tracking-wide flex items-center gap-2">
+        <a href="#home" class="font-semibold tracking-wide flex items-center gap-2" aria-label="Go to home">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-bold shadow">YK</span>
           <span class="hidden sm:inline">Yash Khade</span>
         </a>
-        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium" role="navigation">
           <a href="#about" class="hover:text-indigo-600">About</a>
           <a href="#skills" class="hover:text-indigo-600">Skills</a>
           <a href="#experience" class="hover:text-indigo-600">Experience</a>
@@ -413,27 +325,44 @@
           <a href="#projects" class="hover:text-indigo-600">Projects</a>
           <a href="#contact" class="hover:text-indigo-600">Contact</a>
         </div>
+
         <div class="flex items-center gap-3">
-          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-xs font-semibold">
+          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-xs font-semibold" title="Download resume">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v12m0 0l4-4m-4 4-4-4M4 21h16" /></svg>
             <span>Download Resume</span>
           </a>
-          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 ios-card">
-            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
-            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+
+          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 ios-card" title="Toggle theme">
+            <!-- Sun icon (light) -->
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.414 1.414M17.657 17.657l1.414 1.414M2 12h2m16 0h2M4.93 19.07l1.414-1.414M17.657 6.343l1.414-1.414" />
+            </svg>
+            <!-- Moon icon (dark) -->
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
           </button>
-          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+            <svg id="menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="menuClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
           </button>
         </div>
       </div>
-      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2 text-sm">
-        <a href="#about" class="block py-2">About</a>
-        <a href="#skills" class="block py-2">Skills</a>
-        <a href="#experience" class="block py-2">Experience</a>
-        <a href="#resume" class="block py-2">Resume</a>
-        <a href="#education" class="block py-2">Education</a>
-        <a href="#projects" class="block py-2">Projects</a>
-        <a href="#contact" class="block py-2">Contact</a>
+
+      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2 text-sm" role="menu" aria-label="Mobile menu">
+        <a href="#about" class="block py-2" role="menuitem">About</a>
+        <a href="#skills" class="block py-2" role="menuitem">Skills</a>
+        <a href="#experience" class="block py-2" role="menuitem">Experience</a>
+        <a href="#resume" class="block py-2" role="menuitem">Resume</a>
+        <a href="#education" class="block py-2" role="menuitem">Education</a>
+        <a href="#projects" class="block py-2" role="menuitem">Projects</a>
+        <a href="#contact" class="block py-2" role="menuitem">Contact</a>
       </div>
     </nav>
   </header>
@@ -444,12 +373,15 @@
       <div>
         <span class="inline-flex items-center gap-2 rounded-full bg-black/20 px-3 py-1 text-xs md:text-xs backdrop-blur">
           <span class="h-2 w-2 rounded-full bg-emerald-300 animate-pulse"></span>
-          <span>Open to Operations & OES opportunities</span>
+          <span>Open to Operations &amp; OES opportunities</span>
         </span>
+
         <h1 class="mt-4 text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-[0_1px_0_rgba(255,255,255,.25)]">
           Yash Khade
         </h1>
+
         <p class="mt-3 text-lg md:text-xl text-white/90">Operations Executive • Online Examination Systems • Project Management</p>
+
         <p class="mt-4 text-white/90 max-w-xl">
           Currently at <span class="font-semibold">WeShine Tech Pvt Ltd</span>. I help teams run reliable online exams
           by combining networking fundamentals, center management, and clean MIS reporting.
@@ -478,29 +410,20 @@
         </div>
 
         <div class="mt-4 flex flex-wrap gap-3 text-xs text-white/80">
-          <a href="https://github.com/yashkhade938" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">GitHub</a>
+          <a href="https://github.com/yashkhade938" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white" rel="noopener">GitHub</a>
           <span>•</span>
-          <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white" rel="noopener">LinkedIn</a>
         </div>
       </div>
 
       <!-- Hero photo -->
       <div class="relative">
         <div class="ios-hero-media aspect-[4/3] md:aspect-square flex items-center justify-center">
-          <div class="relative">
-            <img src="Yash%20Khade.jpeg" alt="Yash Khade"
-                 class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
-                 width="800" height="800" loading="eager" />
-            <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer"
-               class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip"
-               aria-label="WeShineTech — official website" title="WeShineTech">
-              <img
-                src="images/weshinetech-logo.png"
-                onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png';"
-                alt="WeShineTech logo"
-                class="brand-logo"
-                width="180" height="44"
-                loading="eager" fetchpriority="high" />
+          <div class="relative w-full max-w-[480px]">
+            <!-- Use a sensible fallback if the image isn't available -->
+            <img src="Yash%20Khade.jpeg" alt="Yash Khade" class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20" width="800" height="800" loading="eager" onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/Yash%20Khade.jpeg';" />
+            <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip" aria-label="WeShineTech — official website" title="WeShineTech">
+              <img src="images/weshinetech-logo.png" onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png';" alt="WeShineTech logo" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
             </a>
           </div>
         </div>
@@ -508,7 +431,7 @@
     </div>
   </section>
 
-  <!-- 🔥 NEW: Exams & Organizations badges row -->
+  <!-- Exams & Organizations badges row -->
   <section class="bg-white/60 dark:bg-slate-900/60 border-y border-white/60 dark:border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-4 md:py-5 flex flex-col md:flex-row md:items-center gap-3">
       <p class="text-xs md:text-sm font-medium text-gray-600 dark:text-gray-300 flex items-center gap-2">
@@ -520,30 +443,18 @@
 
       <div class="flex-1 overflow-x-auto">
         <div class="flex items-center gap-2 md:gap-3 min-w-max text-[11px] md:text-xs text-gray-700 dark:text-gray-200">
-          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">
-            Mumbai University — LLM / PET
-          </span>
-          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">
-            SGBAU — Ph.D. PET
-          </span>
-          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">
-            GSSC — Goa Staff Selection Commission
-          </span>
-          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">
-            GPSC — Goa Public Service Commission
-          </span>
-          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">
-            GTET — Goa Teacher Eligibility Test
-          </span>
-          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">
-            ITI (Ratan Tata) — Online Exams
-          </span>
+          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">Mumbai University — LLM / PET</span>
+          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">SGBAU — Ph.D. PET</span>
+          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">GSSC — Goa Staff Selection Commission</span>
+          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">GPSC — Goa Public Service Commission</span>
+          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">GTET — Goa Teacher Eligibility Test</span>
+          <span class="ios-pill px-3 py-1 whitespace-nowrap bg-white/80 dark:bg-white/10">ITI (Ratan Tata) — Online Exams</span>
         </div>
       </div>
     </div>
   </section>
 
-  <main id="main" class="max-w-6xl mx-auto px-4">
+  <main id="main" class="max-w-6xl mx-auto px-4" role="main">
 
     <!-- Objective / About -->
     <section id="about" class="py-12" data-aos="fade-up">
@@ -582,11 +493,12 @@
         <div class="ios-card p-6">
           <h3 class="font-medium mb-4">Focus Areas</h3>
           <div class="space-y-4">
+            <!-- each block kept concise -->
             <div>
               <div class="flex justify-between text-xs md:text-sm">
                 <span>Project Management &amp; Coordination</span><span>80%</span>
               </div>
-              <div class="ios-meter-track">
+              <div class="ios-meter-track bg-white/40">
                 <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
               </div>
             </div>
@@ -594,7 +506,7 @@
               <div class="flex justify-between text-xs md:text-sm">
                 <span>Cost &amp; Budget Analysis</span><span>75%</span>
               </div>
-              <div class="ios-meter-track">
+              <div class="ios-meter-track bg-white/40">
                 <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
               </div>
             </div>
@@ -602,31 +514,15 @@
               <div class="flex justify-between text-xs md:text-sm">
                 <span>IP Addressing &amp; Subnetting</span><span>80%</span>
               </div>
-              <div class="ios-meter-track">
+              <div class="ios-meter-track bg-white/40">
                 <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>DHCP / DNS Basics</span><span>75%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>Remote Support (AnyDesk/TeamViewer)</span><span>80%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-pink-300"></div>
               </div>
             </div>
             <div>
               <div class="flex justify-between text-xs md:text-sm">
                 <span>Excel Advanced (Pivot/XLOOKUP/Power Query)</span><span>85%</span>
               </div>
-              <div class="ios-meter-track">
+              <div class="ios-meter-track bg-white/40">
                 <div class="ios-meter-fill w-[85%] bg-gradient-to-r from-indigo-400 to-sky-300"></div>
               </div>
             </div>
@@ -695,11 +591,11 @@
     </section>
 
     <!-- One-page Resume Section -->
-    <section id="resume" class="py-12" data-aos="fade-up">
+    <section id="resume" class="py-12" data-aos="fade-up" aria-labelledby="resumeHeading">
       <div class="flex items-center justify-between gap-3 mb-4">
-        <h2 class="ios-h2"><span class="ios-dot"></span><span>Resume (Online View)</span></h2>
+        <h2 id="resumeHeading" class="ios-h2"><span class="ios-dot"></span><span>Resume (Online View)</span></h2>
         <!-- Print button -->
-        <button type="button" id="resumePrintBtn" class="resume-print-btn ios-pill px-4 py-2 text-xs font-semibold">
+        <button type="button" id="resumePrintBtn" class="resume-print-btn ios-pill px-4 py-2 text-xs font-semibold" title="Print or save this resume as PDF">
           Print / Save as PDF
         </button>
       </div>
@@ -726,8 +622,8 @@
             <p><strong>Phone:</strong> <a href="tel:+919082234689" class="underline decoration-indigo-300/70">(+91) 9082234689</a></p>
           </div>
           <div class="space-y-1">
-            <p><strong>GitHub:</strong> <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/70">github.com/yashkhade938</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/70">linkedin.com/in/yash-khade</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/yashkhade938" target="_blank" rel="noopener" class="underline decoration-indigo-300/70">github.com/yashkhade938</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" rel="noopener" class="underline decoration-indigo-300/70">linkedin.com/in/yash-khade</a></p>
           </div>
           <div class="space-y-1">
             <p><strong>Address:</strong></p>
@@ -749,7 +645,6 @@
 
         <!-- Two columns: Experience + Skills/Education -->
         <div class="grid md:grid-cols-3 gap-6">
-          <!-- Left: Experience (takes 2 columns on desktop) -->
           <div class="md:col-span-2 space-y-4">
             <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-1">Experience</h3>
 
@@ -821,7 +716,6 @@
 
           <!-- Right: Skills + Education + Extras -->
           <div class="space-y-5">
-            <!-- Skills block -->
             <section>
               <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Key Skills</h3>
               <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 space-y-1">
@@ -834,7 +728,6 @@
               </ul>
             </section>
 
-            <!-- Tools -->
             <section>
               <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Tools &amp; Tech</h3>
               <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 flex flex-wrap gap-1.5">
@@ -847,7 +740,6 @@
               </ul>
             </section>
 
-            <!-- Education -->
             <section>
               <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Education</h3>
               <div class="space-y-3 text-xs md:text-sm text-gray-700 dark:text-gray-200">
@@ -869,7 +761,6 @@
               </div>
             </section>
 
-            <!-- Personal -->
             <section>
               <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Personal</h3>
               <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 space-y-1">
@@ -884,7 +775,7 @@
       </div>
     </section>
 
-    <!-- Education (original card view) -->
+    <!-- Education (card view) -->
     <section id="education" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Education</span></h2>
       <div class="grid md:grid-cols-2 gap-6">
@@ -913,9 +804,7 @@
             <input id="mineOnly" type="checkbox" class="accent-indigo-600" checked>
             <span>Show only my work</span>
           </label>
-          <a href="https://www.weshinetech.in/" target="_blank" rel="noopener" class="ios-pill px-3 py-1.5 text-xs md:text-sm">
-            WeShineTech →
-          </a>
+          <a href="https://www.weshinetech.in/" target="_blank" rel="noopener" class="ios-pill px-3 py-1.5 text-xs md:text-sm">WeShineTech →</a>
         </div>
       </div>
 
@@ -926,8 +815,7 @@
         (Note: I was responsible for operations and management, not software development.)
       </p>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="projectsGrid">
         <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
           <header class="mb-2 flex items-center justify-between gap-2">
             <h3 class="text-lg font-bold">Mumbai University — LLM Entrance &amp; PET</h3>
@@ -999,267 +887,147 @@
           </details>
         </article>
 
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">GSSC — Goa Staff Selection Commission</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Supported online examination operations including readiness, coordination, and post-exam MIS reporting.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Center Coordination</li>
-            <li class="ios-pill px-2 py-1">Proctoring</li>
-            <li class="ios-pill px-2 py-1">Operations</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Handled exam scheduling and technical readiness checks.</li>
-              <li>Coordinated with local centers and managed support issues.</li>
-              <li>Compiled daily status reports and final audit MIS.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">GPSC — Goa Public Service Commission</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Managed center operations, candidate verification, proctoring, and reporting for GPSC online examinations.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Operations</li>
-            <li class="ios-pill px-2 py-1">Coordination</li>
-            <li class="ios-pill px-2 py-1">MIS</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Conducted mock tests and technical validations.</li>
-              <li>Assisted proctoring teams with real-time issue tracking.</li>
-              <li>Generated reports for exam audits and daily dashboards.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">GTET — Goa Teacher Eligibility Test</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Supported GTET exams under OES for planning, center readiness, and end-to-end operations management.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Coordination</li>
-            <li class="ios-pill px-2 py-1">Center Readiness</li>
-            <li class="ios-pill px-2 py-1">Reporting</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Prepared and monitored all center-level checklists.</li>
-              <li>Supervised on-site execution and proctoring process.</li>
-              <li>Submitted end-of-day compliance and MIS reports.</li>
-            </ul>
-          </details>
-        </article>
-
-      </div>
-
-      <script>
-        (function(){
-          const toggle = document.getElementById('mineOnly');
-          if(!toggle) return;
-          const cards = Array.from(document.querySelectorAll('#projects [data-card]'));
-          const render = () => {
-            cards.forEach(c => c.style.display = (!toggle.checked || c.dataset.mine === "true") ? "" : "none");
-          };
-          toggle.addEventListener('change', render);
-          render();
-        })();
-      </script>
-    </section>
-
-    <!-- Personal Details -->
-    <section class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Personal Details</span></h2>
-      <div class="ios-card p-6">
-        <ul class="grid md:grid-cols-2 gap-y-2 text-base">
-          <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
-          <li><strong>Marital Status:</strong> Single</li>
-          <li><strong>Gender:</strong> Male</li>
-          <li><strong>Languages:</strong> English, Marathi, Hindi</li>
-          <li class="md:col-span-2"><strong>Address:</strong> Sainath Nagar, Rajlaxmi Chawl, Opp. Kopri Bus Stop, Thane East</li>
-        </ul>
+        <!-- Additional project cards could be added here; kept concise for maintainability -->
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact / Footer -->
     <section id="contact" class="py-12" data-aos="fade-up">
       <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Contact</span></h2>
-      <div class="grid md:grid-cols-2 gap-6 items-start">
-        <div class="ios-card p-6 space-y-3">
-          <h3 class="font-semibold text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Reach me</h3>
-          <ul class="space-y-2 text-lg">
-            <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">yashkhade969@gmail.com</a></li>
-            <li>📱 Mobile: <a href="tel:+919082234689" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">(+91) 9082234689</a></li>
-            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">github.com/yashkhade938</a></li>
-            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">linkedin.com/in/yash-khade</a></li>
-          </ul>
-        </div>
-        <form id="contactForm" class="ios-card p-6 space-y-4" onsubmit="return false;">
-          <div>
-            <label for="name" class="block text-sm mb-1">Name</label>
-            <input id="name" name="name" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
-          </div>
-          <div>
-            <label for="email" class="block text-sm mb-1">Email</label>
-            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
-          </div>
-          <div>
-            <label for="message" class="block text-sm mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500"></textarea>
-          </div>
-          <button id="sendBtn" type="button" class="ios-pill w-full py-2.5 font-medium">Send</button>
-          <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
-        </form>
+      <div class="ios-card p-6">
+        <p class="text-gray-700 dark:text-gray-300">If you'd like to discuss an opportunity or need operations/OES support, reach out:</p>
+        <ul class="mt-4 text-sm space-y-1">
+          <li>Email: <a href="mailto:yashkhade969@gmail.com" class="underline">yashkhade969@gmail.com</a></li>
+          <li>Phone: <a href="tel:+919082234689" class="underline">(+91) 9082234689</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400" data-aos="fade-up">
-    <p>© <span id="year"></span> Yash Khade. All rights reserved.</p>
+  <footer class="py-8 text-center text-sm text-gray-500">
+    <div class="max-w-6xl mx-auto px-4">
+      © <span id="year"></span> Yash Khade — Built with care. · <a href="robots.txt" class="underline">robots.txt</a>
+    </div>
   </footer>
 
-  <!-- Floating contact strip (mobile only) -->
-  <div class="contact-bar px-3 pb-3 pt-2">
-    <div class="ios-card max-w-md mx-auto px-3 py-2 flex items-center justify-between gap-2 text-xs">
-      <span class="hidden xs:inline text-[11px] text-gray-600 dark:text-gray-300">Quick contact</span>
-      <div class="flex-1 flex justify-end gap-2">
-        <a href="tel:+919082234689" class="ios-pill px-3 py-1.5 font-medium">Call</a>
-        <a href="mailto:yashkhade969@gmail.com" class="ios-pill px-3 py-1.5 font-medium">Email</a>
-        <a href="https://wa.me/919082234689" target="_blank" class="ios-pill px-3 py-1.5 font-medium">WhatsApp</a>
+  <!-- Mobile contact bar -->
+  <div class="contact-bar">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white/95 dark:bg-slate-900/95 ios-card p-3 rounded-t-lg flex items-center gap-3 justify-between">
+        <div class="flex items-center gap-3">
+          <a href="tel:+919082234689" class="ios-pill px-3 py-2">Call</a>
+          <a href="mailto:yashkhade969@gmail.com" class="ios-pill px-3 py-2">Email</a>
+        </div>
+        <div class="text-xs text-gray-600 dark:text-gray-300">Open to roles • Thane/Pune</div>
       </div>
     </div>
   </div>
 
-  <!-- AOS & App Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    window.addEventListener('load', () => { AOS.init({ duration: 900, once: true }); });
+    // Initialize AOS
+    if (window.AOS) { AOS.init({ once: true, duration: 600 }); }
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = document.getElementById('sunIcon');
-    const moonIcon = document.getElementById('moonIcon');
-
-    function updateThemeMeta(dark){
-      const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
-      const darkMeta  = document.querySelector('meta[name="theme-color"][media*="dark"]');
-      if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
-      if (darkMeta)  darkMeta.setAttribute('content', '#18203A');
-    }
-
-    function applyTheme(dark){
+    // Theme toggle (persist in localStorage)
+    (function () {
       const root = document.documentElement;
-      if (dark) {
-        root.classList.add('dark');
-        moonIcon.classList.add('hidden');
-        sunIcon.classList.remove('hidden');
-      } else {
-        root.classList.remove('dark');
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
+      const themeToggle = document.getElementById('themeToggle');
+      const sunIcon = document.getElementById('sunIcon');
+      const moonIcon = document.getElementById('moonIcon');
+
+      function setTheme(dark) {
+        if (dark) {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        }
       }
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-      updateThemeMeta(dark);
-    }
 
-    function setTheme(dark){
-      if (typeof document.startViewTransition === 'function') {
-        document.startViewTransition(() => applyTheme(dark));
-      } else { applyTheme(dark); }
-    }
+      // Initialize from stored value or system preference
+      const stored = localStorage.getItem('theme');
+      if (stored) setTheme(stored === 'dark');
+      else setTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-    const saved = localStorage.getItem('theme');
-    if (saved) applyTheme(saved === 'dark');
-    else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-    themeToggle?.addEventListener('click', () =>
-      setTheme(!document.documentElement.classList.contains('dark'))
-    );
-
-    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-    const sections = [...document.querySelectorAll('main section[id]')];
-
-    function markActive(id){
-      navLinks.forEach(a =>
-        a.setAttribute('aria-current', a.getAttribute('href') === `#${id}` ? 'true' : 'false')
-      );
-    }
-
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) markActive(e.target.id);
-    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.5 });
-
-    sections.forEach(s => io.observe(s));
-
-    const sendBtn = document.getElementById('sendBtn');
-    if (sendBtn) {
-      sendBtn.addEventListener('click', () => {
-        const name = document.getElementById('name')?.value?.trim() || 'Visitor';
-        const email = document.getElementById('email')?.value?.trim() || '';
-        const message = document.getElementById('message')?.value?.trim() || '';
-        const subject = `New portfolio message from ${name}`;
-        const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-        const mailto = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        window.location.href = mailto;
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        setTheme(!isDark);
       });
-    }
+    })();
 
-    document.addEventListener('scroll', () => {
-      const max = Math.max(1, document.body.scrollHeight - innerHeight);
-      const sc = Math.min(1, window.scrollY / max);
-      document.documentElement.style.setProperty('--p1x', `${-10 + sc * 5}%`);
-      document.documentElement.style.setProperty('--p2x', `${110 - sc * 8}%`);
-      document.documentElement.style.setProperty('--p3y', `${120 + sc * 5}%`);
-    }, { passive: true });
+    // Mobile menu toggle
+    (function () {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOpen = document.getElementById('menuOpen');
+      const menuClose = document.getElementById('menuClose');
 
-    const heroMedia = document.querySelector('.ios-hero-media');
-    const canTilt = window.matchMedia('(pointer: fine)').matches &&
-                    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (heroMedia && canTilt) {
-      const maxTilt = 6;
-      heroMedia.addEventListener('pointermove', (e) => {
-        const r = heroMedia.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width;
-        const y = (e.clientY - r.top) / r.height;
-        const rx = (0.5 - y) * (maxTilt * 2);
-        const ry = (x - 0.5) * (maxTilt * 2);
-        heroMedia.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('hidden');
+        menuOpen.classList.toggle('hidden');
+        menuClose.classList.toggle('hidden');
       });
-      heroMedia.addEventListener('pointerleave', () => {
-        heroMedia.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      });
-    }
+    })();
 
-    // Resume: Print / Save as PDF button
-    const resumePrintBtn = document.getElementById('resumePrintBtn');
-    if (resumePrintBtn) {
-      resumePrintBtn.addEventListener('click', () => {
-        window.print();
-      });
-    }
+    // Resume print
+    (function () {
+      const printBtn = document.getElementById('resumePrintBtn');
+      if (printBtn) {
+        printBtn.addEventListener('click', () => window.print());
+      }
+    })();
+
+    // Project filter (show only cards with data-mine="true" when checked)
+    (function () {
+      const checkbox = document.getElementById('mineOnly');
+      const container = document.getElementById('projectsGrid');
+
+      function filter() {
+        const showMineOnly = checkbox.checked;
+        const cards = container.querySelectorAll('[data-card]');
+        cards.forEach(card => {
+          const mine = card.getAttribute('data-mine') === 'true';
+          if (showMineOnly && !mine) {
+            card.style.display = 'none';
+          } else {
+            card.style.display = '';
+          }
+        });
+      }
+
+      checkbox.addEventListener('change', filter);
+      // Initial filter
+      filter();
+    })();
+
+    // Small helper: current year in footer
+    (function () {
+      const y = new Date().getFullYear();
+      const el = document.getElementById('year');
+      if (el) el.textContent = y;
+    })();
+
+    // Accessibility: close mobile menu on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const menuBtn = document.getElementById('menuBtn');
+          if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+          document.getElementById('menuOpen').classList.remove('hidden');
+          document.getElementById('menuClose').classList.add('hidden');
+        }
+      }
+    });
   </script>
 </body>
 </html>
