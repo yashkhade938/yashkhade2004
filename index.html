@@ -7,7 +7,6 @@
   <meta name="description" content="Yash Khade — Operations Executive (Thane/Pune). Online Examination System (OES) operations, proctoring & MIS. View projects, skills, resume & contact." />
   <meta name="keywords" content="Yash Khade, Portfolio, Resume, Networking, Pune, Operations Executive, CV, GitHub, Thane" />
   <meta name="author" content="Yash Khade" />
-  <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="-cnT02p1QSFDv4NIpOA2U3fGephJUizEibTgm5ls7L8" />
 
   <!-- Open Graph / Twitter -->
@@ -27,11 +26,9 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
 
-  <!-- Tailwind (keeps original approach) -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // tailwind config (defer-safe: will be read once tailwind loads)
-    tailwind = window.tailwind || {};
     tailwind.config = { darkMode: 'class' }
   </script>
 
@@ -400,10 +397,10 @@
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-indigo-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 ios-nav" role="banner">
-    <nav class="max-w-6xl mx-auto px-4" role="navigation" aria-label="Main navigation">
+  <header class="sticky top-0 z-50 ios-nav">
+    <nav class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-semibold tracking-wide flex items-center gap-2" aria-label="Home — Yash Khade">
+        <a href="#home" class="font-semibold tracking-wide flex items-center gap-2">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-bold shadow">YK</span>
           <span class="hidden sm:inline">Yash Khade</span>
         </a>
@@ -420,35 +417,16 @@
           <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-xs font-semibold">
             <span>Download Resume</span>
           </a>
-
-          <!-- Theme toggle -->
-          <button id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" class="inline-flex items-center justify-center w-10 h-10 ios-card" title="Toggle theme">
-            <!-- Sun (light) -->
-            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-            </svg>
-            <!-- Moon (dark) -->
-            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
+          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 ios-card">
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-
-          <!-- Mobile menu button -->
-          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu" aria-expanded="false">
-            <!-- Hamburger -->
-            <svg id="menuHamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            <!-- Close -->
-            <svg id="menuClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
       </div>
-
-      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2 text-sm" aria-hidden="true">
+      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2 text-sm">
         <a href="#about" class="block py-2">About</a>
         <a href="#skills" class="block py-2">Skills</a>
         <a href="#experience" class="block py-2">Experience</a>
@@ -500,9 +478,9 @@
         </div>
 
         <div class="mt-4 flex flex-wrap gap-3 text-xs text-white/80">
-          <a href="https://github.com/yashkhade938" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">GitHub</a>
+          <a href="https://github.com/yashkhade938" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">GitHub</a>
           <span>•</span>
-          <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">LinkedIn</a>
         </div>
       </div>
 
@@ -510,7 +488,7 @@
       <div class="relative">
         <div class="ios-hero-media aspect-[4/3] md:aspect-square flex items-center justify-center">
           <div class="relative">
-            <img src="Yash%20Khade.jpeg" alt="Portrait photo of Yash Khade"
+            <img src="Yash%20Khade.jpeg" alt="Yash Khade"
                  class="rounded-2xl w-full h-auto object-cover shadow-lg ring-1 ring-white/20"
                  width="800" height="800" loading="eager" />
             <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer"
@@ -748,8 +726,8 @@
             <p><strong>Phone:</strong> <a href="tel:+919082234689" class="underline decoration-indigo-300/70">(+91) 9082234689</a></p>
           </div>
           <div class="space-y-1">
-            <p><strong>GitHub:</strong> <a href="https://github.com/yashkhade938" target="_blank" rel="noopener noreferrer" class="underline decoration-indigo-300/70">github.com/yashkhade938</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" rel="noopener noreferrer" class="underline decoration-indigo-300/70">linkedin.com/in/yash-khade</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/70">github.com/yashkhade938</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/70">linkedin.com/in/yash-khade</a></p>
           </div>
           <div class="space-y-1">
             <p><strong>Address:</strong></p>
@@ -932,10 +910,10 @@
 
         <div class="flex items-center gap-3">
           <label class="inline-flex items-center gap-2 text-xs md:text-sm ios-pill px-3 py-1.5 cursor-pointer">
-            <input id="mineOnly" type="checkbox" class="accent-indigo-600" checked aria-label="Show only my work">
+            <input id="mineOnly" type="checkbox" class="accent-indigo-600" checked>
             <span>Show only my work</span>
           </label>
-          <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer" class="ios-pill px-3 py-1.5 text-xs md:text-sm">
+          <a href="https://www.weshinetech.in/" target="_blank" rel="noopener" class="ios-pill px-3 py-1.5 text-xs md:text-sm">
             WeShineTech →
           </a>
         </div>
@@ -948,7 +926,8 @@
         (Note: I was responsible for operations and management, not software development.)
       </p>
 
-      <div id="projectsGrid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
         <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
           <header class="mb-2 flex items-center justify-between gap-2">
             <h3 class="text-lg font-bold">Mumbai University — LLM Entrance &amp; PET</h3>
@@ -1020,134 +999,267 @@
           </details>
         </article>
 
-        <!-- Additional project placeholders — keep structure for more items -->
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="false">
+        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
           <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">Other OES Project — Example</h3>
+            <h3 class="text-lg font-bold">GSSC — Goa Staff Selection Commission</h3>
             <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
           </header>
           <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Example project which may not be directly mine — included for completeness.
+            Supported online examination operations including readiness, coordination, and post-exam MIS reporting.
+          </p>
+          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+            <li class="ios-pill px-2 py-1">Center Coordination</li>
+            <li class="ios-pill px-2 py-1">Proctoring</li>
+            <li class="ios-pill px-2 py-1">Operations</li>
+          </ul>
+          <details class="mt-4 text-sm">
+            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
+              <li>Handled exam scheduling and technical readiness checks.</li>
+              <li>Coordinated with local centers and managed support issues.</li>
+              <li>Compiled daily status reports and final audit MIS.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+          <header class="mb-2 flex items-center justify-between gap-2">
+            <h3 class="text-lg font-bold">GPSC — Goa Public Service Commission</h3>
+            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+          </header>
+          <p class="text-gray-700 dark:text-gray-300 text-sm">
+            Managed center operations, candidate verification, proctoring, and reporting for GPSC online examinations.
+          </p>
+          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
+            <li class="ios-pill px-2 py-1">Operations</li>
+            <li class="ios-pill px-2 py-1">Coordination</li>
+            <li class="ios-pill px-2 py-1">MIS</li>
+          </ul>
+          <details class="mt-4 text-sm">
+            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
+              <li>Conducted mock tests and technical validations.</li>
+              <li>Assisted proctoring teams with real-time issue tracking.</li>
+              <li>Generated reports for exam audits and daily dashboards.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
+          <header class="mb-2 flex items-center justify-between gap-2">
+            <h3 class="text-lg font-bold">GTET — Goa Teacher Eligibility Test</h3>
+            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
+          </header>
+          <p class="text-gray-700 dark:text-gray-300 text-sm">
+            Supported GTET exams under OES for planning, center readiness, and end-to-end operations management.
           </p>
           <ul class="flex flex-wrap gap-2 mt-3 text-xs">
             <li class="ios-pill px-2 py-1">Coordination</li>
+            <li class="ios-pill px-2 py-1">Center Readiness</li>
             <li class="ios-pill px-2 py-1">Reporting</li>
           </ul>
+          <details class="mt-4 text-sm">
+            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
+            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
+              <li>Prepared and monitored all center-level checklists.</li>
+              <li>Supervised on-site execution and proctoring process.</li>
+              <li>Submitted end-of-day compliance and MIS reports.</li>
+            </ul>
+          </details>
         </article>
 
       </div>
+
+      <script>
+        (function(){
+          const toggle = document.getElementById('mineOnly');
+          if(!toggle) return;
+          const cards = Array.from(document.querySelectorAll('#projects [data-card]'));
+          const render = () => {
+            cards.forEach(c => c.style.display = (!toggle.checked || c.dataset.mine === "true") ? "" : "none");
+          };
+          toggle.addEventListener('change', render);
+          render();
+        })();
+      </script>
     </section>
 
-    <!-- (continue with contact/footer sections if present in your original file) -->
+    <!-- Personal Details -->
+    <section class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Personal Details</span></h2>
+      <div class="ios-card p-6">
+        <ul class="grid md:grid-cols-2 gap-y-2 text-base">
+          <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
+          <li><strong>Marital Status:</strong> Single</li>
+          <li><strong>Gender:</strong> Male</li>
+          <li><strong>Languages:</strong> English, Marathi, Hindi</li>
+          <li class="md:col-span-2"><strong>Address:</strong> Sainath Nagar, Rajlaxmi Chawl, Opp. Kopri Bus Stop, Thane East</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12" data-aos="fade-up">
+      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Contact</span></h2>
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <div class="ios-card p-6 space-y-3">
+          <h3 class="font-semibold text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Reach me</h3>
+          <ul class="space-y-2 text-lg">
+            <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">yashkhade969@gmail.com</a></li>
+            <li>📱 Mobile: <a href="tel:+919082234689" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">(+91) 9082234689</a></li>
+            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">github.com/yashkhade938</a></li>
+            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">linkedin.com/in/yash-khade</a></li>
+          </ul>
+        </div>
+        <form id="contactForm" class="ios-card p-6 space-y-4" onsubmit="return false;">
+          <div>
+            <label for="name" class="block text-sm mb-1">Name</label>
+            <input id="name" name="name" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm mb-1">Email</label>
+            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500"></textarea>
+          </div>
+          <button id="sendBtn" type="button" class="ios-pill w-full py-2.5 font-medium">Send</button>
+          <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- AOS and behavior scripts (deferred) -->
-  <script defer>
-    (function () {
-      // Theme handling
+  <!-- Footer -->
+  <footer class="mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400" data-aos="fade-up">
+    <p>© <span id="year"></span> Yash Khade. All rights reserved.</p>
+  </footer>
+
+  <!-- Floating contact strip (mobile only) -->
+  <div class="contact-bar px-3 pb-3 pt-2">
+    <div class="ios-card max-w-md mx-auto px-3 py-2 flex items-center justify-between gap-2 text-xs">
+      <span class="hidden xs:inline text-[11px] text-gray-600 dark:text-gray-300">Quick contact</span>
+      <div class="flex-1 flex justify-end gap-2">
+        <a href="tel:+919082234689" class="ios-pill px-3 py-1.5 font-medium">Call</a>
+        <a href="mailto:yashkhade969@gmail.com" class="ios-pill px-3 py-1.5 font-medium">Email</a>
+        <a href="https://wa.me/919082234689" target="_blank" class="ios-pill px-3 py-1.5 font-medium">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AOS & App Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script>
+    window.addEventListener('load', () => { AOS.init({ duration: 900, once: true }); });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const themeToggle = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+
+    function updateThemeMeta(dark){
+      const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+      const darkMeta  = document.querySelector('meta[name="theme-color"][media*="dark"]');
+      if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
+      if (darkMeta)  darkMeta.setAttribute('content', '#18203A');
+    }
+
+    function applyTheme(dark){
       const root = document.documentElement;
-      const themeToggle = document.getElementById('themeToggle');
-      const sunIcon = document.getElementById('sunIcon');
-      const moonIcon = document.getElementById('moonIcon');
-
-      function applyTheme(theme) {
-        if (theme === 'dark') {
-          root.classList.add('dark');
-          sunIcon.classList.remove('hidden');
-          moonIcon.classList.add('hidden');
-          themeToggle.setAttribute('aria-pressed', 'true');
-        } else {
-          root.classList.remove('dark');
-          sunIcon.classList.add('hidden');
-          moonIcon.classList.remove('hidden');
-          themeToggle.setAttribute('aria-pressed', 'false');
-        }
+      if (dark) {
+        root.classList.add('dark');
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        root.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
       }
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      updateThemeMeta(dark);
+    }
 
-      function getPreferredTheme() {
-        const stored = localStorage.getItem('site-theme');
-        if (stored === 'dark' || stored === 'light') return stored;
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
-        return 'light';
-      }
+    function setTheme(dark){
+      if (typeof document.startViewTransition === 'function') {
+        document.startViewTransition(() => applyTheme(dark));
+      } else { applyTheme(dark); }
+    }
 
-      applyTheme(getPreferredTheme());
+    const saved = localStorage.getItem('theme');
+    if (saved) applyTheme(saved === 'dark');
+    else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-      themeToggle.addEventListener('click', function () {
-        const isDark = root.classList.contains('dark');
-        const next = isDark ? 'light' : 'dark';
-        localStorage.setItem('site-theme', next);
-        applyTheme(next);
+    themeToggle?.addEventListener('click', () =>
+      setTheme(!document.documentElement.classList.contains('dark'))
+    );
+
+    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+
+    function markActive(id){
+      navLinks.forEach(a =>
+        a.setAttribute('aria-current', a.getAttribute('href') === `#${id}` ? 'true' : 'false')
+      );
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) markActive(e.target.id);
+    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.5 });
+
+    sections.forEach(s => io.observe(s));
+
+    const sendBtn = document.getElementById('sendBtn');
+    if (sendBtn) {
+      sendBtn.addEventListener('click', () => {
+        const name = document.getElementById('name')?.value?.trim() || 'Visitor';
+        const email = document.getElementById('email')?.value?.trim() || '';
+        const message = document.getElementById('message')?.value?.trim() || '';
+        const subject = `New portfolio message from ${name}`;
+        const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+        const mailto = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = mailto;
       });
+    }
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const menuHamburger = document.getElementById('menuHamburger');
-      const menuClose = document.getElementById('menuClose');
+    document.addEventListener('scroll', () => {
+      const max = Math.max(1, document.body.scrollHeight - innerHeight);
+      const sc = Math.min(1, window.scrollY / max);
+      document.documentElement.style.setProperty('--p1x', `${-10 + sc * 5}%`);
+      document.documentElement.style.setProperty('--p2x', `${110 - sc * 8}%`);
+      document.documentElement.style.setProperty('--p3y', `${120 + sc * 5}%`);
+    }, { passive: true });
 
-      menuBtn.addEventListener('click', function () {
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', String(!expanded));
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.setAttribute('aria-hidden', String(expanded));
-        menuHamburger.classList.toggle('hidden');
-        menuClose.classList.toggle('hidden');
+    const heroMedia = document.querySelector('.ios-hero-media');
+    const canTilt = window.matchMedia('(pointer: fine)').matches &&
+                    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroMedia && canTilt) {
+      const maxTilt = 6;
+      heroMedia.addEventListener('pointermove', (e) => {
+        const r = heroMedia.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rx = (0.5 - y) * (maxTilt * 2);
+        const ry = (x - 0.5) * (maxTilt * 2);
+        heroMedia.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
       });
+      heroMedia.addEventListener('pointerleave', () => {
+        heroMedia.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
 
-      // Resume print
-      const resumePrintBtn = document.getElementById('resumePrintBtn');
-      if (resumePrintBtn) {
-        resumePrintBtn.addEventListener('click', function () {
-          window.print();
-        });
-      }
-
-      // Projects "mine only" filter
-      const mineOnly = document.getElementById('mineOnly');
-      const projectCards = Array.from(document.querySelectorAll('[data-card]'));
-
-      function filterProjects() {
-        const showMine = mineOnly.checked;
-        projectCards.forEach(card => {
-          const isMine = card.getAttribute('data-mine') === 'true';
-          if (showMine && !isMine) {
-            card.style.display = 'none';
-            card.setAttribute('aria-hidden', 'true');
-          } else {
-            card.style.display = '';
-            card.removeAttribute('aria-hidden');
-          }
-        });
-      }
-      if (mineOnly) {
-        mineOnly.addEventListener('change', filterProjects);
-        // initial apply
-        filterProjects();
-      }
-
-      // AOS: load script dynamically to avoid blocking
-      (function loadAOS() {
-        const src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
-        const s = document.createElement('script');
-        s.src = src;
-        s.defer = true;
-        s.onload = function () {
-          if (window.AOS && typeof window.AOS.init === 'function') {
-            window.AOS.init({ once: true, duration: 650 });
-          }
-        };
-        s.onerror = function () {
-          // silent: AOS optional
-          console.warn('AOS failed to load.');
-        };
-        document.head.appendChild(s);
-      })();
-
-      // Small accessibility: Trap focus when mobile menu opened could be added later (optional)
-    })();
+    // Resume: Print / Save as PDF button
+    const resumePrintBtn = document.getElementById('resumePrintBtn');
+    if (resumePrintBtn) {
+      resumePrintBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
   </script>
-
-  <!-- End body -->
 </body>
 </html>
