@@ -77,6 +77,49 @@
 </script>
 
   <style>
+    /* ========= FINAL POLISH ========= */
+
+/* 1) Logo floating animation */
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.brand-chip{
+  animation: floatSlow 4.5s ease-in-out infinite;
+}
+
+/* 2) Soft neon glow on hover */
+.brand-chip:hover{
+  box-shadow:
+    0 0 12px rgba(99,102,241,.45),
+    0 0 24px rgba(56,189,248,.35),
+    0 0 40px rgba(236,72,153,.25);
+}
+
+/* 3) Mobile logo position & scale */
+@media (max-width: 640px){
+  .brand-chip{
+    right: 50%;
+    bottom: .6rem;
+    transform: translateX(50%);
+    scale: .85;
+  }
+}
+
+/* 4) Hero load micro animation */
+.hero-enter{
+  opacity: 0;
+  transform: scale(.96) translateY(12px);
+  animation: heroIn .9s ease-out forwards;
+}
+
+@keyframes heroIn{
+  to{
+    opacity:1;
+    transform: scale(1) translateY(0);
+  }
+}
     :root { color-scheme: light dark; }
 
     :root{
