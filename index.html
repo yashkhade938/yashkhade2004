@@ -3,1295 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yash Khade | Official Site & Portfolio</title>
-  <meta name="description" content="Yash Khade — Operations Executive (Thane/Pune). Online Examination System (OES) operations, proctoring & MIS. View projects, skills, resume & contact." />
-  <meta name="keywords" content="Yash Khade, Portfolio, Resume, Networking, Pune, Operations Executive, CV, GitHub, Thane" />
-  <meta name="author" content="Yash Khade" />
-  <meta name="google-site-verification" content="-cnT02p1QSFDv4NIpOA2U3fGephJUizEibTgm5ls7L8" />
+  <title>Yash Khade | Operations Executive (OES)</title>
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Yash Khade | Official Portfolio" />
-  <meta property="og:site_name" content="Yash Khade" />
-  <meta property="og:description" content="Official portfolio and online resume of Yash Khade — Operations Executive (Thane/Pune)." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yashkhade938.github.io/yashkhade2004/" />
-  <meta property="og:image" content="https://yashkhade938.github.io/yashkhade2004/images/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Canonical & Icons -->
-  <link rel="canonical" href="https://yashkhade938.github.io/yashkhade2004/" />
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Mobile browser chrome colors -->
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#18203A" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Operations Executive with experience in Online Examination Systems (OES), center coordination, proctoring and MIS reporting." />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { darkMode: 'class' }
-  </script>
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-  <!-- Structured Data (Person) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Yash Khade",
-    "jobTitle": "Operations Executive",
-    "url": "https://yashkhade938.github.io/yashkhade2004/",
-    "email": "mailto:yashkhade969@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Thane",
-      "addressRegion": "MH",
-      "addressCountry": "IN"
-    },
-    "sameAs": [
-      "https://github.com/yashkhade938",
-      "https://www.linkedin.com/in/yash-khade-359720361",
-      "https://about.me/yashkhade"
-    ]
-  }
-  </script>
-
-  <!-- Structured Data (FAQ for your site link) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Where can I view the official website of Yash Khade?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can view the official website of Yash Khade by searching for 'Yash Khade official portfolio' on Google."
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#4f46e5'
+          }
+        }
       }
     }
-  ]
-}
-</script>
+  </script>
 
   <style>
-    /* ========= FINAL POLISH ========= */
-
-/* 1) Logo floating animation */
-@keyframes floatSlow {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.brand-chip{
-  animation: floatSlow 4.5s ease-in-out infinite;
-}
-
-/* 2) Soft neon glow on hover */
-.brand-chip:hover{
-  box-shadow:
-    0 0 12px rgba(99,102,241,.45),
-    0 0 24px rgba(56,189,248,.35),
-    0 0 40px rgba(236,72,153,.25);
-}
-
-/* 3) Mobile logo position & scale */
-@media (max-width: 640px){
-  .brand-chip{
-    right: 50%;
-    bottom: .6rem;
-    transform: translateX(50%);
-    scale: .85;
-  }
-}
-
-/* 4) Hero load micro animation */
-.hero-enter{
-  opacity: 0;
-  transform: scale(.96) translateY(12px);
-  animation: heroIn .9s ease-out forwards;
-}
-
-@keyframes heroIn{
-  to{
-    opacity:1;
-    transform: scale(1) translateY(0);
-  }
-}
-    :root { color-scheme: light dark; }
-
-    :root{
-      --bg1: 255,255,255;
-      --fg1: 17,24,39;
-      --tint: 99,102,241;
-      --accentB: 56,189,248;
-      --accentP: 236,72,153;
-      --shine: 255,255,255;
-      --card: 255,255,255;
-      --ring: 0,0,0;
-      --p1x: -10%; --p1y: -10%;
-      --p2x: 110%; --p2y: -20%;
-      --p3x: 50%;  --p3y: 120%;
-    }
-
-    .dark:root{
-      --bg1: 24,32,58;
-      --fg1: 226,232,240;
-      --tint: 129,140,248;
-      --accentB: 56,189,248;
-      --accentP: 244,114,182;
-      --shine: 255,255,255;
-      --card: 29,41,72;
-      --ring: 255,255,255;
-    }
-
-    @media (prefers-reduced-motion: no-preference){
-      html * {
-        transition: background-color .25s ease, color .25s ease,
-                    border-color .25s ease, box-shadow .25s ease, opacity .25s ease;
-      }
-    }
-
-    .ios-bg {
-      background:
-        radial-gradient(1200px 600px at var(--p1x) var(--p1y), rgba(var(--tint), .14), transparent 55%),
-        radial-gradient(900px 540px  at var(--p2x) var(--p2y), rgba(var(--accentP), .12), transparent 60%),
-        radial-gradient(900px 720px  at var(--p3x) var(--p3y), rgba(var(--accentB), .12), transparent 65%),
-        linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg1),.98) 100%);
-    }
-
-    .gradient-animated {
-      position: relative; overflow: hidden;
-      background: linear-gradient(120deg,
-        rgba(79,70,229,.90),
-        rgba(236,72,153,.86),
-        rgba(56,189,248,.90)
-      );
-      background-size: 200% 200%;
-      animation: gradientMove 12s ease infinite;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.18);
-      view-transition-name: hero;
-    }
-    .dark .gradient-animated{
-      background: linear-gradient(120deg,
-        rgba(99,102,241,.95),
-        rgba(244,114,182,.95),
-        rgba(56,189,248,.95)
-      );
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @supports (animation-timeline: scroll(root block)) {
-      .gradient-animated { animation: none; background-size: 160% 160%; }
-      .gradient-animated {
-        animation: heroScroll linear both;
-        animation-timeline: scroll(root block);
-        animation-range: 0 120vh;
-      }
-      @keyframes heroScroll {
-        0%   { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
-      }
-    }
-
-    .ios-nav {
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      background: rgba(var(--bg1), .72);
-      box-shadow: 0 1px 0 rgba(255,255,255,.22) inset, 0 0 0 1px rgba(0,0,0,.08);
-    }
-    .dark .ios-nav {
-      background: rgba(var(--bg1), .80);
-      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.06);
-    }
-
-    nav a[aria-current="true"]{
-      color: rgb(var(--tint));
-      text-underline-offset: 6px;
-      text-decoration: underline;
-    }
-
-    .ios-card {
-      position: relative; border-radius: 1rem;
-      backdrop-filter: saturate(140%) blur(14px);
-      -webkit-backdrop-filter: saturate(140%) blur(14px);
-      background: linear-gradient(180deg, rgba(var(--card),.60), rgba(var(--card),.42));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.25) inset,
-        0 0 0 1px rgba(var(--ring), .06),
-        0 20px 40px -20px rgba(0,0,0,.4);
-    }
-    .dark .ios-card{
-      background: linear-gradient(180deg, rgba(var(--card),.78), rgba(var(--card),.62));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.08) inset,
-        0 0 0 1px rgba(255,255,255,.06),
-        0 26px 46px -20px rgba(0,0,0,.58);
-    }
-    .ios-card::after{
-      content:""; position:absolute; inset: -1px; border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 35%);
-      pointer-events: none; mask: linear-gradient(#000 60%, transparent);
-    }
-
-    .ios-pill {
-      border-radius: 9999px;
-      background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.60));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.90) inset,
-        0 0 0 1px rgba(0,0,0,.08),
-        0 8px 16px -8px rgba(0,0,0,.35);
-      transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-    .dark .ios-pill{
-      background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.12));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.12) inset,
-        0 0 0 1px rgba(255,255,255,.08),
-        0 10px 18px -10px rgba(0,0,0,.65);
-    }
-    .ios-pill:hover{ transform: translateY(-1px); }
-
-    .ios-h2 {
-      display:inline-flex; align-items:center; gap:.6rem;
-      padding:.38rem .9rem; border-radius:9999px;
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52));
-      box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 0 0 1px rgba(0,0,0,.08);
-      color: rgb(var(--fg1));
-    }
-    .dark .ios-h2{
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-      box-shadow: 0 1px 0 rgba(255,255,255,.10) inset, 0 0 0 1px rgba(255,255,255,.08);
-      color: rgba(255,255,255,.94);
-    }
-    .ios-dot{
-      width:.55rem; height:.55rem; border-radius:9999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(var(--tint),.95));
-      box-shadow: 0 0 0 4px rgba(var(--tint), .20);
-    }
-
-    .ios-hero-media{
-      border-radius: 1.25rem; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14));
-      backdrop-filter: blur(16px) saturate(140%);
-      -webkit-backdrop-filter: blur(16px) saturate(140%);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.25) inset,
-        0 0 0 1px rgba(0,0,0,.08),
-        0 30px 60px -30px rgba(0,0,0,.45);
-      transform-style: preserve-3d;
-      anchor-name: --hero;
-    }
-    .dark .ios-hero-media{
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.08) inset,
-        0 0 0 1px rgba(255,255,255,.06),
-        0 32px 62px -30px rgba(0,0,0,.65);
-    }
-    .ios-hero-media::before{
-      content:""; position:absolute; inset:-30%;
-      background: conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.14), transparent 25%, rgba(255,255,255,.12) 40%, transparent 60%);
-      transform: rotate(8deg); pointer-events:none;
-      animation: glossSweep 8s linear infinite;
-    }
-    @keyframes glossSweep {
-      0%{ transform: translateX(-10%) rotate(8deg); }
-      50%{ transform: translateX(10%) rotate(8deg); }
-      100%{ transform: translateX(-10%) rotate(8deg); }
-    }
-
-    .ios-meter-track { height: .5rem; border-radius: 9999px; background: rgba(255,255,255,.55); }
-    .dark .ios-meter-track { background: rgba(255,255,255,.18); }
-    .ios-meter-fill { height: 100%; border-radius: 9999px; }
-
-    .brand-chip{
-      position: absolute;
-      right: .75rem; bottom: .75rem;
-      display: inline-flex; align-items: center; gap: .45rem;
-      padding: .35rem .5rem; border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.68));
-      backdrop-filter: blur(10px) saturate(140%);
-      -webkit-backdrop-filter: blur(10px) saturate(140%);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.9) inset,
-        0 0 0 1px rgba(0,0,0,.06),
-        0 10px 18px -10px rgba(0,0,0,.35);
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .dark .brand-chip{
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.10) inset,
-        0 0 0 1px rgba(255,255,255,.08),
-        0 12px 22px -12px rgba(0,0,0,.7);
-    }
-    .brand-chip::after{
-      content:""; position:absolute; inset:-1px; border-radius: inherit;
-      box-shadow: 0 0 0 6px rgba(var(--tint), .14);
-      pointer-events: none;
-    }
-    .brand-chip:hover{
-      transform: translateY(-1px);
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.95) inset,
-        0 0 0 1px rgba(0,0,0,.08),
-        0 16px 28px -14px rgba(0,0,0,.45);
-    }
-    .brand-logo{
-      height: 2.25rem; width: auto; object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
-      filter:
-        drop-shadow(0 0 1px rgba(255,255,255,.6))
-        drop-shadow(0 10px 16px rgba(0,0,0,.25));
-    }
-    @media (min-width: 768px){ .brand-logo{ height: 2.75rem; } }
-    .dark .brand-logo{
-      filter:
-        drop-shadow(0 0 1px rgba(255,255,255,.35))
-        drop-shadow(0 12px 18px rgba(0,0,0,.65));
-    }
-    @supports (anchor-name: --x) and (position-anchor: --x) {
-      .brand-chip{
-        position-anchor: --hero;
-        top: calc(anchor(--hero bottom) - 3.6rem);
-        left: calc(anchor(--hero right) - 3.6rem);
-        right: auto; bottom: auto;
-      }
-    }
-
-    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-
-    @media (prefers-reduced-motion: reduce){
-      .gradient-animated, .ios-hero-media::before { animation: none !important; }
-    }
-    /* Company logo always on top */
-.brand-chip{
-  z-index: 30;
-  pointer-events: auto;
-}
-
-/* Main hero image layer */
-.ios-hero-media img{
-  position: relative;
-  z-index: 2;
-}
-
-/* Glass shine overlay goes behind logo */
-.ios-hero-media::before{
-  z-index: 1;
-}
-
-    /* Floating contact bar (mobile) */
-    .contact-bar {
-      position: fixed;
-      inset-inline: 0;
-      bottom: 0;
-      z-index: 40;
-    }
-
-    @media (min-width: 768px){
-      .contact-bar { display: none; }
-    }
-
-    /* Resume sheet visual style */
-    .resume-sheet {
-      background: rgba(255,255,255,.95);
-      color: #111827;
-    }
-    .dark .resume-sheet {
-      background: rgba(17,24,39,.96);
-      color: #E5E7EB;
-    }
-
-    /* Print stylesheet – show only resume, no blank page */
-    @media print {
-      body {
-        background: #ffffff !important;
-      }
-
-      /* Hide everything except the resume section */
-      header,
-      footer,
-      .contact-bar,
-      .gradient-animated,
-      main > section:not(#resume) {
-        display: none !important;
-      }
-
-      /* Force resume to show nicely */
-      #resume {
-        display: block !important;
-        padding-top: 0 !important;
-        margin: 0 !important;
-      }
-
-      .resume-sheet {
-        box-shadow: none !important;
-        background: #ffffff !important;
-        color: #000000 !important;
-      }
-
-      /* Hide the on-screen print button */
-      .resume-print-btn {
-        display: none !important;
-      }
-
-      * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-    }
+    body { -webkit-font-smoothing: antialiased; }
   </style>
 </head>
 
-<body class="ios-bg text-gray-800 dark:text-gray-100">
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- Skip link -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-indigo-600 focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
-
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 ios-nav">
-    <nav class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-semibold tracking-wide flex items-center gap-2">
-          <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-bold shadow">YK</span>
-          <span class="hidden sm:inline">Yash Khade</span>
-        </a>
-        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#about" class="hover:text-indigo-600">About</a>
-          <a href="#skills" class="hover:text-indigo-600">Skills</a>
-          <a href="#experience" class="hover:text-indigo-600">Experience</a>
-          <a href="#resume" class="hover:text-indigo-600">Resume</a>
-          <a href="#education" class="hover:text-indigo-600">Education</a>
-          <a href="#projects" class="hover:text-indigo-600">Projects</a>
-          <a href="#contact" class="hover:text-indigo-600">Contact</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <a href="Yash%20resume%20(3).pdf" download class="hidden sm:inline-flex items-center gap-2 ios-pill px-4 py-2 text-xs font-semibold">
-            <span>Download Resume</span>
-          </a>
-          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-10 h-10 ios-card">
-            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
-            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 ios-card" aria-label="Open menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-          </button>
-        </div>
-      </div>
-      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-2 text-sm">
-        <a href="#about" class="block py-2">About</a>
-        <a href="#skills" class="block py-2">Skills</a>
-        <a href="#experience" class="block py-2">Experience</a>
-        <a href="#resume" class="block py-2">Resume</a>
-        <a href="#education" class="block py-2">Education</a>
-        <a href="#projects" class="block py-2">Projects</a>
-        <a href="#contact" class="block py-2">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section id="home" class="gradient-animated text-white py-16 md:py-24" data-aos="fade-down">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+<!-- ================= HEADER ================= -->
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="h-8 w-8 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center">YK</span>
       <div>
-        <span class="inline-flex items-center gap-2 rounded-full bg-black/20 px-3 py-1 text-xs md:text-xs backdrop-blur">
-          <span class="h-2 w-2 rounded-full bg-emerald-300 animate-pulse"></span>
-          <span>Open to Operations & OES opportunities</span>
-        </span>
-        <h1 class="mt-4 text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-[0_1px_0_rgba(255,255,255,.25)]">
-          Yash Khade
-        </h1>
-        <p class="mt-3 text-lg md:text-xl text-white/90">Operations Executive • Online Examination Systems • Project Management</p>
-        <p class="mt-4 text-white/90 max-w-xl">
-          Currently at <span class="font-semibold">WeShine Tech Pvt Ltd</span>. I help teams run reliable online exams
-          by combining networking fundamentals, center management, and clean MIS reporting.
-        </p>
-
-        <!-- Stats -->
-        <dl class="mt-6 grid grid-cols-3 gap-4 text-sm md:text-base">
-          <div class="ios-card px-4 py-3 text-center bg-white/10">
-            <dt class="text-xs uppercase tracking-wide text-white/70">Total Experience</dt>
-            <dd class="mt-1 text-lg font-bold">4+ yrs</dd>
-          </div>
-          <div class="ios-card px-4 py-3 text-center bg-white/10">
-            <dt class="text-xs uppercase tracking-wide text-white/70">OES Projects</dt>
-            <dd class="mt-1 text-lg font-bold">6+</dd>
-          </div>
-          <div class="ios-card px-4 py-3 text-center bg-white/10">
-            <dt class="text-xs uppercase tracking-wide text-white/70">Cities Worked</dt>
-            <dd class="mt-1 text-lg font-bold">Thane • Pune • Goa</dd>
-          </div>
-        </dl>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#projects" class="ios-pill px-5 py-2.5 font-semibold text-gray-900 text-sm">View OES Projects</a>
-          <a href="#resume" class="ios-pill px-5 py-2.5 font-semibold text-gray-900 text-sm">View Resume</a>
-          <a href="#contact" class="ios-pill px-5 py-2.5 font-medium text-gray-900/80 text-sm">Contact Me</a>
-        </div>
-
-        <div class="mt-4 flex flex-wrap gap-3 text-xs text-white/80">
-          <a href="https://github.com/yashkhade938" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">GitHub</a>
-          <span>•</span>
-          <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline underline-offset-4 decoration-white/40 hover:decoration-white">LinkedIn</a>
-        </div>
+        <p class="text-sm font-semibold leading-tight">Yash Khade</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Operations Executive (OES)</p>
       </div>
+    </div>
 
-      <!-- Hero photo -->
-      <div class="relative w-full h-full">
-        <div class="ios-hero-media hero-enter aspect-[4/3] md:aspect-square flex items-center justify-center">
-          <div class="relative w-full h-full">
-            <img src="Yashkhadenew.jpeg" alt="Yash Khade"
-                 class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-lg ring-1 ring-white/20"
-                 width="800" height="800" loading="eager" />
-            <a href="https://www.weshinetech.in/"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="absolute bottom-3 right-3 md:bottom-4 md:right-4 brand-chip z-40"
-   aria-label="WeShineTech — official website"
-   title="WeShineTech">
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="#overview" class="hover:text-brand">Overview</a>
+      <a href="#experience" class="hover:text-brand">Experience</a>
+      <a href="#projects" class="hover:text-brand">Projects</a>
+      <a href="#resume" class="hover:text-brand">Resume</a>
+      <a href="#contact" class="hover:text-brand">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <img
-    src="images/weshinetech-logo.png"
-    onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png';"
-    alt="WeShineTech logo"
-    class="brand-logo"
-    width="180"
-    height="44"
-    loading="eager"
-    fetchpriority="high" />
+<!-- ================= MAIN ================= -->
+<main class="max-w-6xl mx-auto px-4 py-8 space-y-14">
 
-</a>
-          </div>
-        </div>
+  <!-- ================= OVERVIEW ================= -->
+  <section id="overview" class="grid md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <h1 class="text-2xl font-bold">Operations Executive – Online Examination Systems</h1>
+      <p class="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl">
+        I manage and coordinate Online Examination System (OES) operations including center readiness,
+        proctoring support, incident handling, and MIS reporting for university and government exams.
+      </p>
+
+      <div class="mt-4 inline-flex items-center gap-2 text-sm bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">
+        <span class="h-2 w-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        Open to Operations & OES roles
+      </div>
+    </div>
+
+    <div class="grid gap-4">
+      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 text-center">
+        <p class="text-xs text-gray-500">Experience</p>
+        <p class="text-xl font-bold">4+ Years</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 text-center">
+        <p class="text-xs text-gray-500">OES Projects</p>
+        <p class="text-xl font-bold">6+</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 text-center">
+        <p class="text-xs text-gray-500">Locations</p>
+        <p class="text-sm font-semibold">Thane • Pune • Goa</p>
       </div>
     </div>
   </section>
 
+  <!-- ================= EXPERIENCE + SKILLS ================= -->
+  <section id="experience" class="grid md:grid-cols-3 gap-6">
+    <!-- Timeline -->
+    <div class="md:col-span-2 space-y-4">
+      <h2 class="text-lg font-semibold">Experience Timeline</h2>
 
-  <main id="main" class="max-w-6xl mx-auto px-4">
-
-    <!-- Objective / About -->
-    <section id="about" class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-4"><span class="ios-dot"></span><span>Objective</span></h2>
-      <div class="ios-card p-6">
-        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          I’m seeking a challenging role in a professionally managed organization where I can grow,
-          apply my networking and operations skills, and contribute directly to organizational goals — especially in
-          Online Examination Systems (OES) and tech-enabled operations.
-        </p>
-      </div>
-    </section>
-
-    <!-- Technical Skills -->
-    <section id="skills" class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Technical Skills</span></h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="ios-card p-6">
-          <h3 class="font-semibold mb-3 text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Core Skills</h3>
-          <ul class="grid grid-cols-2 gap-3 text-base">
-            <li>Project Management</li>
-            <li>Project Cost &amp; Budget Analysis</li>
-            <li>IP Addressing &amp; Subnetting</li>
-            <li>DHCP / DNS Basics</li>
-            <li>Remote Support (AnyDesk/TeamViewer)</li>
-            <li>Customer Support (Email)</li>
-            <li>Excel Advanced (Pivot, XLOOKUP, Power Query)</li>
-            <li>Editing (Docs/Media)</li>
-            <li>Computer Fundamentals</li>
-            <li>Tally ERP-9</li>
-            <li>MS-CIT (Jul 2021)</li>
+      <div class="space-y-4">
+        <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+          <p class="font-semibold">Operations Executive – WeShine Tech</p>
+          <p class="text-xs text-gray-500">2025 – Present</p>
+          <ul class="mt-2 text-sm list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>End-to-end OES project coordination</li>
+            <li>Center readiness & incident handling</li>
+            <li>MIS & audit reporting</li>
           </ul>
         </div>
 
-        <div class="ios-card p-6">
-          <h3 class="font-medium mb-4">Focus Areas</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>Project Management &amp; Coordination</span><span>80%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>Cost &amp; Budget Analysis</span><span>75%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>IP Addressing &amp; Subnetting</span><span>80%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-cyan-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>DHCP / DNS Basics</span><span>75%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[75%] bg-gradient-to-r from-indigo-400 to-emerald-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>Remote Support (AnyDesk/TeamViewer)</span><span>80%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[80%] bg-gradient-to-r from-indigo-400 to-pink-300"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs md:text-sm">
-                <span>Excel Advanced (Pivot/XLOOKUP/Power Query)</span><span>85%</span>
-              </div>
-              <div class="ios-meter-track">
-                <div class="ios-meter-fill w-[85%] bg-gradient-to-r from-indigo-400 to-sky-300"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Experience</span></h2>
-      <ol class="relative">
-        <li class="mb-8 ms-6">
-          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">1</div>
-          <div class="ios-card p-6">
-            <h3 class="text-lg font-semibold">D.R. Consultancy</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Payroll Department • 1 year</p>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-              <li>Prepared &amp; verified payroll records for accuracy and timeliness.</li>
-              <li>Coordinated with HR for onboarding/offboarding documentation.</li>
-              <li>Maintained basic compliance and monthly reports.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="mb-8 ms-6">
-          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">2</div>
-          <div class="ios-card p-6">
-            <h3 class="text-lg font-semibold">Eureka Outsourcing Solutions</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Customer Care Mail Executive @ Johnson Controls • 1 year</p>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-              <li>Resolved customer queries via email with clear, timely responses.</li>
-              <li>Ticket tracking, escalation, and SLA adherence.</li>
-              <li>Weekly reporting and knowledge base updates.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="mb-8 ms-6">
-          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">3</div>
-          <div class="ios-card p-6">
-            <h3 class="text-lg font-semibold">WeShine Tech Pvt Ltd</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Networking &amp; Exam Server Management • Freelancer • 2 years</p>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-              <li>Configured &amp; monitored basic networks for small teams and labs.</li>
-              <li>Managed exam servers (user access, backups, updates, SOPs).</li>
-              <li>Coordinated on-site setups and vendor follow-ups.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="ms-6">
-          <div class="absolute -start-3 flex h-7 w-7 items-center justify-center rounded-full ios-pill text-gray-900 text-sm font-semibold">4</div>
-          <div class="ios-card p-6">
-            <h3 class="text-lg font-semibold">WeShine Tech Pvt Ltd</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Operations Executive • Present</p>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300">
-              <li>End-to-end project coordination: planning, scheduling, stakeholder updates.</li>
-              <li>Project cost &amp; budget analysis with adjustments to meet targets.</li>
-              <li>Resource &amp; vendor coordination; procurement and logistics tracking.</li>
-              <li>Operational reporting in Excel; SOP improvements and SLA tracking.</li>
-            </ul>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- One-page Resume Section -->
-    <section id="resume" class="py-12" data-aos="fade-up">
-      <div class="flex items-center justify-between gap-3 mb-4">
-        <h2 class="ios-h2"><span class="ios-dot"></span><span>Resume (Online View)</span></h2>
-        <!-- Print button -->
-        <button type="button" id="resumePrintBtn" class="resume-print-btn ios-pill px-4 py-2 text-xs font-semibold">
-          Print / Save as PDF
-        </button>
-      </div>
-
-      <div class="ios-card resume-sheet max-w-5xl mx-auto p-6 md:p-8">
-        <!-- Top: Name + Title + Location -->
-        <header class="border-b border-gray-200/70 dark:border-gray-700/70 pb-4 mb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <div>
-            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Yash Khade</h1>
-            <p class="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1">
-              Operations Executive &nbsp;•&nbsp; Online Examination Systems (OES) &nbsp;•&nbsp; Project Coordination
-            </p>
-          </div>
-          <div class="text-xs md:text-sm text-gray-600 dark:text-gray-300 md:text-right">
-            <p>Thane / Pune, Maharashtra</p>
-            <p>Open to Operations &amp; OES roles</p>
-          </div>
-        </header>
-
-        <!-- Contact row -->
-        <div class="grid md:grid-cols-3 gap-4 text-xs md:text-sm mb-6">
-          <div class="space-y-1">
-            <p><strong>Email:</strong> <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/70">yashkhade969@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+919082234689" class="underline decoration-indigo-300/70">(+91) 9082234689</a></p>
-          </div>
-          <div class="space-y-1">
-            <p><strong>GitHub:</strong> <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/70">github.com/yashkhade938</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/70">linkedin.com/in/yash-khade</a></p>
-          </div>
-          <div class="space-y-1">
-            <p><strong>Address:</strong></p>
-            <p>Sainath Nagar, Rajlaxmi Chawl,<br/>Opp. Kopri Bus Stop, Thane East</p>
-          </div>
-        </div>
-
-        <!-- Summary -->
-        <section class="mb-6">
-          <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Professional Summary</h3>
-          <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-200">
-            Operations Executive with over 4 years of experience across payroll, customer support, and Online Examination System (OES) operations.
-            Hands-on exposure to university and government examinations, handling center readiness, scheduling, proctoring support,
-            and MIS reporting. Skilled in networking fundamentals (IP, DHCP/DNS, remote tools), cost and budget tracking, and
-            advanced Excel. I enjoy working closely with centers, vendors, and internal teams to keep operations stable, compliant,
-            and on schedule.
-          </p>
-        </section>
-
-        <!-- Two columns: Experience + Skills/Education -->
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Left: Experience (takes 2 columns on desktop) -->
-          <div class="md:col-span-2 space-y-4">
-            <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-1">Experience</h3>
-
-            <!-- WeShine Ops Executive -->
-            <article>
-              <div class="flex justify-between gap-2 text-sm">
-                <div>
-                  <h4 class="font-semibold">Operations Executive</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-xs">WeShine Tech Pvt Ltd</p>
-                </div>
-                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">2025 – Present</p>
-              </div>
-              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
-                <li>Coordinated end-to-end OES projects (planning, scheduling, center allocation, stakeholder updates).</li>
-                <li>Performed center readiness checks including network, systems, and power backup validations.</li>
-                <li>Tracked project cost and basic budget deviations, aligning with internal targets.</li>
-                <li>Prepared daily operation reports, incident logs, and final MIS for audits.</li>
-              </ul>
-            </article>
-
-            <!-- WeShine Freelancer -->
-            <article>
-              <div class="flex justify-between gap-2 text-sm">
-                <div>
-                  <h4 class="font-semibold">Networking &amp; Exam Server Management (Freelancer)</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-xs">WeShine Tech Pvt Ltd</p>
-                </div>
-                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">2023 – 2025</p>
-              </div>
-              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
-                <li>Configured and monitored basic networks for exam labs and small office setups.</li>
-                <li>Managed exam servers including user creation, backups, and patch updates.</li>
-                <li>Supported on-ground teams during live exams with troubleshooting and coordination.</li>
-              </ul>
-            </article>
-
-            <!-- Eureka -->
-            <article>
-              <div class="flex justify-between gap-2 text-sm">
-                <div>
-                  <h4 class="font-semibold">Customer Care Mail Executive</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-xs">Eureka Outsourcing Solutions (Johnson Controls)</p>
-                </div>
-                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">2023 – 2024</p>
-              </div>
-              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
-                <li>Handled customer queries via email with clear and timely responses.</li>
-                <li>Maintained ticket logs, escalations, and SLA-based closure tracking.</li>
-                <li>Contributed to weekly reports and knowledge base updates.</li>
-              </ul>
-            </article>
-
-            <!-- DR Consultancy -->
-            <article>
-              <div class="flex justify-between gap-2 text-sm">
-                <div>
-                  <h4 class="font-semibold">Payroll Assistant</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-xs">D.R. Consultancy</p>
-                </div>
-                <p class="text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">2024 – 2025</p>
-              </div>
-              <ul class="mt-1 text-xs md:text-sm text-gray-700 dark:text-gray-200 list-disc list-inside space-y-1">
-                <li>Prepared and verified payroll records for a variety of employees.</li>
-                <li>Coordinated with HR for joining, exit, and documentation support.</li>
-                <li>Maintained monthly payroll and compliance reports.</li>
-              </ul>
-            </article>
-          </div>
-
-          <!-- Right: Skills + Education + Extras -->
-          <div class="space-y-5">
-            <!-- Skills block -->
-            <section>
-              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Key Skills</h3>
-              <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 space-y-1">
-                <li>Project &amp; Operations Management (OES)</li>
-                <li>Center Readiness &amp; Coordination</li>
-                <li>IP Addressing, Subnetting, DHCP/DNS Basics</li>
-                <li>Remote Support (AnyDesk, TeamViewer)</li>
-                <li>Advanced Excel (Pivot, XLOOKUP, Power Query)</li>
-                <li>Customer Support (Email/Ticketing)</li>
-              </ul>
-            </section>
-
-            <!-- Tools -->
-            <section>
-              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Tools &amp; Tech</h3>
-              <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 flex flex-wrap gap-1.5">
-                <li class="ios-pill px-2 py-1">MS Excel</li>
-                <li class="ios-pill px-2 py-1">MS Word</li>
-                <li class="ios-pill px-2 py-1">AnyDesk</li>
-                <li class="ios-pill px-2 py-1">TeamViewer</li>
-                <li class="ios-pill px-2 py-1">Tally ERP-9</li>
-                <li class="ios-pill px-2 py-1">Email Tools</li>
-              </ul>
-            </section>
-
-            <!-- Education -->
-            <section>
-              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Education</h3>
-              <div class="space-y-3 text-xs md:text-sm text-gray-700 dark:text-gray-200">
-                <div>
-                  <p class="font-semibold">B.Com</p>
-                  <p>Satish Pradhan Dnyanasadhana College, Thane</p>
-                  <p class="text-gray-500 dark:text-gray-400 text-xs">2022 – 2025</p>
-                </div>
-                <div>
-                  <p class="font-semibold">HSC</p>
-                  <p>Satish Pradhan Dnyanasadhana, Thane (W)</p>
-                  <p class="text-gray-500 dark:text-gray-400 text-xs">60%</p>
-                </div>
-                <div>
-                  <p class="font-semibold">SSC</p>
-                  <p>Shishu Vikas Mandir, Thane (E)</p>
-                  <p class="text-gray-500 dark:text-gray-400 text-xs">50%</p>
-                </div>
-              </div>
-            </section>
-
-            <!-- Personal -->
-            <section>
-              <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2">Personal</h3>
-              <ul class="text-xs md:text-sm text-gray-700 dark:text-gray-200 space-y-1">
-                <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
-                <li><strong>Gender:</strong> Male</li>
-                <li><strong>Marital Status:</strong> Single</li>
-                <li><strong>Languages:</strong> English, Marathi, Hindi</li>
-              </ul>
-            </section>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education (original card view) -->
-    <section id="education" class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Education</span></h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="ios-card p-6">
-          <h3 class="font-semibold">B.Com</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Satish Pradhan Dnyanasadhana College, Thane • 2022–2025</p>
-        </div>
-        <div class="ios-card p-6">
-          <h3 class="font-semibold">HSC</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Satish Pradhan Dnyanasadhana, Thane (W) • 60%</p>
-        </div>
-        <div class="ios-card p-6">
-          <h3 class="font-semibold">SSC</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">Shishu Vikas Mandir, Thane (E) • 50%</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="py-12" data-aos="fade-up">
-      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6">
-        <h2 class="ios-h2"><span class="ios-dot"></span><span>Project Management — Online Examination System (OES)</span></h2>
-
-        <div class="flex items-center gap-3">
-          <label class="inline-flex items-center gap-2 text-xs md:text-sm ios-pill px-3 py-1.5 cursor-pointer">
-            <input id="mineOnly" type="checkbox" class="accent-indigo-600" checked>
-            <span>Show only my work</span>
-          </label>
-          <a href="https://www.weshinetech.in/" target="_blank" rel="noopener" class="ios-pill px-3 py-1.5 text-xs md:text-sm">
-            WeShineTech →
-          </a>
-        </div>
-      </div>
-
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-        Below are <strong>Online Examination System (OES)</strong> projects executed with
-        <strong>WeShineTech Pvt Ltd</strong>, where I handled
-        <strong>coordination, center management, readiness checks, proctoring operations, incident handling, and MIS reporting</strong>.
-        (Note: I was responsible for operations and management, not software development.)
-      </p>
-
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">Mumbai University — LLM Entrance &amp; PET</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            University-level online exams across multiple centers: end-to-end coordination, candidate management, and exam-day reporting.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Center Management</li>
-            <li class="ios-pill px-2 py-1">Scheduling</li>
-            <li class="ios-pill px-2 py-1">Proctoring</li>
-            <li class="ios-pill px-2 py-1">MIS</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Conducted center readiness checks (network, DHCP/DNS, power backup).</li>
-              <li>Supervised invigilator and IT support staff during operations.</li>
-              <li>Handled candidate support and proctoring escalations.</li>
-              <li>Prepared daily incident logs and final MIS reports.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">SGBAU University — Ph.D. Entrance Test (PET)</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Managed full operations for Ph.D. entrance tests including center setup, monitoring, and reporting.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Coordination</li>
-            <li class="ios-pill px-2 py-1">Proctoring</li>
-            <li class="ios-pill px-2 py-1">SLA</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Performed mock runs and final readiness checks at exam centers.</li>
-              <li>Real-time monitoring and issue escalation during live exams.</li>
-              <li>Prepared attendance and compliance reports for MIS.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">ITI (Ratan Tata) — Online Examination Project</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Oversaw technical and operational execution of ITI-based online exams across assigned centers.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Lab Readiness</li>
-            <li class="ios-pill px-2 py-1">Systems</li>
-            <li class="ios-pill px-2 py-1">Support</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Checked network and server readiness at all centers.</li>
-              <li>Assisted with invigilator setup and candidate management.</li>
-              <li>Maintained reports on incidents, attendance, and system uptime.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">GSSC — Goa Staff Selection Commission</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Supported online examination operations including readiness, coordination, and post-exam MIS reporting.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Center Coordination</li>
-            <li class="ios-pill px-2 py-1">Proctoring</li>
-            <li class="ios-pill px-2 py-1">Operations</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Handled exam scheduling and technical readiness checks.</li>
-              <li>Coordinated with local centers and managed support issues.</li>
-              <li>Compiled daily status reports and final audit MIS.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">GPSC — Goa Public Service Commission</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Managed center operations, candidate verification, proctoring, and reporting for GPSC online examinations.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Operations</li>
-            <li class="ios-pill px-2 py-1">Coordination</li>
-            <li class="ios-pill px-2 py-1">MIS</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Conducted mock tests and technical validations.</li>
-              <li>Assisted proctoring teams with real-time issue tracking.</li>
-              <li>Generated reports for exam audits and daily dashboards.</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="ios-card p-6 hover:shadow-lg transition-transform hover:-translate-y-1" data-card data-mine="true">
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold">GTET — Goa Teacher Eligibility Test</h3>
-            <span class="ios-pill px-2 py-0.5 text-xs">OES</span>
-          </header>
-          <p class="text-gray-700 dark:text-gray-300 text-sm">
-            Supported GTET exams under OES for planning, center readiness, and end-to-end operations management.
-          </p>
-          <ul class="flex flex-wrap gap-2 mt-3 text-xs">
-            <li class="ios-pill px-2 py-1">Coordination</li>
-            <li class="ios-pill px-2 py-1">Center Readiness</li>
-            <li class="ios-pill px-2 py-1">Reporting</li>
-          </ul>
-          <details class="mt-4 text-sm">
-            <summary class="ios-pill px-3 py-1.5 inline-flex items-center cursor-pointer">My Responsibilities</summary>
-            <ul class="list-disc list-inside mt-3 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Prepared and monitored all center-level checklists.</li>
-              <li>Supervised on-site execution and proctoring process.</li>
-              <li>Submitted end-of-day compliance and MIS reports.</li>
-            </ul>
-          </details>
-        </article>
-
-      </div>
-
-      <script>
-        (function(){
-          const toggle = document.getElementById('mineOnly');
-          if(!toggle) return;
-          const cards = Array.from(document.querySelectorAll('#projects [data-card]'));
-          const render = () => {
-            cards.forEach(c => c.style.display = (!toggle.checked || c.dataset.mine === "true") ? "" : "none");
-          };
-          toggle.addEventListener('change', render);
-          render();
-        })();
-      </script>
-    </section>
-
-    <!-- Personal Details -->
-    <section class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Personal Details</span></h2>
-      <div class="ios-card p-6">
-        <ul class="grid md:grid-cols-2 gap-y-2 text-base">
-          <li><strong>Date of Birth:</strong> 7 Feb 2004</li>
-          <li><strong>Marital Status:</strong> Single</li>
-          <li><strong>Gender:</strong> Male</li>
-          <li><strong>Languages:</strong> English, Marathi, Hindi</li>
-          <li class="md:col-span-2"><strong>Address:</strong> Sainath Nagar, Rajlaxmi Chawl, Opp. Kopri Bus Stop, Thane East</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-12" data-aos="fade-up">
-      <h2 class="ios-h2 mb-6"><span class="ios-dot"></span><span>Contact</span></h2>
-      <div class="grid md:grid-cols-2 gap-6 items-start">
-        <div class="ios-card p-6 space-y-3">
-          <h3 class="font-semibold text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">Reach me</h3>
-          <ul class="space-y-2 text-lg">
-            <li>📧 Email: <a href="mailto:yashkhade969@gmail.com" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">yashkhade969@gmail.com</a></li>
-            <li>📱 Mobile: <a href="tel:+919082234689" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">(+91) 9082234689</a></li>
-            <li>🔗 GitHub: <a href="https://github.com/yashkhade938" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">github.com/yashkhade938</a></li>
-            <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="underline decoration-indigo-300/60 hover:decoration-indigo-400">linkedin.com/in/yash-khade</a></li>
+        <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+          <p class="font-semibold">Networking & Exam Server (Freelancer)</p>
+          <p class="text-xs text-gray-500">2023 – 2025</p>
+          <ul class="mt-2 text-sm list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>Network setup & troubleshooting</li>
+            <li>Exam server management</li>
           </ul>
         </div>
-        <form id="contactForm" class="ios-card p-6 space-y-4" onsubmit="return false;">
-          <div>
-            <label for="name" class="block text-sm mb-1">Name</label>
-            <input id="name" name="name" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
-          </div>
-          <div>
-            <label for="email" class="block text-sm mb-1">Email</label>
-            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500" />
-          </div>
-          <div>
-            <label for="message" class="block text-sm mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-white/30 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur placeholder:text-gray-500"></textarea>
-          </div>
-          <button id="sendBtn" type="button" class="ios-pill w-full py-2.5 font-medium">Send</button>
-          <p class="text-xs text-gray-500">This opens your email app using <code>mailto:</code>. (No backend needed)</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400" data-aos="fade-up">
-    <p>© <span id="year"></span> Yash Khade. All rights reserved.</p>
-  </footer>
-
-  <!-- Floating contact strip (mobile only) -->
-  <div class="contact-bar px-3 pb-3 pt-2">
-    <div class="ios-card max-w-md mx-auto px-3 py-2 flex items-center justify-between gap-2 text-xs">
-      <span class="hidden xs:inline text-[11px] text-gray-600 dark:text-gray-300">Quick contact</span>
-      <div class="flex-1 flex justify-end gap-2">
-        <a href="tel:+919082234689" class="ios-pill px-3 py-1.5 font-medium">Call</a>
-        <a href="mailto:yashkhade969@gmail.com" class="ios-pill px-3 py-1.5 font-medium">Email</a>
-        <a href="https://wa.me/919082234689" target="_blank" class="ios-pill px-3 py-1.5 font-medium">WhatsApp</a>
       </div>
     </div>
-  </div>
 
-  <!-- AOS & App Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-  <script>
-    window.addEventListener('load', () => { AOS.init({ duration: 900, once: true }); });
+    <!-- Skills -->
+    <div class="space-y-4">
+      <h2 class="text-lg font-semibold">Core Skills</h2>
+      <ul class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 text-sm space-y-2">
+        <li>✔ OES Operations & Coordination</li>
+        <li>✔ Center Readiness & Proctoring</li>
+        <li>✔ IP / DHCP / DNS Basics</li>
+        <li>✔ Advanced Excel (MIS)</li>
+        <li>✔ Vendor & Team Coordination</li>
+      </ul>
+    </div>
+  </section>
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="space-y-4">
+    <h2 class="text-lg font-semibold">OES Projects</h2>
 
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+        <p class="font-semibold">Mumbai University – LLM Entrance</p>
+        <p class="text-xs text-gray-500">Role: Operations</p>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+          Multi-center coordination, proctoring support, and final MIS reporting.
+        </p>
+      </div>
 
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = document.getElementById('sunIcon');
-    const moonIcon = document.getElementById('moonIcon');
+      <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+        <p class="font-semibold">Goa SSC (GSSC)</p>
+        <p class="text-xs text-gray-500">Role: Ops Support</p>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+          Center readiness checks and incident management during live exams.
+        </p>
+      </div>
 
-    function updateThemeMeta(dark){
-      const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
-      const darkMeta  = document.querySelector('meta[name="theme-color"][media*="dark"]');
-      if (lightMeta) lightMeta.setAttribute('content', '#ffffff');
-      if (darkMeta)  darkMeta.setAttribute('content', '#18203A');
-    }
+      <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+        <p class="font-semibold">GPSC / GTET</p>
+        <p class="text-xs text-gray-500">Role: Operations</p>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+          Exam-day coordination and compliance reporting.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    function applyTheme(dark){
-      const root = document.documentElement;
-      if (dark) {
-        root.classList.add('dark');
-        moonIcon.classList.add('hidden');
-        sunIcon.classList.remove('hidden');
-      } else {
-        root.classList.remove('dark');
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
-      }
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-      updateThemeMeta(dark);
-    }
+  <!-- ================= RESUME ================= -->
+  <section id="resume" class="space-y-4">
+    <h2 class="text-lg font-semibold">Resume</h2>
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+      <p class="text-sm text-gray-600 dark:text-gray-300">
+        This page acts as a live resume. A printable PDF version is available on request or download.
+      </p>
+      <a href="Yash%20resume%20(3).pdf" class="inline-block mt-4 text-sm font-medium text-brand underline">
+        Download Resume (PDF)
+      </a>
+    </div>
+  </section>
 
-    function setTheme(dark){
-      if (typeof document.startViewTransition === 'function') {
-        document.startViewTransition(() => applyTheme(dark));
-      } else { applyTheme(dark); }
-    }
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="space-y-4">
+    <h2 class="text-lg font-semibold">Contact</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <a href="mailto:yashkhade969@gmail.com" class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+        📧 Email
+      </a>
+      <a href="tel:+919082234689" class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+        📱 Call
+      </a>
+      <a href="https://wa.me/919082234689" target="_blank" class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+        💬 WhatsApp
+      </a>
+    </div>
+  </section>
 
-    const saved = localStorage.getItem('theme');
-    if (saved) applyTheme(saved === 'dark');
-    else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+</main>
 
-    themeToggle?.addEventListener('click', () =>
-      setTheme(!document.documentElement.classList.contains('dark'))
-    );
+<!-- ================= FOOTER ================= -->
+<footer class="py-6 text-center text-xs text-gray-500 dark:text-gray-400">
+  © <span id="year"></span> Yash Khade
+</footer>
 
-    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-    const sections = [...document.querySelectorAll('main section[id]')];
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
-    function markActive(id){
-      navLinks.forEach(a =>
-        a.setAttribute('aria-current', a.getAttribute('href') === `#${id}` ? 'true' : 'false')
-      );
-    }
-
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) markActive(e.target.id);
-    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.5 });
-
-    sections.forEach(s => io.observe(s));
-
-    const sendBtn = document.getElementById('sendBtn');
-    if (sendBtn) {
-      sendBtn.addEventListener('click', () => {
-        const name = document.getElementById('name')?.value?.trim() || 'Visitor';
-        const email = document.getElementById('email')?.value?.trim() || '';
-        const message = document.getElementById('message')?.value?.trim() || '';
-        const subject = `New portfolio message from ${name}`;
-        const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-        const mailto = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        window.location.href = mailto;
-      });
-    }
-
-    document.addEventListener('scroll', () => {
-      const max = Math.max(1, document.body.scrollHeight - innerHeight);
-      const sc = Math.min(1, window.scrollY / max);
-      document.documentElement.style.setProperty('--p1x', `${-10 + sc * 5}%`);
-      document.documentElement.style.setProperty('--p2x', `${110 - sc * 8}%`);
-      document.documentElement.style.setProperty('--p3y', `${120 + sc * 5}%`);
-    }, { passive: true });
-
-    const heroMedia = document.querySelector('.ios-hero-media');
-    const canTilt = window.matchMedia('(pointer: fine)').matches &&
-                    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (heroMedia && canTilt) {
-      const maxTilt = 6;
-      heroMedia.addEventListener('pointermove', (e) => {
-        const r = heroMedia.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width;
-        const y = (e.clientY - r.top) / r.height;
-        const rx = (0.5 - y) * (maxTilt * 2);
-        const ry = (x - 0.5) * (maxTilt * 2);
-        heroMedia.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-      });
-      heroMedia.addEventListener('pointerleave', () => {
-        heroMedia.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      });
-    }
-
-    // Resume: Print / Save as PDF button
-    const resumePrintBtn = document.getElementById('resumePrintBtn');
-    if (resumePrintBtn) {
-      resumePrintBtn.addEventListener('click', () => {
-        window.print();
-      });
-    }
-  </script>
 </body>
 </html>
