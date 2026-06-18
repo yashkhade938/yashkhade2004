@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yash Khade | Official Site & Portfolio</title>
-  <meta name="description" content="Yash Khade — Operations Executive. Online Examination System (OES) operations, project management & MIS. View projects, skills, resume & contact." />
-  <meta name="keywords" content="Yash Khade, Portfolio, Resume, Networking, Pune, Operations Executive, CV, GitHub, Thane, OES" />
+  <title>Yash Khade | Portfolio & Resume</title>
+  <meta name="description" content="Yash Khade — Operations Executive & Aspiring Project Manager. Online Examination System (OES) operations, process automation, and MIS." />
   <meta name="author" content="Yash Khade" />
 
+  <!-- Canonical & Icons -->
   <link rel="canonical" href="https://yashkhade938.github.io/yashkhade2004/" />
   <link rel="icon" href="favicon.ico" />
 
+  <!-- Theme Colors -->
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
+  <!-- Fonts (Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { 
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
             brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              500: '#6366f1',
-              600: '#4f46e5',
-              900: '#312e81',
+              50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 900: '#312e81',
             }
           }
         }
@@ -41,19 +38,15 @@
     }
   </script>
 
+  <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* ========= MODERN ENTERPRISE STYLING ========= */
+    /* Premium Enterprise Styling */
     :root { color-scheme: light dark; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-    body { 
-      -webkit-font-smoothing: antialiased; 
-      -moz-osx-font-smoothing: grayscale; 
-      text-rendering: optimizeLegibility; 
-    }
-
-    /* Subtle Grid Background Pattern */
+    /* Grid Background */
     .bg-grid-pattern {
       background-size: 40px 40px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
@@ -72,95 +65,44 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
     .dark .glass-nav {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.85);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* Premium Glass Cards */
+    /* Glass Cards */
     .pro-card {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       border-radius: 1rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
     }
     .dark .pro-card {
       background: rgba(30, 41, 59, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     }
-    .pro-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-    }
-    .dark .pro-card:hover {
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.15);
-    }
+    .pro-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1); }
+    .dark .pro-card:hover { border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4); }
 
-    /* Modern Buttons/Pills */
+    /* Buttons */
     .pro-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 9999px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      background: #f1f5f9;
-      color: #334155;
-      border: 1px solid transparent;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 9999px; font-weight: 500; transition: all 0.2s;
+      background: #f1f5f9; color: #334155;
     }
-    .dark .pro-pill {
-      background: #1e293b;
-      color: #cbd5e1;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .pro-pill:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-    .dark .pro-pill:hover {
-      background: #334155;
-      color: #f8fafc;
-      border-color: rgba(255,255,255,0.1);
-    }
+    .dark .pro-pill { background: #1e293b; color: #cbd5e1; border: 1px solid rgba(255,255,255,0.05); }
+    .pro-pill:hover { background: #e2e8f0; color: #0f172a; }
+    .dark .pro-pill:hover { background: #334155; color: #f8fafc; }
 
-    /* Primary CTA Button */
-    .btn-primary {
-      background: #4f46e5;
-      color: white;
-      box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
-    }
-    .btn-primary:hover {
-      background: #4338ca;
-      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.23);
-      transform: translateY(-1px);
-    }
-
-    /* Hero Ambient Glow */
-    .hero-glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
-      top: -100px;
-      left: -100px;
-      border-radius: 50%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Progress Meters */
-    .meter-track { height: 6px; border-radius: 9999px; background: #e2e8f0; overflow: hidden; }
-    .dark .meter-track { background: #334155; }
-    .meter-fill { height: 100%; background: #4f46e5; border-radius: 9999px; transition: width 1s ease-in-out; }
-    .dark .meter-fill { background: #6366f1; }
+    .btn-primary { background: #4f46e5; color: white; box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39); }
+    .btn-primary:hover { background: #4338ca; transform: translateY(-1px); }
 
     /* Print styling */
     @media print {
       body { background: #ffffff !important; color: #000 !important; }
-      header, footer, .contact-bar, section:not(#resume), .pro-pill:not(.resume-pill), .hero-glow { display: none !important; }
+      header, footer, section:not(#resume), .pro-pill:not(.resume-pill) { display: none !important; }
       #resume { padding: 0 !important; margin: 0 !important; }
       .pro-card { box-shadow: none !important; border: none !important; background: transparent !important; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -170,8 +112,7 @@
 
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 bg-grid-pattern transition-colors duration-300">
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-brand-600 focus:text-white focus:px-3 focus:py-2 focus:rounded z-[100]">Skip to content</a>
-
+  <!-- Navigation -->
   <header class="sticky top-0 z-50 glass-nav">
     <nav class="max-w-6xl mx-auto px-6">
       <div class="flex items-center justify-between h-16">
@@ -180,25 +121,25 @@
           <span class="hidden sm:inline text-slate-900 dark:text-white">Yash Khade</span>
         </a>
         <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-          <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
-          <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skills</a>
-          <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience</a>
-          <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Projects</a>
-          <a href="#resume" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Resume</a>
+          <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
+          <a href="#experience" class="hover:text-brand-600 transition-colors">Experience</a>
+          <a href="#projects" class="hover:text-brand-600 transition-colors">Projects</a>
+          <a href="#skills" class="hover:text-brand-600 transition-colors">Skills</a>
+          <a href="#resume" class="hover:text-brand-600 transition-colors">Resume</a>
         </div>
         <div class="flex items-center gap-3">
-          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+          <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">
             <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.536 7.536-1.414-1.414M7.88 7.88 6.464 6.464m12.728 0-1.414 1.414M7.88 16.12 6.464 17.536"/></svg>
             <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
-          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800" aria-label="Open menu">
+          <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
       </div>
-      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-1 text-sm font-medium text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-slate-800 mt-2 pt-2">
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-1 text-sm font-medium border-t border-slate-200 dark:border-slate-800 mt-2 pt-2">
         <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
-        <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
         <a href="#experience" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
         <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
         <a href="#resume" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">Resume</a>
@@ -206,8 +147,8 @@
     </nav>
   </header>
 
-  <section id="home" class="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden" data-aos="fade-in">
-    <div class="hero-glow"></div>
+  <!-- Hero Section -->
+  <section id="home" class="relative pt-20 pb-20 md:pt-32 md:pb-28 overflow-hidden" data-aos="fade-in">
     <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <div class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-900/50 dark:bg-emerald-900/20 dark:text-emerald-400 mb-6">
@@ -215,458 +156,359 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          Open to Operations & OES Opportunities
+          Pursuing MBA & Transitioning to Project Management
         </div>
         
         <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
           Yash Khade
         </h1>
         <p class="mt-4 text-xl font-medium text-brand-600 dark:text-brand-400">
-          Operations Executive & Project Coordinator
+          Operations Executive & Process Automation Specialist
         </p>
         <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg text-lg">
-          Currently at <strong>WeShine Tech Pvt Ltd</strong>. I specialize in orchestrating reliable online examinations (OES) by merging networking fundamentals, center management, and precise MIS reporting.
+          Managing large-scale online examinations, optimizing vendor coordination, and building custom automation scripts (Python & Google Apps Script) to eliminate manual workflows. 
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#projects" class="pro-pill btn-primary px-6 py-3 text-sm rounded-lg">View Projects</a>
+          <a href="#resume" class="pro-pill btn-primary px-6 py-3 text-sm rounded-lg">View Full Resume</a>
           <a href="#contact" class="pro-pill px-6 py-3 text-sm rounded-lg border border-slate-300 dark:border-slate-700">Contact Me</a>
-        </div>
-
-        <div class="mt-10 flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
-          <a href="https://github.com/yashkhade938" target="_blank" class="flex items-center gap-2 hover:text-slate-900 dark:hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/yash-khade-359720361" target="_blank" class="flex items-center gap-2 hover:text-slate-900 dark:hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
-            LinkedIn
-          </a>
         </div>
       </div>
 
-      <div class="relative w-full aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center group">
-        <img src="Yashkhadenew.jpeg" alt="Yash Khade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" />
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-        <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-          <div class="pro-card px-4 py-2 backdrop-blur-md rounded-lg flex items-center gap-3">
-             <div class="flex flex-col">
-               <span class="text-xs font-bold text-slate-800 dark:text-white">Total Experience</span>
-               <span class="text-sm font-medium text-brand-600 dark:text-brand-400">4+ Years</span>
-             </div>
-          </div>
-          <a href="https://www.weshinetech.in/" target="_blank" rel="noopener noreferrer" class="pro-card p-2 rounded-lg hover:scale-105 transition-transform" aria-label="WeShineTech — official website" title="WeShineTech">
-            <img src="images/weshinetech-logo.png" onerror="this.onerror=null;this.src='https://yashkhade938.github.io/yashkhade2004/images/weshinetech-logo.png';" alt="WeShineTech logo" class="h-6 w-auto drop-shadow-sm" loading="lazy" />
-          </a>
-        </div>
+      <!-- Hero Visual -->
+      <div class="relative w-full aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
+        <img src="Yashkhadenew.jpeg" alt="Yash Khade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none"></div>
       </div>
     </div>
   </section>
 
   <main id="main" class="max-w-6xl mx-auto px-6 space-y-24 pb-24">
 
+    <!-- About Section -->
     <section id="about" class="scroll-mt-24" data-aos="fade-up">
       <div class="flex items-center gap-4 mb-6">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Objective</h2>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Professional Summary</h2>
         <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
       </div>
       <div class="pro-card p-8 text-lg text-slate-700 dark:text-slate-300 leading-relaxed border-l-4 border-l-brand-500">
-        I’m seeking a challenging role in a professionally managed organization where I can grow, apply my networking and operations skills, and contribute directly to organizational goals—especially in Online Examination Systems (OES), project management, and tech-enabled operations.
+        Operations Executive with extensive experience in managing large-scale online examinations, examination center operations, vendor coordination, manpower management, project execution, MIS reporting, and client support. Skilled in examination technology platforms, scheduling, process automation, and data analysis. Currently pursuing an MBA with a career goal of transitioning fully into Project Management.
       </div>
     </section>
 
-    <section id="skills" class="scroll-mt-24" data-aos="fade-up">
-      <div class="flex items-center gap-4 mb-8">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Technical Arsenal</h2>
-        <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="pro-card p-8">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6">Core Competencies</h3>
-          <ul class="grid grid-cols-2 gap-y-4 gap-x-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Project Management</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> IP & Subnetting</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Cost & Budgeting</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> DHCP & DNS</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Domain Management</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Web Hosting Config</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Advanced Excel</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Google Cloud & AI Tools</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Remote IT Support</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Tally ERP-9</li>
-          </ul>
-        </div>
-
-        <div class="pro-card p-8 flex flex-col justify-center gap-5">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Technical Proficiency</h3>
-          
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1">
-              <span>Project Management & Coordination</span><span class="text-brand-600 dark:text-brand-400">80%</span>
-            </div>
-            <div class="meter-track"><div class="meter-fill" style="width: 80%"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1">
-              <span>Excel Advanced (Pivot/XLOOKUP/Power Query)</span><span class="text-brand-600 dark:text-brand-400">85%</span>
-            </div>
-            <div class="meter-track"><div class="meter-fill" style="width: 85%"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1">
-              <span>IP Addressing & Subnetting</span><span class="text-brand-600 dark:text-brand-400">80%</span>
-            </div>
-            <div class="meter-track"><div class="meter-fill" style="width: 80%"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1">
-              <span>Cloud Tools & Domain Management</span><span class="text-brand-600 dark:text-brand-400">75%</span>
-            </div>
-            <div class="meter-track"><div class="meter-fill" style="width: 75%"></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- Detailed Experience Section -->
     <section id="experience" class="scroll-mt-24" data-aos="fade-up">
       <div class="flex items-center gap-4 mb-10">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Experience</h2>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Professional Experience</h2>
         <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
       </div>
       
-      <div class="space-y-6 border-l-2 border-slate-200 dark:border-slate-800 ml-3 pl-6 relative">
+      <div class="space-y-10">
         
-        <div class="relative">
-          <div class="absolute -left-[35px] top-1 h-4 w-4 rounded-full bg-brand-500 ring-4 ring-slate-50 dark:ring-slate-900"></div>
-          <div class="pro-card p-6">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
-              <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Operations Executive</h3>
-                <p class="text-sm font-medium text-brand-600 dark:text-brand-400">WeShine Tech Pvt Ltd</p>
-              </div>
-              <span class="pro-pill px-3 py-1 text-xs font-semibold">May 2025 – Present</span>
+        <!-- WeShine Tech Card -->
+        <div class="pro-card p-8 border-t-4 border-t-brand-500">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Operations Executive – OES Team</h3>
+              <p class="text-lg font-semibold text-brand-600 dark:text-brand-400 mt-1">WeShine Tech Pvt. Ltd.</p>
             </div>
-            <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <li>End-to-end project coordination: planning, scheduling, stakeholder updates for OES.</li>
-              <li>Project cost & budget analysis with adjustments to meet targets.</li>
-              <li>Resource & vendor coordination; procurement and logistics tracking.</li>
-              <li>Operational reporting in Excel; SOP improvements and SLA tracking.</li>
-            </ul>
+            <span class="pro-pill px-4 py-1.5 mt-4 md:mt-0 text-sm font-semibold bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">Present</span>
           </div>
-        </div>
 
-        <div class="relative">
-          <div class="absolute -left-[35px] top-1 h-4 w-4 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-slate-900"></div>
-          <div class="pro-card p-6">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
-              <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Networking & Exam Server Mgmt (Freelancer)</h3>
-                <p class="text-sm font-medium text-brand-600 dark:text-brand-400">WeShine Tech Pvt Ltd</p>
-              </div>
-              <span class="pro-pill px-3 py-1 text-xs font-semibold">2023 – 2025</span>
+          <div class="grid md:grid-cols-2 gap-8 text-sm text-slate-700 dark:text-slate-300">
+            
+            <!-- Category 1 -->
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Exam Operations & Project Management
+              </h4>
+              <ul class="list-disc list-outside ml-5 space-y-1.5">
+                <li>Managed end-to-end execution of online examinations across multiple states/centers.</li>
+                <li>Coordinated critical exams including <strong>GPSC, GSSC, MPSC, Xavier's Entrance, BMTC, KSRTC, GTDC, and FSSAI</strong>.</li>
+                <li>Planned mock tests, server installations, schedules, and center readiness.</li>
+                <li>Managed candidate allocation, center capacity planning, and exam logistics.</li>
+              </ul>
             </div>
-            <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <li>Configured & monitored basic networks for small teams and labs.</li>
-              <li>Managed exam servers (user access, backups, updates, SOPs).</li>
-              <li>Coordinated on-site setups and vendor follow-ups during live examinations.</li>
-            </ul>
-          </div>
-        </div>
 
-        <div class="relative">
-          <div class="absolute -left-[35px] top-1 h-4 w-4 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-slate-900"></div>
-          <div class="pro-card p-6">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
-              <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Customer Care Mail Executive</h3>
-                <p class="text-sm font-medium text-brand-600 dark:text-brand-400">Eureka Outsourcing Solutions (@ Johnson Controls)</p>
-              </div>
-              <span class="pro-pill px-3 py-1 text-xs font-semibold">2023 – 2024</span>
+            <!-- Category 2 -->
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Technical & Process Automation
+              </h4>
+              <ul class="list-disc list-outside ml-5 space-y-1.5">
+                <li>Automated workflows using <strong>Python, Google Apps Script, and Google Sheets</strong>.</li>
+                <li>Developed custom scripts for data processing, bulk photo management, and ZIP file generation.</li>
+                <li>Automated email scheduling, candidate data handling, and exam reporting, heavily reducing manual effort.</li>
+              </ul>
             </div>
-            <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <li>Resolved complex customer queries via email ensuring high CSAT.</li>
-              <li>Ticket tracking, detailed escalation paths, and strict SLA adherence.</li>
-              <li>Weekly reporting and documentation of knowledge base updates.</li>
-            </ul>
+
+            <!-- Category 3 -->
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                MIS & Reporting
+              </h4>
+              <ul class="list-disc list-outside ml-5 space-y-1.5">
+                <li>Created operational dashboards, cost sheets, and attendance records.</li>
+                <li>Prepared candidate count analysis, center utilization reports, and commercial summaries.</li>
+                <li>Generated management reports for project forecasting and resource planning.</li>
+              </ul>
+            </div>
+
+            <!-- Category 4 -->
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Client, Vendor & Team Management
+              </h4>
+              <ul class="list-disc list-outside ml-5 space-y-1.5">
+                <li>Negotiated commercial terms and manpower rates with vendors.</li>
+                <li>Managed advance payment approvals, invoices, and ERP entries.</li>
+                <li>Coordinated deployment of technical staff, proctors, and jammer operators across multiple exam locations.</li>
+              </ul>
+            </div>
+
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- Notable Projects -->
     <section id="projects" class="scroll-mt-24" data-aos="fade-up">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-        <div class="flex items-center gap-4 flex-grow">
-          <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap">Projects & Tech Initiatives</h2>
-          <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
-        </div>
-        <a href="https://www.weshinetech.in/" target="_blank" rel="noopener" class="pro-pill px-4 py-2 text-sm">WeShineTech →</a>
+      <div class="flex items-center gap-4 mb-8">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Notable Projects & Platforms</h2>
+        <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="pro-card p-6 flex flex-col">
-          <header class="mb-3 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white">ykphotoresize.in</h3>
-            <span class="pro-pill px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300 border-none">App / Utility</span>
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <article class="pro-card p-6 flex flex-col border-l-4 border-l-indigo-500">
+          <header class="mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-500 dark:text-indigo-400">Founder & Developer</span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1">ykphotoresize.in</h3>
           </header>
-          <p class="text-sm text-slate-600 dark:text-slate-400 flex-grow">
-            Dedicated exam image resizer application. Managed end-to-end domain registration, established hosting architecture, and refined application UI/UX for seamless student usage.
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">
+            Developed a web-based bulk image processing platform tailored for examination requirements. Managed UI/UX planning, domain setup, hosting, and full deployment.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Domain/Hosting</span>
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">UI/UX</span>
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Webmaster</span>
+          <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-1.5 mb-4 list-disc ml-4">
+            <li>Bulk image resizing with candidate photo matching.</li>
+            <li>CSV-based data validation workflows.</li>
+            <li>Automated folder creation and ZIP generation with size limits.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 text-xs font-medium">
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Python</span>
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Domain/Hosting</span>
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Web App</span>
           </div>
         </article>
 
-        <article class="pro-card p-6 flex flex-col">
-          <header class="mb-3 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mumbai University (OES)</h3>
-            <span class="pro-pill px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest border-none">Operations</span>
+        <article class="pro-card p-6 flex flex-col border-l-4 border-l-emerald-500">
+          <header class="mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-500 dark:text-emerald-400">Project Operations</span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1">Large-Scale OES Delivery</h3>
           </header>
-          <p class="text-sm text-slate-600 dark:text-slate-400 flex-grow">
-            LLM Entrance & PET across multiple centers. Conducted center readiness checks (network, DHCP/DNS, power). Supervised IT staff and generated final MIS.
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">
+            Successfully coordinated critical recruitment and entrance examinations involving thousands of candidates across multiple examination centers for high-profile clients.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Center Mgmt</span>
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">MIS</span>
+          <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-1.5 mb-4 list-disc ml-4">
+            <li><strong>Clients:</strong> GPSC, MPSC, Xavier's, FSSAI, BMTC, KSRTC.</li>
+            <li>Managed cross-functional teams, vendors, and center administrators.</li>
+            <li>Developed reporting and scheduling systems to improve planning accuracy.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 text-xs font-medium">
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Stakeholder Mgmt</span>
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Logistics</span>
           </div>
         </article>
 
-        <article class="pro-card p-6 flex flex-col">
-          <header class="mb-3 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white">SGBAU University (PET)</h3>
-            <span class="pro-pill px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest border-none">Operations</span>
-          </header>
-          <p class="text-sm text-slate-600 dark:text-slate-400 flex-grow">
-            Managed full operations for Ph.D. entrance tests. Executed mock runs, real-time exam monitoring, SLA tracking, and post-exam attendance compliance.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Proctoring</span>
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Compliance</span>
-          </div>
-        </article>
-
-        <article class="pro-card p-6 flex flex-col">
-          <header class="mb-3 flex items-center justify-between gap-2">
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Goa Govt Exams (OES)</h3>
-            <span class="pro-pill px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest border-none">Operations</span>
-          </header>
-          <p class="text-sm text-slate-600 dark:text-slate-400 flex-grow">
-            Managed operations for GSSC, GPSC, and GTET exams. Included technical validations, remote troubleshooting, scheduling, and local center coordination.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Govt Compliance</span>
-            <span class="pro-pill px-2 py-1 bg-slate-100 dark:bg-slate-800 border-none">Coordination</span>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section id="education" class="scroll-mt-24 grid md:grid-cols-2 gap-8" data-aos="fade-up">
-      <div>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Education</h2>
-          <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
-        </div>
-        <div class="space-y-4">
-          <div class="pro-card p-5">
-            <h3 class="font-bold text-slate-900 dark:text-white">Bachelor of Computer Applications (BCA)</h3>
-            <p class="text-sm text-brand-600 dark:text-brand-400 mt-1">IGNOU Regional Centre Pune • Enrolled Jun 2025</p>
-          </div>
-          <div class="pro-card p-5">
-            <h3 class="font-bold text-slate-900 dark:text-white">B.Com</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Satish Pradhan Dnyanasadhana College, Thane • 2022–2025</p>
-          </div>
-        </div>
+    <!-- Technical Skills Matrix -->
+    <section id="skills" class="scroll-mt-24" data-aos="fade-up">
+      <div class="flex items-center gap-4 mb-8">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Skills Matrix</h2>
+        <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
       </div>
-      <div>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Personal Details</h2>
-          <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="pro-card p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Technical & Dev</h3>
+          <ul class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <li>✓ Python</li>
+            <li>✓ Google Apps Script</li>
+            <li>✓ Microsoft Excel (Advanced)</li>
+            <li>✓ Google Sheets (Automation)</li>
+            <li>✓ Exam Management Systems</li>
+          </ul>
         </div>
-        <div class="pro-card p-6 h-full flex flex-col justify-center">
-          <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
-              <strong class="text-slate-500 dark:text-slate-400">Date of Birth:</strong> <span>7 Feb 2004</span>
-            </li>
-            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
-              <strong class="text-slate-500 dark:text-slate-400">Languages:</strong> <span>English, Marathi, Hindi</span>
-            </li>
-            <li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
-              <strong class="text-slate-500 dark:text-slate-400">Location:</strong> <span>Thane / Pune, Maharashtra</span>
-            </li>
-            <li class="pt-1">
-              <strong class="block text-slate-500 dark:text-slate-400 mb-1">Address:</strong>
-              <span>Sainath Nagar, Rajlaxmi Chawl, Opp. Kopri Bus Stop, Thane East</span>
-            </li>
+        <div class="pro-card p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Operations & Project Mgmt</h3>
+          <ul class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <li>✓ Project Coordination</li>
+            <li>✓ Resource & Capacity Planning</li>
+            <li>✓ Vendor Management</li>
+            <li>✓ Client Coordination</li>
+            <li>✓ Process Automation</li>
+          </ul>
+        </div>
+        <div class="pro-card p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Admin & Reporting</h3>
+          <ul class="space-y-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <li>✓ MIS Management</li>
+            <li>✓ Data Analysis & Reporting</li>
+            <li>✓ ERP Operations</li>
+            <li>✓ Logistics & Scheduling</li>
+            <li>✓ Cost & Budget Tracking</li>
           </ul>
         </div>
       </div>
     </section>
 
+
+    <!-- Printable Resume Section -->
     <section id="resume" class="scroll-mt-24 pt-12" data-aos="fade-up">
       <div class="flex items-center justify-between gap-4 mb-8">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Formal Resume</h2>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Printable Resume View</h2>
         <button type="button" onclick="window.print()" class="resume-pill pro-pill px-4 py-2 text-sm font-semibold flex items-center gap-2">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-          Save as PDF
+          Print / Save PDF
         </button>
       </div>
 
-      <div class="pro-card bg-white dark:bg-slate-900 p-8 md:p-12 max-w-4xl mx-auto border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-xl dark:shadow-2xl">
-        <header class="border-b-2 border-slate-200 dark:border-slate-800 pb-6 mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div class="pro-card bg-white dark:bg-slate-900 p-8 md:p-12 max-w-4xl mx-auto border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl">
+        
+        <!-- Header -->
+        <header class="border-b-2 border-slate-200 dark:border-slate-800 pb-4 mb-6 text-center md:text-left md:flex md:justify-between md:items-end">
           <div>
-            <h1 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Yash Khade</h1>
-            <p class="text-base font-semibold text-brand-600 dark:text-brand-400 mt-1">Operations Executive • OES Project Management</p>
+            <h1 class="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Yash Khade</h1>
+            <p class="text-lg font-semibold text-brand-600 dark:text-brand-400 mt-1">Operations Executive | Project Management</p>
           </div>
-          <div class="text-sm text-slate-600 dark:text-slate-400 space-y-1 md:text-right">
+          <div class="text-sm text-slate-600 dark:text-slate-400 space-y-1 mt-4 md:mt-0 md:text-right">
             <p>yashkhade969@gmail.com | (+91) 9082234689</p>
             <p>Thane / Pune, Maharashtra, IN</p>
             <p>github.com/yashkhade938</p>
           </div>
         </header>
 
-        <div class="mb-8">
-          <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-            Operations Executive with over 4 years of experience across IT operations, customer support, and Online Examination System (OES) management. Hands-on exposure to university and government examinations, handling center readiness, scheduling, proctoring support, MIS reporting, and domain/hosting configuration. Skilled in network fundamentals (IP, DHCP/DNS), cost tracking, and advanced Excel. Proven ability to bridge technical requirements with on-the-ground operational execution.
+        <!-- Professional Summary -->
+        <div class="mb-6">
+          <h3 class="text-sm font-bold tracking-widest uppercase text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Professional Summary</h3>
+          <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+            Operations Executive with experience in managing large-scale online examinations, examination center operations, vendor coordination, manpower management, project execution, MIS reporting, and client support. Skilled in examination technology platforms, scheduling, stakeholder management, process automation, data analysis, and operational planning. Currently pursuing an MBA with a career goal of transitioning into Project Management.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-10">
-          <div class="md:col-span-2 space-y-6">
-            <h3 class="text-xs font-bold tracking-widest uppercase text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2 mb-4">Professional Experience</h3>
+        <!-- Experience -->
+        <div class="mb-6">
+          <h3 class="text-sm font-bold tracking-widest uppercase text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">Work Experience</h3>
+          
+          <div class="mb-4">
+            <div class="flex justify-between font-bold text-slate-900 dark:text-white text-sm">
+              <span>WeShine Tech Pvt. Ltd.</span>
+              <span>Present</span>
+            </div>
+            <div class="italic text-slate-600 dark:text-slate-400 text-sm mb-2">Operations Executive – OES Team</div>
             
-            <article>
-              <div class="flex justify-between text-sm mb-1">
-                <h4 class="font-bold text-slate-900 dark:text-white">Operations Executive</h4>
-                <span class="text-slate-500 font-medium">May 2025 – Present</span>
+            <div class="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+              <div>
+                <strong class="text-slate-800 dark:text-slate-200">Examination Operations & Project Management:</strong>
+                <ul class="list-disc list-outside ml-4 mt-1">
+                  <li>Managed end-to-end execution of online examinations across multiple states and examination centers.</li>
+                  <li>Coordinated examination activities for GPSC, GSSC, MPSC, Xavier's Entrance Exam, BMTC, KSRTC, GTDC, FSSAI, and other recruitment/entrance examinations.</li>
+                  <li>Planned and monitored mock tests, server installations, examination schedules, and center readiness activities.</li>
+                  <li>Managed candidate allocation, center capacity planning, and examination logistics.</li>
+                </ul>
               </div>
-              <p class="text-brand-600 dark:text-brand-400 text-sm font-medium mb-2">WeShine Tech Pvt Ltd</p>
-              <ul class="list-disc list-outside ml-4 text-xs text-slate-700 dark:text-slate-300 space-y-1">
-                <li>Coordinate end-to-end OES projects: planning, center allocation, and stakeholder alignment.</li>
-                <li>Conduct technical center readiness checks (network uptime, systems, power backup).</li>
-                <li>Analyze project costs and basic budget deviations against internal margins.</li>
-                <li>Prepare daily operational reports, incident logs, and SLA-compliant MIS for audits.</li>
-              </ul>
-            </article>
-
-            <article>
-              <div class="flex justify-between text-sm mb-1">
-                <h4 class="font-bold text-slate-900 dark:text-white">Networking & Exam Server Mgmt</h4>
-                <span class="text-slate-500 font-medium">2023 – 2025</span>
+              
+              <div>
+                <strong class="text-slate-800 dark:text-slate-200">Client, Vendor & Manpower Management:</strong>
+                <ul class="list-disc list-outside ml-4 mt-1">
+                  <li>Acted as a primary point of contact for examination centers and clients; negotiated commercial terms with vendors.</li>
+                  <li>Coordinated accommodation, travel, transportation, and logistics for project teams.</li>
+                  <li>Managed advance payment approvals, invoices, ERP entries, and deployment of technical staff and proctors.</li>
+                </ul>
               </div>
-              <p class="text-brand-600 dark:text-brand-400 text-sm font-medium mb-2">WeShine Tech Pvt Ltd (Freelancer)</p>
-              <ul class="list-disc list-outside ml-4 text-xs text-slate-700 dark:text-slate-300 space-y-1">
-                <li>Configured network environments for exam labs and handled server patch updates.</li>
-                <li>Supported live university and government examinations with real-time remote troubleshooting.</li>
-              </ul>
-            </article>
 
-            <article>
-              <div class="flex justify-between text-sm mb-1">
-                <h4 class="font-bold text-slate-900 dark:text-white">Customer Care Mail Executive</h4>
-                <span class="text-slate-500 font-medium">2023 – 2024</span>
+              <div>
+                <strong class="text-slate-800 dark:text-slate-200">Technical & Process Automation:</strong>
+                <ul class="list-disc list-outside ml-4 mt-1">
+                  <li>Automated operational workflows using Google Sheets, Google Apps Script, Microsoft Excel, and Python.</li>
+                  <li>Developed scripts for data processing, bulk photo management, ZIP file generation, and automated email scheduling.</li>
+                  <li>Supported OES operations, troubleshooting candidate login, dashboard, server issues, and technical readiness checks.</li>
+                </ul>
               </div>
-              <p class="text-brand-600 dark:text-brand-400 text-sm font-medium mb-2">Eureka Outsourcing Solutions (Johnson Controls)</p>
-              <ul class="list-disc list-outside ml-4 text-xs text-slate-700 dark:text-slate-300 space-y-1">
-                <li>Managed B2B/B2C ticketing systems with strict SLAs and tracked technical escalations.</li>
-              </ul>
-            </article>
-          </div>
 
-          <div class="space-y-6">
-            <div>
-              <h3 class="text-xs font-bold tracking-widest uppercase text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2 mb-4">Core Skills</h3>
-              <ul class="text-xs text-slate-700 dark:text-slate-300 space-y-2">
-                <li><strong>Operations:</strong> OES Management, Center Readiness, Budget Analysis</li>
-                <li><strong>Network/IT:</strong> IP Addressing, DHCP/DNS, Server Mgmt, Remote Support</li>
-                <li><strong>Web:</strong> Domain Registration, Hosting Config (ykphotoresize.in)</li>
-                <li><strong>Software:</strong> Advanced Excel, Tally ERP-9, Ticketing Tools</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-xs font-bold tracking-widest uppercase text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2 mb-4">Education</h3>
-              <div class="space-y-3">
-                <div>
-                  <p class="font-bold text-sm text-slate-900 dark:text-white">BCA (Bachelors in Computer Applications)</p>
-                  <p class="text-xs text-slate-600 dark:text-slate-400">IGNOU Regional Centre Pune</p>
-                  <p class="text-xs text-brand-600 dark:text-brand-400">Enrolled Jun 2025</p>
-                </div>
-                <div>
-                  <p class="font-bold text-sm text-slate-900 dark:text-white">B.Com</p>
-                  <p class="text-xs text-slate-600 dark:text-slate-400">Satish Pradhan Dnyanasadhana College</p>
-                  <p class="text-xs text-slate-500">2022 – 2025</p>
-                </div>
+              <div>
+                <strong class="text-slate-800 dark:text-slate-200">MIS & Reporting:</strong>
+                <ul class="list-disc list-outside ml-4 mt-1">
+                  <li>Created operational dashboards, cost sheets, attendance records, and candidate count analysis reports.</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="contact" class="scroll-mt-24" data-aos="fade-up">
-      <div class="flex items-center gap-4 mb-8">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Let's Connect</h2>
-        <div class="h-px bg-slate-200 dark:bg-slate-700 flex-grow"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="pro-card p-8 flex flex-col justify-center space-y-6">
-          <p class="text-slate-600 dark:text-slate-400 text-lg">
-            I am actively open to discussing new opportunities in Operations, OES Project Management, and Tech Coordination.
-          </p>
-          <div class="space-y-4 font-medium text-slate-800 dark:text-slate-200">
-            <a href="mailto:yashkhade969@gmail.com" class="flex items-center gap-3 hover:text-brand-600 transition-colors">
-              <div class="w-10 h-10 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-brand-600 dark:text-brand-400">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              </div>
-              yashkhade969@gmail.com
-            </a>
-            <a href="tel:+919082234689" class="flex items-center gap-3 hover:text-brand-600 transition-colors">
-              <div class="w-10 h-10 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-brand-600 dark:text-brand-400">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-              </div>
-              (+91) 9082234689
-            </a>
+        <!-- Projects -->
+        <div class="mb-6">
+          <h3 class="text-sm font-bold tracking-widest uppercase text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">Additional Projects</h3>
+          <div class="text-sm text-slate-700 dark:text-slate-300">
+            <div class="flex justify-between font-bold text-slate-900 dark:text-white">
+              <span>ykphotoresize.in (Bulk Photo Resize & Management Platform)</span>
+              <span>Founder / Developer</span>
+            </div>
+            <ul class="list-disc list-outside ml-4 mt-1">
+              <li>Developed a web-based bulk image processing platform tailored for examination data.</li>
+              <li>Features include: Bulk image resizing, candidate photo matching, CSV-based validation, automated folder creation, and ZIP generation with size limits.</li>
+              <li>Managed UI/UX planning, domain setup, hosting, and deployment activities.</li>
+            </ul>
           </div>
         </div>
 
-        <form id="contactForm" class="pro-card p-8 space-y-5" onsubmit="return false;">
+        <!-- Education & Skills Grid -->
+        <div class="grid md:grid-cols-2 gap-6">
           <div>
-            <label for="name" class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Name</label>
-            <input id="name" name="name" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all dark:text-white" />
+            <h3 class="text-sm font-bold tracking-widest uppercase text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Education</h3>
+            <ul class="text-sm text-slate-700 dark:text-slate-300 space-y-2">
+              <li><strong>MBA (Master of Business Administration)</strong><br>Currently Pursuing</li>
+              <li><strong>BCA (Bachelor of Computer Applications)</strong><br>IGNOU Regional Centre Pune</li>
+              <li><strong>B.Com</strong><br>Satish Pradhan Dnyanasadhana College</li>
+            </ul>
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Email</label>
-            <input id="email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all dark:text-white" />
+            <h3 class="text-sm font-bold tracking-widest uppercase text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Technical Skills</h3>
+            <ul class="text-sm text-slate-700 dark:text-slate-300 grid grid-cols-2 gap-1">
+              <li>Microsoft Excel (Adv)</li>
+              <li>Python</li>
+              <li>Google Apps Script</li>
+              <li>Google Sheets</li>
+              <li>MIS Management</li>
+              <li>Data Analysis</li>
+              <li>Project Coordination</li>
+              <li>Process Automation</li>
+              <li>ERP Operations</li>
+              <li>Vendor Management</li>
+            </ul>
           </div>
-          <div>
-            <label for="message" class="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Message</label>
-            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all dark:text-white resize-none"></textarea>
-          </div>
-          <button id="sendBtn" type="button" class="btn-primary w-full py-3 rounded-lg font-semibold text-sm transition-transform">Send Message</button>
-        </form>
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <footer class="border-t border-slate-200 dark:border-slate-800 mt-12 py-8 text-center text-sm font-medium text-slate-500 dark:text-slate-400 bg-slate-100/50 dark:bg-slate-900/50 backdrop-blur-sm">
+  <footer class="border-t border-slate-200 dark:border-slate-800 mt-12 py-8 text-center text-sm font-medium text-slate-500 dark:text-slate-400 bg-slate-100/50 dark:bg-slate-900/50">
     <p>© <span id="year"></span> Yash Khade. Built for Operations & Tech Excellence.</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script>
-    window.addEventListener('load', () => { 
-      AOS.init({ duration: 800, once: true, offset: 50 }); 
-    });
-
+    window.addEventListener('load', () => { AOS.init({ duration: 800, once: true, offset: 50 }); });
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme logic
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
@@ -691,32 +533,13 @@
 
     themeToggle?.addEventListener('click', () => applyTheme(!document.documentElement.classList.contains('dark')));
 
-    // Mobile Menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     
-    // Close mobile menu on click
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
-
-    // Email Button
-    const sendBtn = document.getElementById('sendBtn');
-    if (sendBtn) {
-      sendBtn.addEventListener('click', () => {
-        const name = document.getElementById('name')?.value?.trim() || 'Visitor';
-        const email = document.getElementById('email')?.value?.trim() || '';
-        const message = document.getElementById('message')?.value?.trim() || '';
-        if(name && email && message) {
-            const subject = `New portfolio inquiry from ${name}`;
-            const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-            window.location.href = `mailto:yashkhade969@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        } else {
-            alert('Please fill out all fields before sending.');
-        }
-      });
-    }
   </script>
 </body>
 </html>
